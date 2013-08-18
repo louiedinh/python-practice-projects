@@ -3,28 +3,45 @@
 	Date: July 2009
 	Description: Sample layout for HTML5 and CSS3 goodness.
 	Version: 1.0
-	License: MIT <http://opensource.org/licenses/MIT>
-	Licensed by: Smashing Media GmbH <http://www.smashingmagazine.com/>
-	Original author: Enrique Ramírez <http://enrique-ramirez.com/>
+	Author: Enrique Ramírez
+	Autor URI: http://enrique-ramirez.com
 */
 
 /* Imports */
 @import url("reset.css");
 @import url("pygment.css");
 @import url("typogrify.css");
-@import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
-
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
 /***** Global *****/
 /* Body */
 body {
-    background: #F5F4EF;
-    color: #000305;
-    font-size: 87.5%; /* Base font size: 14px */
-    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    line-height: 1.429;
+    background: #FDF6E3;
+    color: #8A887B;
+    font-size: 16px;
+    font-family: 'Crimson Text', 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*line-height: 1.429;*/
     margin: 0;
     padding: 0;
     text-align: left;
+    text-shadow:0px 0px 1px #BFBFBF;
+    padding-top:120px;
+}
+
+code{
+    border:1px solid #eaeaea;
+    background-color:#f8f8f8;
+    font-size:11px;
+    font-style:normal;
+    color:#777;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    padding-left:3px;
+    padding-right:3px;
+    padding-bottom:0px;
+    font-weight:normal;
+    font-family:Consolas, "Liberation Mono", Courier, monospace;
 }
 
 /* Headings */
@@ -36,29 +53,35 @@ h5 {font-size: 1.143em}	/* 16px */
 h6 {font-size: 1em}		/* 14px */
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: 400;
-	line-height: 1.1;
-	margin-bottom: .8em;
-    font-family: 'Yanone Kaffeesatz', arial, serif;
+    text-shadow:0px 0px 1px #BFBFBF;
+	font-weight: normal;
+    font-style: normal;
+	line-height: 50px;
+	/*margin-bottom: .8em;*/
+    font-family: 'Crimson Text', 'Yanone Kaffeesatz', arial, serif;
+}
+h1 {
+    font-size: 50px;
+
 }
 
 h3, h4, h5, h6 { margin-top: .8em; }
 	
-hr { border: 2px solid #EEEEEE; }
+hr { border: 1px dotted #8A887B; }
 
 /* Anchors */
 a {outline: 0;}
 a img {border: 0px; text-decoration: none;}
 a:link, a:visited {
-	color: #C74350;
+	color: inherit;
 	padding: 0 1px;
-	text-decoration: underline;
+    text-decoration: underline;
 }
 a:hover, a:active {
-	background-color: #C74350;
-	color: #fff;
-	text-decoration: none;
-	text-shadow: 1px 1px 1px #333;
+	/*background-color: #inherit;*/
+	/*color: #fff;*/
+	text-decoration: underline;
+	/*text-shadow: 1px 1px 1px #333;*/
 }
 
 h1 a:hover {
@@ -66,9 +89,7 @@ h1 a:hover {
 }
 	
 /* Paragraphs */
-div.line-block,
-p { margin-top: 1em;
-    margin-bottom: 1em;}
+p {margin-bottom: 1.143em;}
 
 strong, b {font-weight: bold;}
 em, i {font-style: italic;}
@@ -76,24 +97,21 @@ em, i {font-style: italic;}
 /* Lists */
 ul {
 	list-style: outside disc;
-	margin: 0em 0 0 1.5em;
+	margin: 1em 0 1.5em 1.5em;
 }
 
 ol {
 	list-style: outside decimal;
-	margin: 0em 0 0 1.5em;
+	margin: 1em 0 1.5em 1.5em;
 }
 
-li { margin-top: 0.5em;}
-
 .post-info {
-    float:right;
-    margin:10px;
-    padding:5px;
+    /*float:right;*/
+    /*margin:10px;*/
+    /*padding:5px;*/
 }
 
 .post-info p{
-    margin-top: 1px;
     margin-bottom: 1px;
 }
 
@@ -103,7 +121,7 @@ dl {margin: 0 0 1.5em 0;}
 dt {font-weight: bold;}
 dd {margin-left: 1.5em;}
 
-pre{background-color:  rgb(238, 238, 238); padding: 10px; margin: 10px; overflow: auto;}
+pre{background-color: #000; padding: 10px; color: #fff; margin: 10px; overflow: auto;}
 
 /* Quotes */
 blockquote {
@@ -159,32 +177,34 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 
 	/* Banner */
-	#banner h1 {font-size: 3.571em; line-height: 0;}
+	#banner h1 {font-size: 51px; line-height: 0;}
 	#banner h1 a:link, #banner h1 a:visited {
-		color: #000305;
+        text-align:center;
+		color: #383732;
 		display: block;
-		font-weight: bold;
-		margin: 0 0 .6em .2em;
+		font-weight: normal;
+		margin: 0 0 .4em .2em;
 		text-decoration: none;
 	}
 	#banner h1 a:hover, #banner h1 a:active {
 		background: none;
-		color: #C74350;
-		text-shadow: none;
+		color: inherit;
+		/*text-shadow: none;*/
 	}
 	
 	#banner h1 strong {font-size: 0.36em; font-weight: normal;}
 	
 	/* Main Nav */
 	#banner nav {
-		background: #000305;
-		font-size: 1.143em;
-		height: 40px;
-		line-height: 30px;
-		margin: 0 auto 2em auto;
+		background:transparent;
+		/*font-size: 1.143em;*/
+		/*height: 40px;*/
+		/*line-height: 30px;*/
+		/*margin: 0 auto 2em auto;*/
 		padding: 0;
 		text-align: center;
 		width: 800px;
+        font-style:italic;
 		
 		border-radius: 5px;
 		-moz-border-radius: 5px;
@@ -195,17 +215,18 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	#banner nav li {float: left; display: inline; margin: 0;}
 	
 	#banner nav a:link, #banner nav a:visited {
-		color: #fff;
 		display: inline-block;
-		height: 30px;
-		padding: 5px 1.5em;
+		/*height: 30px;*/
+        padding: 5px;
 		text-decoration: none;
+        color: #8A887B;
 	}
 	#banner nav a:hover, #banner nav a:active,
 	#banner nav .active a:link, #banner nav .active a:visited {
-		background: #C74451;
-		color: #fff;
-		text-shadow: none !important;
+		background: transparent;
+		/*color: #fff;*/
+		/*text-shadow: none !important;*/
+        text-decoration:underline;
 	}
 	
 	#banner nav li:first-child a {
@@ -222,7 +243,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	Featured
 *****************/
 #featured {
-	background: #fff;
+	background: transparent;
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px;
@@ -241,7 +262,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 #featured figure img {display: block; float: right;}
 
-#featured h2 {color: #C74451; font-size: 1.714em; margin-bottom: 0.333em;}
+#featured h2 {color: inherit; font-size: 1.714em; margin-bottom: 0.333em;}
 #featured h3 {font-size: 1.429em; margin-bottom: .5em;}
 
 #featured h3 a:link, #featured h3 a:visited {color: #000305; text-decoration: none;}
@@ -251,7 +272,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	Body
 *****************/
 #content {
-	background: #fff;
+	background: transparent;
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px 20px;
@@ -270,7 +291,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 #extras ul {list-style: none; margin: 0;}
 #extras li {border-bottom: 1px solid #fff;}
 #extras h2 {
-	color: #C74350;
+	color: inherit;
 	font-size: 1.429em;
 	margin-bottom: .25em;
 	padding: 0 3px;
@@ -307,39 +328,26 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	}
 	
 		/* Icons */
-		.social a[href*='about.me'] {background-image: url('../images/icons/aboutme.png');}
-		.social a[href*='bitbucket.org'] {background-image: url('../images/icons/bitbucket.png');}
 		.social a[href*='delicious.com'] {background-image: url('../images/icons/delicious.png');}
 		.social a[href*='digg.com'] {background-image: url('../images/icons/digg.png');}
 		.social a[href*='facebook.com'] {background-image: url('../images/icons/facebook.png');}
-		.social a[href*='gitorious.org'] {background-image: url('../images/icons/gitorious.png');}
-		.social a[href*='github.com'],
-		.social a[href*='git.io'] {background-image: url('../images/icons/github.png');}
-		.social a[href*='gittip.com'] {background-image: url('../images/icons/gittip.png');}
-		.social a[href*='plus.google.com'] {background-image: url('../images/icons/google-plus.png');}
-		.social a[href*='groups.google.com'] {background-image: url('../images/icons/google-groups.png');}
-		.social a[href*='news.ycombinator.com'],
-		.social a[href*='hackernewsers.com'] {background-image: url('../images/icons/hackernews.png');}
 		.social a[href*='last.fm'], .social a[href*='lastfm.'] {background-image: url('../images/icons/lastfm.png');}
-		.social a[href*='linkedin.com'] {background-image: url('../images/icons/linkedin.png');}
-		.social a[href*='reddit.com'] {background-image: url('../images/icons/reddit.png');}
 		.social a[type$='atom+xml'], .social a[type$='rss+xml'] {background-image: url('../images/icons/rss.png');}
-		.social a[href*='slideshare.net'] {background-image: url('../images/icons/slideshare.png');}
-		.social a[href*='speakerdeck.com'] {background-image: url('../images/icons/speakerdeck.png');}
 		.social a[href*='twitter.com'] {background-image: url('../images/icons/twitter.png');}
-		.social a[href*='vimeo.com'] {background-image: url('../images/icons/vimeo.png');}
-		.social a[href*='youtube.com'] {background-image: url('../images/icons/youtube.png');}
+		.social a[href*='linkedin.com'] {background-image: url('../images/icons/linkedin.png');}
+		.social a[href*='gitorious.org'] {background-image: url('../images/icons/gitorious.org');}
 
 /*
 	About
 *****************/
 #about {
-	background: #fff;
-	font-style: normal;
+	background: transparent;
+	font-style: italic;
+    font-size: 11px;
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px;
-	text-align: left;
+	text-align: right;
 	width: 760px;
 	
 	border-radius: 10px;
@@ -365,14 +373,14 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 .hentry {
 	display: block;
 	clear: both;
-	border-bottom: 1px solid #eee;
-	padding: 1.5em 0;
+	/*border-bottom: 1px solid #eee;*/
+	/*padding: 1.5em 0;*/
 }
 li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 #content > .hentry {padding: 1em 0;}
 .hentry img{display : none ;}
-.entry-title {font-size: 3em; margin-bottom: 10px; margin-top: 0;}
-.entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
+.entry-title {text-align:center;font-size: 31px; font-style:italic; margin-bottom: 10px; margin-top: 0;}
+.entry-title a:link, .entry-title a:visited {text-decoration: none; color: #8A887B;}
 .entry-title a:visited {background-color: #fff;}
 
 .hentry .post-info * {font-style: normal;}
@@ -445,3 +453,10 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 	
 	#add-comment input[type='submit'] {float: right; margin: 0 .5em;}
 	#add-comment * {margin-bottom: .5em;}
+
+    #tagline{
+        text-align:center;
+        font-style:italic;
+        padding:0px;
+        margin:0px;
+    }
