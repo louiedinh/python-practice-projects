@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Louie Dinh'
 SITENAME = u'Python Practice Projects'
-SITEURL = ''
+SITEURL = 'http://pythonpracticeprojects.com'
 
 TIMEZONE = 'Europe/Paris'
 
@@ -30,6 +30,11 @@ DEFAULT_PAGINATION = False
 THEME = 'built-texts'
 
 DISPLAY_PAGES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
+
+INDEX_SAVE_AS = 'blog.html'
+PAGE_SAVE_AS = '{slug}.html'
+PAGE_URL = '{slug}.html'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
