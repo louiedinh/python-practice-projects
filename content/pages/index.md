@@ -16,7 +16,8 @@ All problems will contain references so you can attack the problems yourself.
 I plan to work through these problems myself. If you have any ideas for other projects,
 interested in discussing the solutions, or just want to talk, find me on twitter @louiedinh.
 
-Pet Projects List
+Project List
+------------
 
 1. [Command Line Parser](|filename|/pages/command-line-parser.md)
 2. [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
