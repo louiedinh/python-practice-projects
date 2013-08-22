@@ -4,13 +4,53 @@ Category: Pages
 Tags: command-line-parser
 Slug: command-line-parser
 Author: Louie Dinh
-Summary:  Let's build a toy command line parser!
+Summary: Problem definition for a command line parser.
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHVwYJKoZIhvcNAQcEoIIHSDCCB0QCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCiV3YXYWq3vfG+YarusJ7vdfFV4kmWqMcerTFGg70WCzkcVy4a1S8yPxniyRS23QY32SgLBmO8i4u9U8KL/5TfrWULP1v/UCUlHFzhltaXLxRmQPY4O1PcpTUQ3JDrFNVFqUw/8iHYBysig1L74j25l3Zaj21/9dCI9GTCaqaYszELMAkGBSsOAwIaBQAwgdQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIQ009E5+dXhqAgbBd+Ak6Ov8XxMDm5cBLb9IOUWk3dsnxwyZkFceWMzSNxFpGrl2+vVKy6TxxJnSLpnzmrbAr38BJhYEsdbGeQJ3qxbO72KB9MTnES5jGWU/lgQzH4oYEPAt7UKNNOelWscon8prZVPpugv5BJ3LxWIQzclUcKQ6vRjTgkxIgW1fMU0TGsqAqgAH4t9t/ImcfaNR3N8XUuhcU/uwlRQ/oxEa2HD/a7HboeCkbm17F1uy4M6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTEzMDgxODA4NDUxMlowIwYJKoZIhvcNAQkEMRYEFE95+hhUYBYbNzgJ+xDWh7NU2QCzMA0GCSqGSIb3DQEBAQUABIGAPtIEnzSAysDMXVONyyhJ4MKF+hwqMVTyVvuRGszlidPRzefe+a2RTWoARBWYJxA6F8ZetOxe0HigIEXQdz0DPUpkOVAHk1Y4ITntvyBhz5CBcIia41r4w+qC62+jxSMQLwoa2k8hHtLUBBHofKrI8T34FwN6BPIHVyFn6j2/erA=-----END PKCS7-----
-">
-<input type="image" src="http://i.imgur.com/qPDRNVq.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-Enjoying the practice? Help this project along and buy me a coffee.
-</form>
+Motivation
+==========
 
+Mastery of the command line is prerequisite to effective computer use. Unix allows you to pipe data between
+small programs that do one job well. However, almost all command line applications need a little direction
+to be of use. Each program can be thought of as a mini-language that allows you to transform text data
+in various ways.
+
+If you've written any command line application at all, you've probably used a library like argparse to
+read in arguments to your program. Let's explore how command line parsers work and try to write one ourselves.
+
+Problem Statement
+=================
+
+A command line parser takes a string and interprets it as a series of arguments and options. An argument is
+the input to the program. For example, the sort command takes in as an argument the name of a file and 
+outputs the lines in sorted alphabetical order. Here example_file is the argument
+
+    $ cat example_file
+    one
+    two
+    three
+    $ sort example_file
+    one
+    three
+    two
+
+In addition, the sort command takes a number options also known as flags that modify the operation
+of the program. For example, if I ran the sort command with the -r flag, the sort ordering is reversed.
+Options have two forms, long and short. Short forms are a single letter, like -r. The long forms
+are indicated by a double dash and then the full word, like --reversed.
+
+    $ sort -r example_file
+    two
+    three
+    one
+
+Options can take in arguments too. This is specified in the short form by immediately following
+the short form flag with the value (space optional). The long form is specified by a double dash
+followed by an equal sign.
+
+    $ sort -o out_file example_file            # Writes the line sorted contents to out_file
+    $ sort -oout_file example_file             # Same as above
+    $ sort --output=out_file example_file      # Same as above
+
+Allow the user to specify a set of positional and optional parameters. The user should be
+able to indicate whether the optional parameter takes an argument or not. Then given a string,
+return the positional parameters, optional parameters and their values if any.
