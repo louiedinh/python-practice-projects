@@ -14,7 +14,8 @@ example problems, each designed to straddle the line between toy example and pro
 All problems will contain references so you can attack the problems yourself.
 
 I plan to work through these problems myself. If you have any ideas for other projects,
-interested in discussing the solutions, or just want to talk, find me on twitter @louiedinh.
+interested in discussing the solutions, or just want to talk, find me on twitter
+ or shoot me an email at [firstname][lastname] @ google's email service.
 
 Project List
 ------------
