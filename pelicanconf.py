@@ -36,5 +36,7 @@ INDEX_SAVE_AS = 'blog.html'
 PAGE_SAVE_AS = '{slug}.html'
 PAGE_URL = '{slug}.html'
 
+GOOGLE_ANALYTICS = 'UA-39716444-2'
+
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
