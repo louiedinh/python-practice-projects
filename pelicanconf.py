@@ -22,8 +22,8 @@ LINKS =  (('Hitchhiker\'s Guide to Python', 'http://docs.python-guide.org/en/lat
           ('PEP8 - Style Guide', 'http://www.python.org/dev/peps/pep-0008/'))
 
 # Social widget
-SOCIAL = (('twitter', 'http://twitter.com/louiedinh'),
-        ('linkedin', 'http://www.linkedin.com/profile/view?id=103017614'),)
+SOCIAL = {'twitter': 'http://twitter.com/louiedinh',
+          'linkedin': 'http://www.linkedin.com/profile/view?id=103017614'}
 
 DEFAULT_PAGINATION = False
 

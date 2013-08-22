@@ -41,6 +41,7 @@
 
       <div class="span3" id="blog-nav">
 	<ul class="nav nav-pills pull-right">
+        <li><a href="{{SOCIAL['twitter']}}">@louiedinh</a></li>
 	  {% if DISPLAY_PAGES_ON_MENU %}
           {% for page in PAGES %}
             <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
@@ -80,7 +81,7 @@
 	    <li class="nav-header">
 	      Social
 	    </li>
-	    {% for name,link in SOCIAL %}
+	    {% for name,link in SOCIAL.items() %}
 	    <li><a href="{{ link }}"><i class="icon-{{ name }}" style="color: #1f334b"></i>{{name}}</a></li>
 	    {% endfor %}
             {% if EMAIL%}
