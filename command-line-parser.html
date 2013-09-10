@@ -43,14 +43,14 @@
         <div class="span10">
         <section id="content" class="body span10">
     <h1 class="content-title">Command Line Parser</h1>
-        <h1>Motivation</h1>
+        <h2>Motivation</h2>
 <p>Mastery of the command line is prerequisite to effective computer use. Unix allows you to pipe data between
 small programs that do one job well. However, almost all command line applications need a little direction
 to be of use. Each program can be thought of as a mini-language that allows you to transform text data
 in various ways.</p>
 <p>If you've written any command line application at all, you've probably used a library like argparse to
 read in arguments to your program. Let's explore how command line parsers work and try to write one ourselves.</p>
-<h1>Problem Statement</h1>
+<h2>Problem Statement</h2>
 <p>A command line parser takes a string and interprets it as a series of arguments and options. An argument is
 the input to the program. For example, the sort command takes in as an argument the name of a file and 
 outputs the lines in sorted alphabetical order. Here example_file is the argument</p>
@@ -88,6 +88,14 @@ followed by an equal sign.</p>
 <p>Allow the user to specify a set of positional and optional parameters. The user should be
 able to indicate whether the optional parameter takes an argument or not. Then given a string,
 return the positional parameters, optional parameters and their values if any.</p>
+<h2>References</h2>
+<ul>
+<li><a href="http://docs.python.org/2/library/optparse.html">optparse</a> - Python Standard Library</li>
+<li><a href="http://docs.python.org/2.7/library/argparse.html">argparse</a> - Python Standard Library</li>
+<li><a href="http://plac.googlecode.com/hg/doc/plac.html">plac</a> - Michelle Simionato</li>
+<li><a href="https://github.com/kennethreitz/args">args</a> - Kenneth Reitz</li>
+<li><a href="http://www.tornadoweb.org/en/stable/">options module in Tornado</a> - Facebook</li>
+</ul>
 </section>
         </div>
         
