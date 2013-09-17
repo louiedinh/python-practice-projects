@@ -71,5 +71,5 @@ References
 * [argparse](http://docs.python.org/2.7/library/argparse.html) - Python Standard Library
 * [plac](http://plac.googlecode.com/hg/doc/plac.html) - Michelle Simionato
 * [args](https://github.com/kennethreitz/args) - Kenneth Reitz
-* [options module in Tornado](http://www.tornadoweb.org/en/stable/) - Facebook
+* [tornado.options](http://www.tornadoweb.org/en/stable/) - Facebook
 

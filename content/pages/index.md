@@ -6,28 +6,30 @@ Slug: index
 Author: Louie Dinh
 Summary: Programming projects ideas for learning Python.
 
-
 A craft cannot be learned by reading alone; practice is also necessary.
-To learn best, we need a well-defined task at an appropriate
+To learn best, you need a well-defined task at an appropriate
 level of difficulty. Python Practice Projects is such a collection of problems,
 each designed to straddle the line between toy example and production system.
 
-I've tried to define the problems as clearly as possible along
-with links to reference solutions. Go ahead and give them a shot.
+All too often the answer to, "What is a good project for learning programming?"
+is "Whatever interests you." Not too helpful eh?
 
-This is currently a work in progress and suggestions are warmly welcomed.
-If you have ideas, solutions, or just want to chat, drop me a line on
- twitter or shoot me an email at [firstname][lastname] @ google's email service.
+Here is a set of problems that you can really sink your teeth into. These are stretch 
+problems. Don't expect them to be easy. The links below contain your project starter kit.
+Each problem was selected for both learning value and availability of high quality reference
+implementations. 
+
+What are you waiting for? Get Coding!
 
 Project List
 ------------
 
 * [Command Line Parser](|filename|/pages/command-line-parser.md)
-* [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md) - Incomplete
-* Web Server
-* Static Blog Generator
-* Curl Utility
+* [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
+* [Static Blog Generator](|filename|/pages/static-blog-generator.md) - Incomplete
+* [Web Stack](|filename|/pages/web-stack.md) - Incomplete
+* [HTTP Library](|filename|/pages/http-library.md) - Incomplete
 * Syntax Highlighter
 * Unix Shell
 * Text Editor
@@ -35,12 +37,33 @@ Project List
 * HTML Parser
 * ORM
 
+
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="http://ldinh.us7.list-manage1.com/subscribe/post?u=8ca0c45c82ef713b79a588f83&amp;id=4de59dd00f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <h3>Subscribe to Python Practice Projects</h3>
+    Want to get better at programming? Join Python Practice Project's mailing list for even more ways to practice your craft.
+    <div class="mc-field-group">
+        <label for="mce-EMAIL">Email Address</label>
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+    </div>
+    <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>  <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+
+
+
+
 <!---
 * [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md) - Incomplete
 * [Web Server](|filename|/pages/web-server.md) - Incomplete
 * [Static Blog Generator](|filename|/pages/static-blog-generator.md) - Incomplete
-* [Curl Utility](|filename|/pages/curl-utility.md) - Incomplete
+* [HTTP Library](|filename|/pages/http-library.md) - Incomplete
 * [Syntax Highlighter](|filename|/pages/syntax-highlighter.md) - Incomplete
 * [Unix Shell](|filename|/pages/unix-shell.md) - Incomplete
 * [Text Editor](|filename|/pages/text-editor.md) - Incomplete
