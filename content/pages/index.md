@@ -12,20 +12,19 @@ To learn best, we need a well-defined task at an appropriate
 level of difficulty. Python Practice Projects is such a collection of problems,
 each designed to straddle the line between toy example and production system.
 
-I've tried to define the problems as clearly as possible along with links to reference solutions.
-Go ahead and try tackling these problems yourself.
+I've tried to define the problems as clearly as possible along
+with links to reference solutions. Go ahead and give them a shot.
 
 This is currently a work in progress and suggestions are warmly welcomed.
-If you have other ideas, solutions, or just want to chat,
-drop me a line on twitter or shoot me an email at [firstname][lastname] @ google's email service.
+If you have ideas, solutions, or just want to chat, drop me a line on
+ twitter or shoot me an email at [firstname][lastname] @ google's email service.
 
 Project List
 ------------
 
 * [Command Line Parser](|filename|/pages/command-line-parser.md)
-* Templating Engine
-* Templating Engine
-* Lisp Interpreter
+* [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
+* [Lisp Interpreter](|filename|/pages/lisp-interpreter.md) - Incomplete
 * Web Server
 * Static Blog Generator
 * Curl Utility
@@ -37,7 +36,6 @@ Project List
 * ORM
 
 <!---
-* [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
 * [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md) - Incomplete
 * [Web Server](|filename|/pages/web-server.md) - Incomplete
