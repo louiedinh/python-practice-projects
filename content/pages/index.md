@@ -42,7 +42,7 @@ Ideas On The Backburner
 
 Got a great practice project idea that you're dying to share? 
 Feedback on how to make this site more useful?
-Tweet me @louiedinh or email me at <first><last>@gmail.com
+Tweet me @louiedinh or email me at [[first.name]][[last.name]]@gmail.com
 
 <!---
 * [Command Line Parser](|filename|/pages/command-line-parser.md)
