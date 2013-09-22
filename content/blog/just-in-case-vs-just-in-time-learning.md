@@ -4,7 +4,7 @@ Category: Blog
 Tags: learning
 Slug: just-in-case-vs-just-in-time
 Author: Louie Dinh
-Summary: A blog post
+Summary: Barbell strategy for learning
 
 >Self-education is, I firmly believe, the only kind of education there is.
 ― Isaac Asimov

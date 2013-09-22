@@ -20,7 +20,3 @@ DELETE_OUTPUT_DIRECTORY = True
 
 FILES_TO_COPY = (('extra/CNAME', 'CNAME'),)
 
-# Following items are often useful when publishing
-
-#DISQUS_SITENAME = ""
-#GOOGLE_ANALYTICS = ""
