@@ -16,10 +16,11 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS =  (('Hitchhiker\'s Guide to Python', 'http://docs.python-guide.org/en/latest/'),
-          ('Good to Great Python Reads', 'http://jessenoller.com/good-to-great-python-reads/'),
+LINKS =  (('Good to Great Python Reads', 'http://jessenoller.com/good-to-great-python-reads/'),
           ('Charming Python', 'http://gnosis.cx/publish/tech_index_cp.html'),
           ('PEP8 - Style Guide', 'http://www.python.org/dev/peps/pep-0008/'))
+
+# ('Hitchhiker\'s Guide to Python', 'http://docs.python-guide.org/en/latest/'),
 
 # Social widget
 SOCIAL = {'twitter': 'http://twitter.com/louiedinh',
@@ -42,3 +43,5 @@ DISQUS_SITENAME = "pythonpracticeprojects"
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+ARTICLE_EXCLUDES = ('pages', 'drafts')

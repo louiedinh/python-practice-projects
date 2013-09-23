@@ -1,5 +1,5 @@
 Title: Just In Case Versus Just In Time Learning
-Date: 2013-08-18
+Date: 2013-09-20
 Category: Blog
 Tags: learning
 Slug: just-in-case-vs-just-in-time
