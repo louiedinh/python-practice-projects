@@ -45,3 +45,5 @@ DISQUS_SITENAME = "pythonpracticeprojects"
 #RELATIVE_URLS = True
 
 ARTICLE_EXCLUDES = ('pages', 'drafts')
+
+EMAIL_SUBSCRIBE_URL = "http://www.eepurl.com/FnX4f"

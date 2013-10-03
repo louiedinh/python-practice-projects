@@ -40,9 +40,8 @@ Ideas On The Backburner
 * HTML Parser
 * ORM
 
-Got a great practice project idea that you're dying to share? 
-Feedback on how to make this site more useful?
-Tweet me @louiedinh or email me at [[first.name]][[last.name]]@gmail.com
+Don't want to miss out on project kit releases? Hit subscribe at the top and join our list of Pydawans.
+<br><br>
 
 <!---
 * [Command Line Parser](|filename|/pages/command-line-parser.md)

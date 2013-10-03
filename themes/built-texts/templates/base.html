@@ -35,7 +35,8 @@
             {% endfor %}
             {% endif %}
 
-       <li><a href="{{ SITEURL }}/">Projects</a></li>
+       <li><a href="{{ EMAIL_SUBSCRIBE_URL }}">Subscribe</a></li>
+       <li><a href="{{ SITEURL }}">Projects</a></li>
 	   {% for cat, null in categories %}
 	    <li {% if cat == category %} class="active" {% endif %}>
 	      <a href="{{ SITEURL }}/{{ cat.url }} ">{{ cat }}</a>
