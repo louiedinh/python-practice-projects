@@ -30,7 +30,8 @@
       <div class="span3" id="blog-nav">
 	<ul class="nav nav-pills pull-right">
 	  
-       <li><a href="http://pythonpracticeprojects.com/">Projects</a></li>
+       <li><a href="http://www.eepurl.com/FnX4f">Subscribe</a></li>
+       <li><a href="http://pythonpracticeprojects.com">Projects</a></li>
 	   	    <li >
 	      <a href="http://pythonpracticeprojects.com/category/blog.html ">Blog</a>
         </li>
@@ -66,6 +67,85 @@ even if you never actually use Lisp itself a lot.
 -Eric Raymond</p>
 </blockquote>
 <h2>Problem Statement</h2>
+<p>In his landmark paper (<a href="http://www-formal.stanford.edu/jmc/recursive.html">Recursive Functions Of Symbolic Expressions And Their Computation By Machine</a>, 
+John McCarthy builds a programming language on a handful of primitive expressions. He called the language LISP for List Processing.</p>
+<p>In this problem, Lisp will always refer to McCarthy's original Lisp.</p>
+<p>For this project, your job is to write a Lisp Interpreter. The interpreter will take in a
+text file containing a Lisp program, execute it, and then display the result.</p>
+<p>Here is a simple Lisp program:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="o">+</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">3</span>    <span class="err">#</span> <span class="o">=&gt;</span> <span class="n">stands</span> <span class="k">for</span> <span class="s">&quot;evalutes to&quot;</span>
+</pre></div>
+
+
+<p>Lisp is a functional language. Every Lisp expression evalutes to value. A Lisp expression
+is either an atom or a list. Atoms are strings of characters, basically anything except a parentheses.
+ A list is a number of expressions enclosed within parentheses. Notice how I didn't say a list of atoms.</p>
+<p>If you don't know recursion, I recommend you stop now and go learn recursion first. The Little Schemer
+is a good place to start.</p>
+<p>Examples of atoms: </p>
+<div class="highlight"><pre><span class="n">a</span> 
+<span class="mi">1</span>
+<span class="o">+</span>
+<span class="n">john</span>
+<span class="n">burger</span>
+</pre></div>
+
+
+<p>Example of lists:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span><span class="p">)</span>
+<span class="p">(</span><span class="n">john</span> <span class="n">jack</span> <span class="n">jim</span><span class="p">)</span>
+<span class="p">((</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="n">d</span> <span class="n">e</span> <span class="n">f</span><span class="p">))</span>     <span class="err">#</span> <span class="n">This</span> <span class="n">list</span> <span class="n">as</span> <span class="mi">3</span> <span class="n">elements</span><span class="p">.</span> <span class="n">Each</span> <span class="n">element</span> <span class="n">is</span> <span class="n">also</span> <span class="n">a</span> <span class="n">list</span><span class="p">.</span>
+<span class="p">(</span><span class="o">+</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                       <span class="err">#</span> <span class="n">Yes</span><span class="p">,</span> <span class="n">this</span> <span class="n">is</span> <span class="n">a</span> <span class="n">list</span> <span class="n">too</span><span class="p">.</span>
+</pre></div>
+
+
+<h3>Primitives</h3>
+<p>Here are all the primitives in Lisp.</p>
+<div class="highlight"><pre><span class="n">define</span>
+<span class="n">lambda</span>
+<span class="n">quote</span>
+<span class="n">cond</span>
+<span class="n">atom</span><span class="o">?</span>
+<span class="n">eq</span><span class="o">?</span>
+<span class="n">cons</span>
+<span class="n">car</span>
+<span class="n">cdr</span>
+</pre></div>
+
+
+<p>That's it. We'll add in the basic arithmetic operators as well. They are good for examples. 
+You can do clever things to derive arithmetic using only the primitives listed above,
+but that's a pretty academic exercise. So we're adding:</p>
+<div class="highlight"><pre>+
+-
+*
+/
+</pre></div>
+
+
+<h3>Expressions</h3>
+<p>If primitives are commands, then expressions are how you structure those
+commands in such a way that the Lisp interpreter understands.</p>
+<p>An atom alone will just evalute to it's bound value. We'll see how to bind
+values to atoms in a minute.</p>
+<p>An expression is represented as a list. The first element in the list
+is the command and the other items are arguments. If any of the arguments
+are also expressions, then evaluate those first.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="o">+</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+<span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="p">(</span><span class="o">-</span> <span class="mi">5</span> <span class="mi">4</span><span class="p">))</span> <span class="o">=&gt;</span> <span class="mi">4</span>
+</pre></div>
+
+
+<p>Here are the primitives in action:</p>
+<div class="highlight"><pre><span class="cp"># define is for binding a value to an atom</span>
+<span class="p">(</span><span class="n">define</span> <span class="n">a</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+<span class="cp"># quote returns the atom itself, instead of evaluating it.</span>
+<span class="p">(</span><span class="n">quote</span> <span class="n">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">a</span>
+</pre></div>
+
+
+<h3>Evaluation</h3>
 <h2>Code References</h2>
 <ul>
 <li><a href="http://norvig.com/lispy.html">Lispy</a> - Peter Norvig</li>
