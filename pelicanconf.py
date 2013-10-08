@@ -37,7 +37,7 @@ PAGE_SAVE_AS = '{slug}.html'
 PAGE_URL = '{slug}.html'
 
 GOOGLE_ANALYTICS = 'UA-39716444-2'
-TWITTER_USERNAME = "ldinh"
+TWITTER_USERNAME = "louiedinh"
 DISQUS_SITENAME = "pythonpracticeprojects"
 
 # Uncomment following line if you want document-relative URLs when developing
