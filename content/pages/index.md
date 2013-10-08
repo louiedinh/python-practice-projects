@@ -27,7 +27,7 @@ Project Starter Kits
 * [Command Line Parser](|filename|/pages/command-line-parser.md)
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md)
 
-Ideas On The Backburner
+Coming Soon...
 ----------------------
 * Templating Engine
 * Static Blog Generator
