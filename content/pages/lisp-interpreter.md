@@ -28,10 +28,21 @@ have agreed with the sentiment.
 >even if you never actually use Lisp itself a lot.
 -Eric Raymond
 
+Prerequisites
+------------
+
+**Recursion**: Before dealing with Lisp, you should have a firm grasp of recursion. The best resource I've found for exploring
+            recursion is the book The Little Schemer.
+
+**Basic Lisp**: It is helpful if you've downloaded a Lisp interpreter like Dr Racket and typed in a few commands. You don't need
+             extensive knowledge, but an hour noodling around with the interpreter would be beneficial. Once again, I recommend
+             The Little Schemer if you want a thorough introduction.
+
 
 Problem Statement
 -----------------
-In his landmark paper ([Recursive Functions Of Symbolic Expressions And Their Computation By Machine](http://www-formal.stanford.edu/jmc/recursive.html), 
+In his landmark paper, 
+[Recursive Functions Of Symbolic Expressions And Their Computation By Machine](http://www-formal.stanford.edu/jmc/recursive.html), 
 John McCarthy builds a programming language on a handful of primitive expressions. He called the language LISP for List Processing.
 
 In this problem, Lisp will always refer to McCarthy's original Lisp.
@@ -46,9 +57,6 @@ Here is a simple Lisp program:
 Lisp is a functional language. Every Lisp expression evalutes to value. A Lisp expression
 is either an atom or a list. Atoms are strings of characters, basically anything except a parentheses.
 A list is a number of expressions enclosed within parentheses. Notice how I didn't say a list of atoms.
-
->Tip: If you don't know recursion, I recommend you stop now and go learn recursion first. The Little Schemer
->is a good place to start.
 
 Examples of atoms: 
 
@@ -102,7 +110,7 @@ arguments 1 and 2.
 If the arguments are also lists, rather than atoms, then evaluate the arguments first
 before evaluating the parent expression. Example:
 
-    (* 2 (+ 3 4)) #=> 14
+    (/ (+ 2 10) 3) #=> 4
 
 The nesting of the expression completely defines the order of operations. This is nice because
 there is never any ambiguity.
@@ -125,13 +133,13 @@ Here are ALL the primitives required for a fully functioning Lisp.
 Let's go through each in turn. Pay attention because some of these forms _do_ _not_
 follow the normal evaluation order we learned above. 
 
-eq? just tests for equality. It returns True if the two arguments
+**eq?** just tests for equality. It returns True if the two arguments
 are the same, otherwise false.
 
     (eq? 1 1) #=> True
     (eq? 1 2) #=> False
 
-quote is the first special form we will encounter. Quote says to Lisp, "don't evaluate what I'm 
+**quote** is the first special form we will encounter. Quote says to Lisp, "don't evaluate what I'm 
 about to pass in, just give me back the symbols exactly as I typed them".
 
     (quote a) #=> 'a
@@ -139,7 +147,7 @@ about to pass in, just give me back the symbols exactly as I typed them".
 
 The little ', is Lisp's way of saying that everything that follows is a symbol.
 
-cons, car and cdr go together. Cons is like a piece of velcro, it sticks two things together.
+**cons**, **car** and **cdr** go together. Cons is like a piece of velcro, it sticks two things together.
 Car let's to get back the first piece and cdr lets you get the second piece.
 
     (define box (car 3 4))
@@ -155,13 +163,13 @@ When you keep opening them, eventually you get left with an empty box.
     (cdr some-list) #=> '(2 3)
     (cdr (cdr (cdr some-list))) #=> '() which is our empty list, sometimes called nil
 
-atom? will tell you whether or not the argument is an atom.
+**atom?** will tell you whether or not the argument is an atom.
 
     (atom? 3) #=> True
     (atom? '(1 2 3) #=> False
 
 
-define binds values to symbols.
+**define** binds values to symbols.
 
     (define a 5)
     a #=> 5
@@ -169,7 +177,7 @@ define binds values to symbols.
     b #=> 6
     (+ a b) #=> 11
 
-lambda creates a function. It takes in a list of parameters and a body 
+**lambda** creates a function. It takes in a list of parameters and a body 
 and spits out a function that takes in the parameters and executes the body
 with the parameters substituted with the passed in values.
 
@@ -182,7 +190,7 @@ with the parameters substituted with the passed in values.
             y)))
     (divides_evenly? 5 2) #=> False
 
-Finally we have cond, the generalized if statement. It is just a bunch of
+Finally we have **cond**, the generalized if statement. It is just a bunch of
 if/else blocks that executes the first matching condition and returns
 the associated value. Here is the example:
 
@@ -192,8 +200,10 @@ the associated value. Here is the example:
            ((eq? a 3) 'three)
            (else 'no-idea)) # => 'three 
 
+Your Task
+---------
 
-That's it. Go ahead and try to build an interpreter for Lisp.
+Write a small Lisp interpreter that supports all the functionality described above.
 
 
 Code References
