@@ -45,18 +45,30 @@ Here is a simple Lisp program:
 
 Lisp is a functional language. Every Lisp expression evalutes to value. A Lisp expression
 is either an atom or a list. Atoms are strings of characters, basically anything except a parentheses.
- A list is a number of expressions enclosed within parentheses. Notice how I didn't say a list of atoms.
+A list is a number of expressions enclosed within parentheses. Notice how I didn't say a list of atoms.
 
-If you don't know recursion, I recommend you stop now and go learn recursion first. The Little Schemer
-is a good place to start.
+>Tip: If you don't know recursion, I recommend you stop now and go learn recursion first. The Little Schemer
+>is a good place to start.
 
 Examples of atoms: 
 
-    a 
     1
     +
     john
     burger
+
+Let's take a look at these atom examples. 1 is just a number, similar to an int in C or Python.
+ However, +, john and burger are a bit unusual. In Lisp, these are called symbols. You may find
+ it tempting to draw an analogy of strings to symbols. Don't. They are completely different beasts. 
+
+The concept of a symbol is implicit in other languages, Lisp just exposes the concept explicitly.
+ In other languages, symbols are used as variable names. To execute your programs, a compiler/interpreter
+ will tokenize your source code and then identify these symbols. In Lisp, symbols are also used to
+ as identifiers for variables, however you get to muck with them directly. Symbols are just entities
+ that you can bind values to.
+
+Now let's talk about lists. A list is just the symbol '(', followed by a series of elements
+separated by spaces, and then a closing ')'.
 
 Example of lists:
 
@@ -65,59 +77,123 @@ Example of lists:
     ((a b c) (1 2 3) (d e f))     # This list as 3 elements. Each element is also a list.
     (+ 1 1)                       # Yes, this is a list too.
 
-### Primitives ###
 
-Here are all the primitives in Lisp.
+### Normal Forms ###
 
-    define
-    lambda
-    quote
-    cond
-    atom?
-    eq?
-    cons
-    car
-    cdr
-
-That's it. We'll add in the basic arithmetic operators as well. They are good for examples. 
-You can do clever things to derive arithmetic using only the primitives listed above,
-but that's a pretty academic exercise. So we're adding:
+For the sake of simplicity, let's build a Lisp that only has 4 normal builtin functions:
 
     +
     -
     *
     /
 
-### Expressions ###
+They do exactly what you think they do: Add, subtract, multiply and divide.
 
-If primitives are commands, then expressions are how you structure those
-commands in such a way that the Lisp interpreter understands.
+The rules for evaluating a normal lisp expression or form is easy. Take first element in
+a list, look up it's value and apply it to the other elements in the list. For example:
 
-An atom alone will just evalute to it's bound value. We'll see how to bind
-values to atoms in a minute.
+(+ 1 2) => 3
 
-An expression is represented as a list. The first element in the list
-is the command and the other items are arguments. If any of the arguments
-are also expressions, then evaluate those first.
+Remember our discussion about symbols earlier? + is just a symbol which is by default bound
+to the function we know as addition. So when we enter the form (+ 1 2) into the interpreter,
+Lisp looks up the function associated with +, which is addition, and then applies it to the
+arguments 1 and 2. 
 
-    (+ 1 2) => 3
-    (+ 3 (- 5 4)) => 4
+If the arguments are also lists, rather than atoms, then evaluate the arguments first
+before evaluating the parent expression. Example:
 
-Here are the primitives in action:
+    (* 2 (+ 3 4)) #=> 14
 
-    # define is for binding a value to an atom
+The nesting of the expression completely defines the order of operations. This is nice because
+there is never any ambiguity.
+
+### Special Forms ###
+
+Now here is where the magic happens. Remember how I said Lisp only has a handful of primitives?
+Here are ALL the primitives required for a fully functioning Lisp. 
+
+    eq?
+    quote
+    cons
+    car
+    cdr
+    atom?
+    define
+    lambda
+    cond
+
+Let's go through each in turn. Pay attention because some of these forms _do_ _not_
+follow the normal evaluation order we learned above. 
+
+eq? just tests for equality. It returns True if the two arguments
+are the same, otherwise false.
+
+    (eq? 1 1) #=> True
+    (eq? 1 2) #=> False
+
+quote is the first special form we will encounter. Quote says to Lisp, "don't evaluate what I'm 
+about to pass in, just give me back the symbols exactly as I typed them".
+
+    (quote a) #=> 'a
+    (quote '(1 2 3) #=> '(1 2 3)
+
+The little ', is Lisp's way of saying that everything that follows is a symbol.
+
+cons, car and cdr go together. Cons is like a piece of velcro, it sticks two things together.
+Car let's to get back the first piece and cdr lets you get the second piece.
+
+    (define box (car 3 4))
+    (car box) #=> 3
+    (cdr box) #=> 4
+
+Lists are just boxes within boxes, like russian dolls. When you take the car of a list,
+you get back the first item. When you take the cdr, you get a list with the rest of the elements.
+When you keep opening them, eventually you get left with an empty box.
+
+    (define some-list '(1 2 3))
+    (car some-list) #=> 1
+    (cdr some-list) #=> '(2 3)
+    (cdr (cdr (cdr some-list))) #=> '() which is our empty list, sometimes called nil
+
+atom? will tell you whether or not the argument is an atom.
+
+    (atom? 3) #=> True
+    (atom? '(1 2 3) #=> False
+
+
+define binds values to symbols.
+
+    (define a 5)
+    a #=> 5
+    (define b (+ a 1))
+    b #=> 6
+    (+ a b) #=> 11
+
+lambda creates a function. It takes in a list of parameters and a body 
+and spits out a function that takes in the parameters and executes the body
+with the parameters substituted with the passed in values.
+
+    (define square (lambda (x) (* x x)))
+    (square 5) #=> 25
+    (define divides_evenly? 
+        (lambda (x y) 
+            (eq? (* x 
+                 (/ x y)) 
+            y)))
+    (divides_evenly? 5 2) #=> False
+
+Finally we have cond, the generalized if statement. It is just a bunch of
+if/else blocks that executes the first matching condition and returns
+the associated value. Here is the example:
+
     (define a 3)
-    a => 3
-    # quote returns the atom itself, instead of evaluating it.
-    (quote a) => a
-    
-
-### Evaluation ###
+    (cond  ((eq? a 1) 'one)
+           ((eq? a 2) 'two)
+           ((eq? a 3) 'three)
+           (else 'no-idea)) # => 'three 
 
 
-
-
-
+That's it. Go ahead and try to build an interpreter for Lisp.
 
 
 Code References
