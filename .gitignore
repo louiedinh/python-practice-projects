@@ -2,6 +2,9 @@ env/*
 
 *.py[cod]
 
+# drafts folder
+content/writing/drafts/*
+
 # C extensions
 *.so
 
