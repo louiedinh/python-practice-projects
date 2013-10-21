@@ -54,3 +54,8 @@ I’m not sure how to get back to the world of learning by experimenting, trial 
  Maybe I just need to fail a couple more times at self-education.
 
 The explosion of online learning is great but how do you learn something that has no roadmap?
+
+If you liked the post, help me out and share it with your Tweeps!
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="louiedinh">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
