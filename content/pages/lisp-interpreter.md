@@ -219,3 +219,8 @@ Background Readings
 * [Beating The Averages](http://www.paulgraham.com/avg.html) - Paul Graham
 * [The Art of Lisp and Writing](http://www.dreamsongs.com/ArtOfLisp.html) - Richard Gabriel
 
+Acknowledgements
+----------------
+
+Thanks to Manish Gill for proof-reading drafts.
+
