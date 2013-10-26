@@ -45,6 +45,10 @@ h1,h2,h3,h4,h5,h6 { color: #000001; margin-bottom: 0px}
 .article a:hover { text-decoration: none; } 
 .article hr { border-color: #cccccc; }
 
+/* Styling for page */
+.page hr { border-color: #cccccc; }
+section#content.page { padding-bottom: 15px; }
+
 
 
 /* Styling for the "other entries" section */
