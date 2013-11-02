@@ -6,4 +6,4 @@ Slug: lisp-released
 Author: Louie Dinh
 Summary: Practice Python by building a command line parser
 
-Lisp Interpreter detailed project was just released [here](|filename|/pages/lisp.md)
+Lisp Interpreter detailed project was just released [here](|filename|/pages/lisp-interpreter.md)
