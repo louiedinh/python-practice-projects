@@ -1,4 +1,4 @@
-Title: Introduction
+Title: Python Programming and Deliberate Practice
 Date: 2013-08-18
 Category:
 Tags: meta
@@ -14,20 +14,22 @@ each designed to straddle the line between toy example and production system.
 All too often the answer to, "What is a good project for learning programming?"
 is "Whatever interests you." Not too helpful eh?
 
-Here is a set of problems that you can really sink your teeth into. These are stretch 
+Here is a set of practice problems that you can really sink your teeth into. These are stretch 
 problems. Don't expect them to be easy. The links below contain your project starter kit.
 Each problem was selected for both learning value and availability of high quality reference
 implementations. 
 
+As each problem gets fleshed out, I'll move them from Practice Project Ideas into the Detailed Practice Projects section.
+
 What are you waiting for? Get Coding!
 
-Project Starter Kits
+Detailed Practice Projects
 --------------------
 
 * [Command Line Parser](|filename|/pages/command-line-parser.md)
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md)
 
-Coming Soon...
+Practice Project Ideas
 ----------------------
 * Templating Engine
 * Static Blog Generator

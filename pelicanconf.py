@@ -46,3 +46,5 @@ DISQUS_SITENAME = "pythonpracticeprojects"
 ARTICLE_EXCLUDES = ('pages', 'drafts')
 
 EMAIL_SUBSCRIBE_URL = "http://www.eepurl.com/FnX4f"
+
+SITE_META_DESCRIPTION = "Programming practice projects designed to take your Python coding chops to the next level"
