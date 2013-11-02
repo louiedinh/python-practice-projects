@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Python Practice Projects</title>
-    <meta name="description" content="">
+    <meta name="description" content="Programming practice projects designed to take your Python coding chops to the next level">
     <meta name="author" content="Louie Dinh">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -48,12 +48,87 @@
         <div class="span10">
         <section id="content" class="body span10 page">
     <h1 class="content-title">Templating Engine</h1>
-        <p>To Be Filled In</p>
+        <h2>Motivation</h2>
+<p>A templating engine combines templates and data models to produce result documents. A good analogy
+is baking cookies. You have a cookie cutter(template) and your dough(the data model). You take
+your cookie cutter and, depending on the dough, you will stamp out cookies that are clearly
+related but are not identical.</p>
+<p>Templating engines allows you to seperate logic from presentation in a program. By splitting these two
+concerns you are free to modify each piece relatively independently. The split between logic and presentation is
+well explored and serves as the primary motivation behind the popular Model-View-Controller
+design pattern driving many web and mobile applications today.</p>
+<p>In this practice problem, we will try to build a templating engine with a specialized syntax. Some
+templating engines allow you to execute normal python code, but that dangles the carrot of model 
+data mutation a little too close for my liking.</p>
+<h2>Prerequisites</h2>
+<p>It would be helpful to have some experience with a templating engine before you start this project.
+You can download one of the engines below to start experimenting. However, almost everybody has
+used a basic templating engine before. What do you think string formatting is?</p>
+<div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">your</span> <span class="n">name</span> <span class="n">here</span><span class="o">&gt;</span>
+<span class="s">&quot;Hello %s, I hope you&#39;re well today&quot;</span> <span class="o">%</span> <span class="n">name</span>
+</pre></div>
+
+
+<h2>Problem Statement</h2>
+<p>We will use the jinja2/django syntax because that is what people are most familiar with. 
+If you're feeling adventerous, feel free to invent your own syntax.</p>
+<p>The rendering of a template should be fairly easy. The template
+should take in a dictionary that provides all the data required
+to render it.</p>
+<p>Here is an example of what our template should be able to do.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span><span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;our_template.tmpl&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Eva&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="o">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">&quot;apple_count&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="o">&gt;&gt;</span><span class="n">output</span> <span class="o">=</span> <span class="n">template</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="n">data_model</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="n">print</span> <span class="n">output</span>
+
+<span class="n">Hello</span> <span class="n">Eva</span><span class="p">,</span> <span class="n">what</span> <span class="n">a</span> <span class="n">fine</span> <span class="n">age</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="n">to</span> <span class="n">be</span> <span class="n">baking</span> <span class="n">apple</span> <span class="n">pies</span><span class="p">.</span> <span class="n">You</span> <span class="n">need</span> <span class="mi">7</span> <span class="n">more</span> <span class="n">apples</span> <span class="n">until</span> <span class="n">you</span> <span class="n">have</span> <span class="n">a</span> <span class="n">dozen</span><span class="p">.</span> <span class="n">Come</span> <span class="n">back</span> <span class="n">when</span> <span class="n">you</span><span class="err">&#39;</span><span class="n">re</span> <span class="n">ready</span><span class="o">!</span>
+
+<span class="o">&gt;&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Eva&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="o">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">&quot;apple_count&quot;</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&quot;friends&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s">&quot;Billy&quot;</span><span class="p">,</span> <span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Emily&quot;</span><span class="p">]}</span>
+<span class="o">&gt;&gt;</span><span class="n">output</span> <span class="o">=</span> <span class="n">template</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="n">data_model</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="n">print</span> <span class="n">output</span>
+
+<span class="n">Hello</span> <span class="n">Eva</span><span class="p">,</span> <span class="n">what</span> <span class="n">a</span> <span class="n">fine</span> <span class="n">age</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="n">to</span> <span class="n">be</span> <span class="n">baking</span> <span class="n">apple</span> <span class="n">pies</span><span class="p">.</span> <span class="n">It</span> <span class="n">looks</span> <span class="n">like</span> <span class="n">you</span><span class="err">&#39;</span><span class="n">ve</span> <span class="n">got</span> <span class="n">a</span> <span class="n">round</span> <span class="n">dozen</span><span class="p">.</span> <span class="n">I</span><span class="err">&#39;</span><span class="n">ll</span> <span class="n">just</span> <span class="n">go</span> <span class="n">preheat</span> <span class="n">the</span> <span class="n">oven</span> <span class="n">now</span><span class="p">.</span> 
+<span class="n">After</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">call</span> <span class="n">Billy</span><span class="p">,</span> <span class="n">John</span><span class="p">,</span> <span class="n">Emily</span> <span class="n">to</span> <span class="n">help</span> <span class="n">us</span> <span class="n">eat</span><span class="p">.</span>
+</pre></div>
+
+
+<h3>String Interpolation</h3>
+<p>This is just a direct substitution of the string.</p>
+<div class="highlight"><pre><span class="s">&quot;Hello {{name}}, what a fine age, {{age}}, to be baking apple pies&quot;</span>
+</pre></div>
+
+
+<h3>Conditionals and Comparisons</h3>
+<div class="highlight"><pre><span class="n">Conditionals</span> <span class="n">allow</span> <span class="n">you</span> <span class="n">to</span> <span class="n">make</span> <span class="n">presentation</span> <span class="n">decisions</span> <span class="n">based</span> <span class="n">on</span> <span class="n">your</span> <span class="n">data</span><span class="p">.</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">apple_count</span> <span class="o">&gt;=</span> <span class="mi">12</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">...</span>
+</pre></div>
+
+
+<h3>Calculations</h3>
+<p>Simple arithmetic should be supported within your template delimiters.</p>
+<div class="highlight"><pre><span class="s">&quot;You need {{12 - apple_count}} until you have a round dozen&quot;</span>
+</pre></div>
+
+
+<h3>Loops</h3>
+<p>You should be able to loop through lists (and maybe even dictionaries!) to show collections of data.</p>
+<div class="highlight"><pre><span class="s">&quot;After, you can call {% for friend in friends %}{{friend}},{% endfor %} to help us eat.&quot;</span>
+</pre></div>
+
+
+<p>That's it for your simple template engine! This is just scratching the surface, feel free to
+dig into production templating engines and see how far you can take it.</p>
 <h2>References</h2>
 <ul>
 <li><a href="http://alexmic.net/building-a-template-engine/">Toy Templating Engine</a> - Alex Michael</li>
 <li><a href="http://jinja.pocoo.org/docs/">Jinja</a> - Armin Ronacher</li>
 <li><a href="https://www.djangoproject.com/">Django Templates</a> - Django Project</li>
+<li><a href="http://www.simple-is-better.org/template/pyratemp.html">Pyratemp</a> - Roland Koebler</li>
+<li><a href="https://pypi.python.org/pypi/evoque/">Evoque</a> - Mario Ruggier</li>
 </ul>
 	<hr />
     Like what you just read? <a href="http://www.eepurl.com/FnX4f">Subscribe to Python Practice Projects</a> for more insights on practice, programming and the slow path to victory.
