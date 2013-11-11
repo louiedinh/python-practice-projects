@@ -51,26 +51,26 @@
         <h2>Motivation</h2>
 <p>A templating engine combines templates and data models to produce result documents. A good analogy
 is baking cookies. You have a cookie cutter(template) and your dough(the data model). You take
-your cookie cutter and, depending on the dough, you will stamp out cookies that are clearly
-related but are not identical.</p>
+your cookie cutter and, depending on the dough, you will stamp out cookies that are
+related but not identical.</p>
 <p>Templating engines allows you to seperate logic from presentation in a program. By splitting these two
-concerns you are free to modify each piece relatively independently. The split between logic and presentation is
+concerns you are free to modify each piece independently. The split between logic and presentation is
 well explored and serves as the primary motivation behind the popular Model-View-Controller
 design pattern driving many web and mobile applications today.</p>
 <p>In this practice problem, we will try to build a templating engine with a specialized syntax. Some
 templating engines allow you to execute normal python code, but that dangles the carrot of model 
-data mutation a little too close for my liking.</p>
+data mutation a little too close for comfort.</p>
 <h2>Prerequisites</h2>
-<p>It would be helpful to have some experience with a templating engine before you start this project.
+<p>It is helpful to have some experience using a templating engine before you start this project.
 You can download one of the engines below to start experimenting. However, almost everybody has
-used a basic templating engine before. What do you think string formatting is?</p>
+used a basic templating engine before! Python string formatting is just a simple templating engine.</p>
 <div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">your</span> <span class="n">name</span> <span class="n">here</span><span class="o">&gt;</span>
 <span class="s">&quot;Hello %s, I hope you&#39;re well today&quot;</span> <span class="o">%</span> <span class="n">name</span>
 </pre></div>
 
 
 <h2>Problem Statement</h2>
-<p>We will use the jinja2/django syntax because that is what people are most familiar with. 
+<p>We will stick closely to the jinja2/django syntax because that is what people are most familiar with. 
 If you're feeling adventerous, feel free to invent your own syntax.</p>
 <p>The rendering of a template should be fairly easy. The template
 should take in a dictionary that provides all the data required
@@ -99,9 +99,8 @@ to render it.</p>
 
 
 <h3>Conditionals and Comparisons</h3>
-<div class="highlight"><pre><span class="n">Conditionals</span> <span class="n">allow</span> <span class="n">you</span> <span class="n">to</span> <span class="n">make</span> <span class="n">presentation</span> <span class="n">decisions</span> <span class="n">based</span> <span class="n">on</span> <span class="n">your</span> <span class="n">data</span><span class="p">.</span>
-
-<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">apple_count</span> <span class="o">&gt;=</span> <span class="mi">12</span> <span class="o">%</span><span class="p">}</span>
+<p>Conditionals allow you to make presentation decisions based on your data.</p>
+<div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">apple_count</span> <span class="o">&gt;=</span> <span class="mi">12</span> <span class="o">%</span><span class="p">}</span>
     <span class="p">...</span>
 <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
     <span class="p">...</span>
@@ -117,6 +116,52 @@ to render it.</p>
 <h3>Loops</h3>
 <p>You should be able to loop through lists (and maybe even dictionaries!) to show collections of data.</p>
 <div class="highlight"><pre><span class="s">&quot;After, you can call {% for friend in friends %}{{friend}},{% endfor %} to help us eat.&quot;</span>
+</pre></div>
+
+
+<h3>Template Inheritance</h3>
+<p>Inheritance allows you to factor out common elements in your page. The template hierarchy
+acts similar to a class hierarchy.</p>
+<p>base.templ:</p>
+<div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}{%</span> <span class="k">end</span> <span class="nb">block</span> <span class="cp">%}</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>inheritance_eg.templ:</p>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="nv">base.template</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
+<span class="nt">&lt;title&gt;</span>My first templated page!<span class="nt">&lt;/title&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+<span class="nt">&lt;h1&gt;</span>Hello to the templated world!<span class="nt">&lt;/h1&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<p>You can probably imagine what the output but here it just for completeness.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span><span class="n">template</span> <span class="o">=</span> <span class="nx">Template</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;inheritance_eg.tmpl&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span><span class="n">output</span> <span class="o">=</span> <span class="nx">template.render</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="nx">print</span> <span class="nb">output</span>
+
+<span class="o">&lt;!</span><span class="nb">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">head</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nb">title</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nb">first</span> <span class="nx">templated</span> <span class="nx">page</span><span class="o">!&lt;/</span><span class="nb">title</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nb">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nb">body</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="k">to</span> <span class="nx">the</span> <span class="nx">templated</span> <span class="nx">world</span><span class="o">!&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nb">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
 </pre></div>
 
 
