@@ -32,7 +32,6 @@ Detailed Practice Projects
 
 Practice Project Ideas
 ----------------------
-* Templating Engine
 * Static Blog Generator
 * Web Stack
 * HTTP Library
