@@ -11,25 +11,25 @@ Motivation
 
 A templating engine combines templates and data models to produce result documents. A good analogy
 is baking cookies. You have a cookie cutter(template) and your dough(the data model). You take
-your cookie cutter and, depending on the dough, you will stamp out cookies that are clearly
-related but are not identical.
+your cookie cutter and, depending on the dough, you will stamp out cookies that are
+related but not identical.
 
 Templating engines allows you to seperate logic from presentation in a program. By splitting these two
-concerns you are free to modify each piece relatively independently. The split between logic and presentation is
+concerns you are free to modify each piece independently. The split between logic and presentation is
 well explored and serves as the primary motivation behind the popular Model-View-Controller
 design pattern driving many web and mobile applications today.
 
 In this practice problem, we will try to build a templating engine with a specialized syntax. Some
 templating engines allow you to execute normal python code, but that dangles the carrot of model 
-data mutation a little too close for my liking.
+data mutation a little too close for comfort.
 
 
 Prerequisites
 -------------
 
-It would be helpful to have some experience with a templating engine before you start this project.
+It is helpful to have some experience using a templating engine before you start this project.
 You can download one of the engines below to start experimenting. However, almost everybody has
-used a basic templating engine before. What do you think string formatting is?
+used a basic templating engine before! Python string formatting is just a simple templating engine.
 
     name = <insert your name here>
     "Hello %s, I hope you're well today" % name
@@ -38,7 +38,7 @@ used a basic templating engine before. What do you think string formatting is?
 Problem Statement
 -----------------
 
-We will use the jinja2/django syntax because that is what people are most familiar with. 
+We will stick closely to the jinja2/django syntax because that is what people are most familiar with. 
 If you're feeling adventerous, feel free to invent your own syntax.
 
 The rendering of a template should be fairly easy. The template
@@ -68,7 +68,8 @@ This is just a direct substitution of the string.
     "Hello {{name}}, what a fine age, {{age}}, to be baking apple pies"
 
 ### Conditionals and Comparisons ###
-    Conditionals allow you to make presentation decisions based on your data.
+
+Conditionals allow you to make presentation decisions based on your data.
 
     {% if apple_count >= 12 %}
         ...
@@ -85,6 +86,51 @@ Simple arithmetic should be supported within your template delimiters.
 You should be able to loop through lists (and maybe even dictionaries!) to show collections of data.
 
     "After, you can call {% for friend in friends %}{{friend}},{% endfor %} to help us eat."
+
+### Template Inheritance ###
+
+Inheritance allows you to factor out common elements in your page. The template hierarchy
+acts similar to a class hierarchy.
+
+base.templ:
+    
+    <!doctype html>
+    <html>
+        <head>
+            {% block head %}{% endblock %}
+        </head>
+        <body>
+            {% block body %}{% end block %}
+        </body>
+    </html>
+
+inheritance_eg.templ:
+
+    {% extends base.template %}
+
+    {% block head %}
+    <title>My first templated page!</title>
+    {% endblock %}
+
+    {% block body %}
+    <h1>Hello to the templated world!</h1>
+    {% endblock %}
+
+You can probably imagine what the output but here it just for completeness.
+
+    >>template = Template(open("inheritance_eg.tmpl", "r"))
+    >>output = template.render()
+    >>print output
+ 
+    <!doctype html>
+    <html>
+        <head>
+            <title>My first templated page!</title>
+        </head>
+        <body>
+            <h1>Hello to the templated world!</h1>
+        </body>
+    </html>
 
 That's it for your simple template engine! This is just scratching the surface, feel free to
 dig into production templating engines and see how far you can take it.
