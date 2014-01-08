@@ -172,7 +172,7 @@ about to pass in, just give me back the symbols exactly as I typed them".</p>
 <p>The little ', is Lisp's way of saying that everything that follows is a symbol.</p>
 <p><strong>cons</strong>, <strong>car</strong> and <strong>cdr</strong> go together. Cons is like a piece of velcro, it sticks two things together.
 Car let's to get back the first piece and cdr lets you get the second piece.</p>
-<div class="highlight"><pre><span class="p">(</span><span class="n">define</span> <span class="n">box</span> <span class="p">(</span><span class="n">car</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight"><pre><span class="p">(</span><span class="n">define</span> <span class="n">box</span> <span class="p">(</span><span class="n">cons</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
 <span class="p">(</span><span class="n">car</span> <span class="n">box</span><span class="p">)</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="mi">3</span>
 <span class="p">(</span><span class="n">cdr</span> <span class="n">box</span><span class="p">)</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="mi">4</span>
 </pre></div>
