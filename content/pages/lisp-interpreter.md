@@ -150,7 +150,7 @@ The little ', is Lisp's way of saying that everything that follows is a symbol.
 **cons**, **car** and **cdr** go together. Cons is like a piece of velcro, it sticks two things together.
 Car let's to get back the first piece and cdr lets you get the second piece.
 
-    (define box (car 3 4))
+    (define box (cons 3 4))
     (car box) #=> 3
     (cdr box) #=> 4
 
