@@ -1,0 +1,40 @@
+Q: "How do I become a better programmer?"
+A: "Pick a project that you're passionate about and build it. Rinse and repeat"
+
+Go around Hacker News or Quora enough and you'll see this question recurring over and over again. Programming is now a convetted skill and everyone is trying to jump on the bandwagon. Just look to the burgeoning number of teach yourself to code classes popping up (codeacademy, udemy, udacity, Khan Academy). All these classes are designed to get you from 0 programming knowledge to a little bit of programming knowledge. In the middle ages, this is what would be known as your apprenticeship. You sweep floors, chop wood, and code for loops. After a few grueling months or years, you graduate into journeyman status.
+
+The quest becomes a bit more murky here. Taking another course doesn't seem to be the way forward. You've mastered the fundamentals but struggle to combine them in meaningful ways. You look for answers on the next step but the only advice is "Pick a project and build it". The problem is that you've done this. You've built a simple blog engine, re-written the arcade game snake or implemented conway's game of life. It was fun at first, but you stopped getting the sense of improvement. There is no feeling of stretch. The resulting code base is always a bit of a mess. There is no way implementing snake, tetris and hangman will allow you to clone Amazon EC2. 
+
+This question has been bouncing around my head for years now, and I think I finally have the answer. The realization comes from the synthesis of several threads.
+
+Programming is fundamentally creative rather than scientific
+
+Paul Graham on hackers and painters
+Richard Gabriel in Masters in Fine Arts
+Reading great code as literature
+
+
+The way to improve in creative acts is close study of the masters and copying.
+
+Study of 100 vs 10 perfect pots
+"Learn by copying", brain pickings and art students.
+Reinventing the wheel.
+
+The Benjamin Franklin Method of Improving
+
+Autobiography of Benjamin Franklin teaches one how to improve.
+Take notes of a master.
+Attempt to recreate.
+Rearrange thoughts and then try again to put it back together.
+Compare your attempt with the reference. 
+
+Need a rich body of work that is open sourced and well documented.
+
+Python STL
+Goal of this project is to study the Python STL and leave a trail of bread crumbs so that others can follow.
+Similar to Doug Hellman but instead of answering "How do I use this module", I will attempt to understand "How is this module implemented"
+Most modules are missing a summary. A rough map of how the code is laid out. 
+I will not list everything important. Just lay out the interesting bits.
+Reading these notes alone will not improve you.
+These are just supplementary notes for my own exploration. Like a traveller exploring a cave.
+Hopefully you will avoid the most dangerous pitfalls, but you will not enjoy it unless you explore it for yourself.

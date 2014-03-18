@@ -1,0 +1,17 @@
+2 Hours
+Context and uses.
+Example usage per Doug Helmann
+
+6 hours - Broken in 3 sessions
+Read code.
+Annotate with ## 
+Write it out in plain english.
+Read the english and rewrite the code
+On rewrite identify problem points. Figure out why the original author solved it a particular way.
+Can you solve it another way?
+
+2 hours
+3 lessons from each piece of code. Name it.
+One practice problem per lesson.
+
+Time Estimate: 10 hours per piece.

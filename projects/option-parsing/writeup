@@ -1,0 +1,19 @@
+At the dawn of the digital era, computers looked very different from what you have sitting in front of you today. For one computers took up whole rooms. There was also a distinct lack of interaction. The progression went something like vacuum tubes, punch cards, teletypes and then finally we get the full blown console. The graphical user interface that we're all so use to didn't arrive until Apple pirated Xerox parc's ideas and brought them to life in the iconic Macintosh.
+
+As Randy Pausch of last lecture fame says:
+"Fundamentals, fundamentals, fundamentals. You've got to get the fundamentals down because otherwise the fancy stuff isn't going to work."
+
+We're going to leave the world of gee-whiz graphics alone and start on the humble command line. What is lacking in discoverability is made up for in pure awesome power. Very few text munging tasks can't be solved with some unix-y incantations. If using a GUI is like saftey scissors, then using the command line is like wielding a chain saw. I doubt anyone complains that the training to use a chain saw is "too much work" and one should be able to just "figure it out intuitively".
+
+Command line programs are all generally invoked in the same way. You have a little prompt and then you type in what you want. 
+
+To list the contents of the current directory you would do:
+louie@Shalkan:~/Code/Python/Rites_Of_Passage/option-parsing/optparse$ ls
+
+To list the contents of the current directory without hiding any files that start with a ".", detailed information per file, and format the output for a screen 65 columns wide you would type:
+louie@Shalkan:~/Code/Python/Rites_Of_Passage/option-parsing/optparse$ ls -l --all --width=65
+
+Most command line programs work in a similar manner. One can invoke them without any additional information and they give you vanilla output. But each command line utility comes with a dizzying array of options to fine tune the operations. And it is with these command line options that we will first concern ourselves.
+
+
+

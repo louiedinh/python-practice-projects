@@ -1,0 +1,44 @@
+Usage: 
+getopt(args, shortops, longopts)
+    args - The command line arguments to parse - usually sys.argv[1:]
+    shortopts - A string of accepted short options, followed by a colon if it takes an argument e.g. "ab:c:" --> -a -b <b argument> -c <c argument>
+    longopts - A list of long arguments, followed by an = if it takes an argument e.g. ["version=", "output_filename="]
+
+Short options:
+    Flags like -a
+    Flags with options like -o some_file.txt
+    Flags with options (no space) -osome_file.txt
+    Multiple flags -abcd, equivalent to -a -b -c -d 
+    Multiple flags with last one taking an argument -abvtrue equivalent to -a -b -v true
+
+Long Options:
+    Long option like --verbose
+    Long option with argument like --output=some_file.txt
+    Long option with argument and space like --output some_file.txt
+
+Special Case: When the argument '--' is passed in, all arguments after the '--' is considered a non-option argument.
+E.g
+In [1]: import getopt
+In [2]: getopt.getopt("-v --filename=output -- -a -b c".split(), "v", ["filename="])
+Out[2]: ([('-v', ''), ('--filename', 'output')], ['-a', '-b', 'c'])
+
+    options = ('-v', ('--output', filename))
+    args = ('-a', '-b', '-c')
+
+In English:
+    Parameters:
+        args :: [ str ] - Unparsed arguments, usually sys.argv[1:]
+        shortopts :: str - Accepted short options stored as a string. Short options with arguments are followed by a colon. 
+        longopts (optional) :: [ str ] - Accepted long options. Long options with arguments are followed by a '='.
+
+    Initialize opts to an empty list. Holds all options that we are finished parsing
+    args holds all unparsed data
+
+    Error Checking:
+        Check that longopts is a list and tries to cast it correctly.
+
+    While we still have arguments to process (args) and the first argument to be process starts with "-" and is not a standalone "-":
+       if argument is "--" -> return everything you've parsed before "--" and everything after as a positional argument 
+       if argument starts with "--" --> do_longs 
+       else: opts, args = do_shorts(opts, first object in args (without the -), shortopts, the leftover args to parse i.e args[1:]) 
+
