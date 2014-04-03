@@ -27,7 +27,7 @@ SOCIAL = {'twitter': 'http://twitter.com/louiedinh',
 
 DEFAULT_PAGINATION = False
 
-THEME = 'built-texts'
+THEME = 'themes/built-texts'
 
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
