@@ -20,5 +20,10 @@ FEED_ATOM = FEED_ALL_ATOM
 
 DELETE_OUTPUT_DIRECTORY = True
 
-FILES_TO_COPY = (('extra/CNAME', 'CNAME'),)
-
+# Take advantage of the following defaults
+# STATIC_SAVE_AS = '{path}'
+# STATIC_URL = '{path}'
+STATIC_PATHS = ['extra/CNAME']
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+}
