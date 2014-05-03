@@ -6,4 +6,4 @@ Slug: lisp-released
 Author: Louie Dinh
 Summary: Practice Python by building a Lisp interpreter.
 
-Lisp Interpreter detailed project was just released [here](|filename|/pages/lisp-interpreter.md)
+Lisp Interpreter detailed project was just released [here](|filename|/pages/lisp-interpreter.md). Check it out!
