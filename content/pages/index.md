@@ -41,12 +41,11 @@ Detailed Practice Projects
 * [Templating Engine](|filename|/pages/templating-engine.md)
 
 Practice Project Ideas
-----------------------
+---------------------
 * Static Blog Generator
 * Web Stack
 * HTTP Library
 * Syntax Highlighter
-* Unix Shell
 * Text Editor
 * Regular Expression Engine
 * HTML Parser
@@ -75,13 +74,15 @@ Practice Project Ideas
 * [Command Line Parser](|filename|/pages/command-line-parser.md)
 * [Templating Engine](|filename|/pages/templating-engine.md) - Incomplete
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md) - Incomplete
-* [Web Server](|filename|/pages/web-server.md) - Incomplete
+* [Web Stack](|filename|/pages/web-stack.md) - Incomplete
 * [Static Blog Generator](|filename|/pages/static-blog-generator.md) - Incomplete
 * [HTTP Library](|filename|/pages/http-library.md) - Incomplete
 * [Syntax Highlighter](|filename|/pages/syntax-highlighter.md) - Incomplete
-* [Unix Shell](|filename|/pages/unix-shell.md) - Incomplete
 * [Text Editor](|filename|/pages/text-editor.md) - Incomplete
 * [Regular Expression Engine](|filename|/pages/regular-expression-engine.md) - Incomplete
 * [HTML Parser](|filename|/pages/HTML-parser.md) - Incomplete
-* [ORM](|filename|/pages/ORM.md) - Incomplete
+* [ORM](|filename|/pages/orm.md) - Incomplete
+* [Debugger](|filename|/pages/debugger.md) - Incomplete
+
+* [Unix Shell](|filename|/pages/unix-shell.md) - Incomplete
 -->
