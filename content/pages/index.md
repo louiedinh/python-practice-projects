@@ -40,7 +40,7 @@ Detailed Practice Projects
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md)
 * [Templating Engine](|filename|/pages/templating-engine.md)
 
-Practice Project Ideas
+Other Python Project Ideas
 ---------------------
 * Static Blog Generator
 * Web Stack
