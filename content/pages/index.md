@@ -39,7 +39,7 @@ Detailed Practice Projects
 * [Command Line Parser](|filename|/pages/command-line-parser.md)
 * [Lisp Interpreter](|filename|/pages/lisp-interpreter.md)
 * [Templating Engine](|filename|/pages/templating-engine.md)
-* [Static Blog Generator](|filename|/pages/static-site-generator.md)
+* [Static Site Generator](|filename|/pages/static-site-generator.md)
 
 Other Python Project Ideas
 ---------------------
