@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Python Practice Projects</title>
+    <meta name="description" content="Programming practice projects designed to take your Python coding chops to the next level">
+    <meta name="author" content="Louie Dinh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://pythonpracticeprojects.com/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- start Mixpanel -->
+    <script type="text/javascript">
+        (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        mixpanel.init("f648b3a9798e7c489b48fb616f33abfe");
+
+        mixpanel.track("Page Visit!");
+    </script>
+
+    <!-- end Mixpanel -->
+
+    <!-- Le styles -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="http://pythonpracticeprojects.com/theme/local.css" rel="stylesheet">
+    <link href="http://pythonpracticeprojects.com/theme/pygments.css" rel="stylesheet">
+    <link href="http://pythonpracticeprojects.com/theme/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<header class="blog-header">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span8">
+	<a href="http://pythonpracticeprojects.com" class="brand">Python Practice Projects</a>
+      </div>
+
+      <div class="span4" id="blog-nav">
+	<ul class="nav nav-pills pull-right">
+
+        <li><a href="http://discourse.pythonpracticeprojects.com">Community</a></li>
+       <li><a href="http://www.eepurl.com/FnX4f">Subscribe</a></li>
+       <li><a href="http://pythonpracticeprojects.com">Projects</a></li>
+	    <li >
+	      <a href="http://pythonpracticeprojects.com/category/blog.html ">Blog</a>
+        </li>
+	</ul>
+      </div>
+    </div> <!-- End of fluid row-->
+  </div>   <!-- End of Container-->
+</header>
+    
+<div class="container">
+    <div class="content">
+    <div class="row-fluid">
+
+        <div class="span10">
+<section id="content" class="body span10 page">
+    <h1 class="content-title">Static Site Generator</h1>
+    <h2>Motivation</h2>
+<p>In the good old days of the WWW, an elite webpage had a bit of text sprinkled with images. 
+Here, <a href="https://web.archive.org/web/19981212032831/http://www.slashdot.org/">take a look at a top internet destination in 1998</a>. Nowadays,
+you need a constantly updating stream of tidbits, an extensive link profile, social plugins to Twitter and Facebook, and a dedicated community 
+of readers. Blogs have dethroned the static homepage and taken the web presence crown.</p>
+<p>The web is aesthetically a much nicer place now, but this comes with the cost of great complexity.
+Building a great web presence from scratch isn't easy. To save you from the endless pit that is
+tweaking your personal web presence, a whole host of companies began offering canned options. We call it the social web.
+In terms of customizability, the solutions ranges from strait-jacket-esque monocultures
+(Facebook, Twitter, Pinterest, Linkedin) to theme-based customizable (Wordpress, Blogger, Typepad) to 
+you-are-god-don't-mess-up (Heroku, Amazon Web Services, Digital Ocean).</p>
+<p>Each solutions lives on the Easy-Custom continuum. Unusually user-friendly sites like Facebook
+and Twitter cannot offer ridiculous power user features. Conversely, Wordpress cannot offer a
+super simple way to get your completely unique snowflake-of-a-web presence online.  </p>
+<p>The solution all have drawbacks: paying to attach a custom domain name, limited selection
+of themes, cannot modify the site from the comfort of your own server and having to work through their clunky UI. Ideally,
+we would have a framework that takes in plain-text and just spits out an awesome looking plain HTML site. 
+That way, you can take that site and throw it onto any old web hosting company or an old server running in your closet.</p>
+<p>Enter the static site generator. </p>
+<p>The static site generator is a framework that allows you to quickly push <em>content</em> to your site. It's Wordpress on command line crack.
+If havn't yet understood the power of the command line, I recommend you checkout the 
+<a href="http://pythonpracticeprojects.com/command-line-parser.html">Command Line Parser</a> project. </p>
+<p>Here's how you would create a new post in a site generator:</p>
+<div class="highlight"><pre><span class="mf">1.</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">file</span>
+<span class="mf">2.</span> <span class="n">Fill</span> <span class="n">it</span> <span class="n">with</span> <span class="n">text</span> <span class="n">or</span> <span class="n">optionally</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">your</span> <span class="n">mood</span>
+<span class="mf">3.</span> <span class="n">Hit</span> <span class="s">&quot;Go&quot;</span>
+</pre></div>
+
+
+<p>The generator will pick up your changes, convert all text into HTML and upload a shiny new version to your web host. </p>
+<h2>Problem Statement</h2>
+<p>For this example, we will be using Jinja2 for templating and Markdown with the meta extension for content. Both are available
+for installation via pip.</p>
+<h3>Architectural Concerns</h3>
+<p>Fundamentally, a static site generator is quite straight forward. You take all the files in a directory, you pass it through a few utilities
+that convert a file of one type (reStructured Text, asciiDoc, Markdown) into HTML, then you spit those files into an output directory.</p>
+<p>Our site generator will support two types of documents: pages and articles. Articles are like blog posts, you'll update them frequently
+and they should automagically appear on our index.html Pages are long lived content that have permanent homes on our site 
+(e.g. about, contact, FAQs).</p>
+<p>The valuable lesson here is to design for extensibility. How will you support new file formats like RSS), or a 
+new publishing option like direct upload to web host?</p>
+<h3>Command Line Interface</h3>
+<p>A barebones CLI needs to support two commands: bootstrap and make.</p>
+<p>Bootstrap sets up the general directory structure with the appropriate stubs.</p>
+<p>Make will do the following:</p>
+<div class="highlight"><pre><span class="mf">1.</span> <span class="n">Go</span> <span class="n">into</span> <span class="n">the</span> <span class="n">input</span> <span class="n">directory</span> <span class="n">and</span> <span class="n">retrieve</span> <span class="n">all</span> <span class="n">files</span><span class="p">.</span>
+<span class="mf">2.</span> <span class="n">Parse</span> <span class="n">metadata</span> <span class="n">from</span> <span class="n">the</span> <span class="n">file</span><span class="p">.</span>
+<span class="mf">3.</span> <span class="n">Convert</span> <span class="n">the</span> <span class="n">rest</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">into</span> <span class="n">HTML</span>
+<span class="mf">4.</span> <span class="n">Output</span> <span class="n">into</span> <span class="n">another</span> <span class="n">directory</span><span class="p">,</span> <span class="n">respecting</span> <span class="n">their</span> <span class="n">metadata</span><span class="p">.</span>
+</pre></div>
+
+
+<h3>Directory Layout</h3>
+<p>Like Git, we will consider a directory a project. Our directory layout must encourage 
+decoupling of presentation from content.  Here is an example of how you would structure your directory.</p>
+<div class="highlight"><pre><span class="o">~/</span><span class="n">simple</span><span class="o">-</span><span class="n">blog</span>
+    <span class="n">settings</span><span class="p">.</span><span class="n">py</span>
+    <span class="o">/</span><span class="k">static</span>                   <span class="err">#</span> <span class="n">Holds</span> <span class="n">your</span> <span class="k">static</span> <span class="n">assets</span><span class="p">.</span> <span class="n">Images</span><span class="p">,</span> <span class="n">javascript</span> <span class="n">and</span> <span class="n">css</span>
+        <span class="n">jquery</span><span class="p">.</span><span class="n">js</span>
+        <span class="n">bootstrap</span><span class="p">.</span><span class="n">css</span>
+    <span class="o">/</span><span class="n">templates</span>
+        <span class="o">/</span><span class="n">base</span><span class="p">.</span><span class="n">html</span>            <span class="err">#</span> <span class="n">A</span> <span class="n">nice</span> <span class="n">base</span> <span class="n">template</span> <span class="n">that</span> <span class="n">carries</span> <span class="n">common</span> <span class="n">elements</span> <span class="n">like</span> <span class="n">headers</span><span class="p">,</span> <span class="n">navigation</span> <span class="n">and</span> <span class="n">sidebars</span>
+        <span class="o">/</span><span class="n">entry</span><span class="p">.</span><span class="n">html</span>           <span class="err">#</span> <span class="n">Template</span> <span class="k">for</span> <span class="n">a</span> <span class="n">blog</span> <span class="n">entry</span>
+        <span class="o">/</span><span class="n">page</span><span class="p">.</span><span class="n">html</span>            <span class="err">#</span> <span class="n">Template</span> <span class="k">for</span> <span class="n">a</span> <span class="k">static</span> <span class="n">page</span>
+    <span class="o">/</span><span class="n">content</span>
+        <span class="o">/</span><span class="n">entries</span>              <span class="err">#</span> <span class="n">Blog</span> <span class="n">entries</span>
+        <span class="o">/</span><span class="n">pages</span>                <span class="err">#</span> <span class="n">Static</span> <span class="n">pages</span> <span class="n">like</span> <span class="n">about</span><span class="p">,</span> <span class="n">contact</span><span class="p">,</span> <span class="n">index</span>
+    <span class="o">/</span><span class="n">output</span>
+</pre></div>
+
+
+<h3>Writing</h3>
+<p>You don't want to write your entires in pure HTML, instead you want to use something closer to plain text.
+Markdown is a nice compromise between unstructured text and HTML. You get to write what looks like a nicely
+organized email and it all gets nicely decorated with <br>'s and <p>'s for you. Your static generator
+will take all the text that is markdown (indicated with .md) and put it in their appropriate place.
+If you want to write pure HTML then use .html ending. Everything just gets slotted into your themes.</p>
+<p>Each file will need a bit of metadata at the top. You can use this to specify date of publication, author,
+title. A bunch of hooks that you want to modify on the site itself, but not exactly part of the content. 
+Maybe each author will have their own column. You must parse metadata in it's own step.</p>
+<p>Here is an example file that can be parsed with the Python package Markdown (with the meta extension).</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="n">First</span> <span class="n">Blog</span> <span class="n">Post</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">19</span>
+<span class="n">Author</span><span class="o">:</span> <span class="n">Louie</span> <span class="n">Dinh</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="n">Saying</span> <span class="n">Hi</span> <span class="n">To</span> <span class="n">The</span> <span class="n">World</span>
+
+<span class="n">My</span> <span class="n">First</span> <span class="n">Blog</span> <span class="n">Post</span>
+<span class="o">----------</span>
+
+<span class="n">Just</span> <span class="n">saying</span> <span class="n">hi</span> <span class="n">to</span> <span class="n">the</span> <span class="n">world</span><span class="o">!</span>
+</pre></div>
+
+
+<h3>Configuration</h3>
+<p>You'll need a way to do site-specific configuration. A few things you might want to configure include: domain, twitter handle, and email address.
+Your generator will load this settings file to be included during the generation phase. </p>
+<p>Example setings.py:</p>
+<div class="highlight"><pre><span class="n">EMAIL</span> <span class="o">=</span> <span class="s">&quot;me@pythonpracticeprojects.com&quot;</span>
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">&quot;pythonpracticeprojects.com&quot;</span>
+</pre></div>
+
+
+<h3>BONUS: Development Server</h3>
+<p>Ideally, you would have a simple daemon that watches your content directory for changes.
+When a file is touched, the daemon will re-run your site generator and keep your output
+folder up-to-date. The daemon also runs a simple HTTP server that hosts your file so you can
+view your site through a web browser.</p>
+<h3>Your Task</h3>
+<p>Create a static site generator. Here is what an example session would look like.</p>
+<div class="highlight"><pre><span class="cp"># Bootstrap</span>
+<span class="err">$</span> <span class="n">mkdir</span> <span class="o">~/</span><span class="n">simple</span><span class="o">-</span><span class="n">blog</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="o">~/</span><span class="n">simple</span><span class="o">-</span><span class="n">blog</span>
+<span class="err">$</span> <span class="n">python</span> <span class="o">~/</span><span class="n">Code</span><span class="o">/</span><span class="n">bloggy</span><span class="p">.</span><span class="n">py</span> <span class="n">bootstrap</span>
+
+<span class="cp"># Go add some static stuff like jquery, bootstrap</span>
+<span class="p">...</span>
+
+<span class="cp"># Directory Structure</span>
+<span class="err">$</span> <span class="n">ls</span>
+<span class="o">~/</span><span class="n">simple</span><span class="o">-</span><span class="n">blog</span>
+    <span class="n">settings</span><span class="p">.</span><span class="n">py</span>
+    <span class="o">/</span><span class="k">static</span>
+        <span class="n">jquery</span><span class="p">.</span><span class="n">js</span>
+        <span class="n">bootstrap</span><span class="p">.</span><span class="n">css</span>
+    <span class="o">/</span><span class="n">templates</span>
+        <span class="o">/</span><span class="n">base</span><span class="p">.</span><span class="n">html</span>            <span class="err">#</span> <span class="n">A</span> <span class="n">nice</span> <span class="n">base</span> <span class="n">template</span> <span class="n">that</span> <span class="n">carries</span> <span class="n">common</span> <span class="n">elements</span> <span class="n">like</span> <span class="n">headers</span><span class="p">,</span> <span class="n">navigation</span> <span class="n">and</span> <span class="n">sidebars</span>
+        <span class="o">/</span><span class="n">entry</span><span class="p">.</span><span class="n">html</span>           <span class="err">#</span> <span class="n">Template</span> <span class="k">for</span> <span class="n">a</span> <span class="n">blog</span> <span class="n">entry</span>
+        <span class="o">/</span><span class="n">page</span><span class="p">.</span><span class="n">html</span>            <span class="err">#</span> <span class="n">Template</span> <span class="k">for</span> <span class="n">a</span> <span class="k">static</span> <span class="n">page</span>
+    <span class="o">/</span><span class="n">content</span>
+        <span class="n">index</span><span class="p">.</span><span class="n">md</span>
+        <span class="o">/</span><span class="n">entries</span>              <span class="err">#</span> <span class="n">Blog</span> <span class="n">entries</span>
+        <span class="o">/</span><span class="n">pages</span>                <span class="err">#</span> <span class="n">Static</span> <span class="n">pages</span> <span class="n">like</span> <span class="n">about</span><span class="p">,</span> <span class="n">contact</span><span class="p">,</span> <span class="n">index</span><span class="p">.</span> <span class="n">Right</span> <span class="n">now</span> <span class="n">these</span> <span class="n">are</span> <span class="n">just</span> <span class="n">empty</span> <span class="n">stubs</span><span class="p">.</span>
+            <span class="n">about</span><span class="p">.</span><span class="n">md</span>          
+            <span class="n">contact</span><span class="p">.</span><span class="n">md</span>
+    <span class="o">/</span><span class="n">output</span>
+
+<span class="cp"># Write your first post. Something like &quot;My First Blog Post&quot; described in the section Writing.</span>
+<span class="err">$</span> <span class="n">vim</span> <span class="n">content</span><span class="o">/</span><span class="n">entries</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">blog</span><span class="o">-</span><span class="n">post</span>
+
+<span class="cp"># Make</span>
+<span class="err">$</span> <span class="n">python</span> <span class="o">~/</span><span class="n">Code</span><span class="o">/</span><span class="n">bloggy</span><span class="p">.</span><span class="n">py</span> <span class="n">generate</span>
+
+<span class="cp"># Output</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="n">output</span>
+<span class="err">$</span> <span class="n">ls</span>
+    <span class="o">~/</span><span class="n">simple</span><span class="o">-</span><span class="n">blog</span>
+        <span class="p">...</span>             <span class="err">#</span> <span class="n">Omitted</span> <span class="k">for</span> <span class="n">clarify</span>
+        <span class="o">/</span><span class="n">output</span>
+            <span class="n">index</span><span class="p">.</span><span class="n">html</span>  <span class="err">#</span> <span class="n">Contains</span> <span class="n">a</span> <span class="n">link</span> <span class="n">to</span> <span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">blog</span><span class="o">-</span><span class="n">post</span><span class="p">.</span><span class="n">html</span>
+            <span class="o">/</span><span class="k">static</span>
+                <span class="n">jquery</span><span class="p">.</span><span class="n">css</span>
+                <span class="n">bootstrap</span><span class="p">.</span><span class="n">css</span>
+            <span class="o">/</span><span class="n">entries</span>
+                <span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">blog</span><span class="o">-</span><span class="n">post</span><span class="p">.</span><span class="n">html</span>
+            <span class="o">/</span><span class="n">pages</span>
+                <span class="n">about</span><span class="p">.</span><span class="n">html</span>
+                <span class="n">contact</span><span class="p">.</span><span class="n">html</span>
+</pre></div>
+
+
+<p>Now you can just go upload the content of your output directory to any web host.  </p>
+<h2>References</h2>
+<ul>
+<li><a href="http://blog.getpelican.com/">Pelican</a></li>
+<li><a href="http://getnikola.com/">Nikola</a></li>
+<li><a href="http://hyde.github.io/">Hyde</a></li>
+<li><a href="http://sphinx-doc.org/">Sphinx</a></li>
+</ul>
+	<hr />
+    Like what you just read? <a href="http://www.eepurl.com/FnX4f">Subscribe to Python Practice Projects</a> for more insights on practice, programming and the slow path to victory.
+</section>
+        </div>
+        
+        
+    </div>     </div> </div>
+
+<!--footer-->
+<div class="container">
+  <div class="well" style="background-color: #E9EFF6">
+    <div id="blog-footer">
+      <div class="row-fluid">
+	<div class="social span2" align="center" id="socialist">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">
+	      Social
+	    </li>
+	    <li><a href="http://twitter.com/louiedinh"><i class="icon-twitter" style="color: #1f334b"></i>twitter</a></li>
+	    <li><a href="http://www.linkedin.com/profile/view?id=103017614"><i class="icon-linkedin" style="color: #1f334b"></i>linkedin</a></li>
+
+	  </ul>
+	</div>
+        <div class="links span2" align="center">
+          <ul class="nav nav-list">
+            <li class="nav-header"> 
+              Links
+            </li>
+            
+            <li><a href="http://jessenoller.com/good-to-great-python-reads/">Good to Great Python Reads</a></li>
+            <li><a href="http://gnosis.cx/publish/tech_index_cp.html">Charming Python</a></li>
+            <li><a href="http://www.python.org/dev/peps/pep-0008/">PEP8 - Style Guide</a></li>
+            <li><a href="http://docs.python-guide.org/en/latest/">Hitchhiker's Guide to Python</a></li>
+          </ul>
+        </div>
+	<div class="site-nav span2" align="center">
+          <ul class="nav nav-list" id="site-links">
+            <li class="nav-header"> 
+              Site
+            </li>
+            <li><a href="http://pythonpracticeprojects.com"><i class="icon-home" style="color: #1f334b">
+                </i>Home</a></li>
+            <li><a href="http://pythonpracticeprojects.com/archives.html"><i class="icon-list" style="color: #1f334b">
+                </i>Archives</a></li>
+	    <li><a href="http://pythonpracticeprojects.com/tags.html"><i class="icon-tags" style="color: #1f334b">
+                </i>Tags</a></li>
+	    
+	  </ul>
+
+        </div>
+
+      </div> <!--end of fluid row-->
+    </div> <!--end of blog-footer-->
+    <hr />
+    <p align="center"><a href="http://pythonpracticeprojects.com">Python Practice Projects</a>
+      &copy; Louie Dinh
+    Powered by <a href="github.com/getpelican/pelican">Pelican</a> and
+        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>. 
+        Icons by <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a> and 
+        <a href="http://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+
+  </div> <!--end of well -->
+</div> <!--end of container -->
+
+<!--/footer-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+<script>var _gaq=[['_setAccount','UA-39716444-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+</body>
+</html>
