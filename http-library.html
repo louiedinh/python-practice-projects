@@ -60,13 +60,159 @@
         <div class="span10">
 <section id="content" class="body span10 page">
     <h1 class="content-title">HTTP Library</h1>
-    <p>To Be Filled In</p>
+    <h2>Motivation</h2>
+<p>If you've been on The Internet for any amount of time at all, you've probably heard of HTTP. It's the protocol that powers the web.
+Have you ever wondered why you have to type http://wwww.<insert your favourite website here>.com? That first little bit specifies
+the protocol (i.e language) your web browser is going to use to talk to the web server. </p>
+<p>HTTP stands for Hyper Text Transfer Protocol. It is the language we use to transfer Hyper Text (e.g HTML) between computers. Once
+the HTML has been transferred, it's up to your browser render it to you in a pretty way. </p>
+<p>By learning a bit about the protocol, you'll be able to understand the web a little better and also hop on the new RESTful bandwagon.
+The whole REST movement is essentially telling people not to implement their own protocols on top of HTTP and just use it like
+it was meant to be used in the first place. </p>
+<h2>Problem Statement</h2>
+<h3>The Protocol</h3>
+<p>I'm going to quickly explain the protocol, but without going into too much depth. The protocol is so complex that it took an entire group of the 
+world's top engineers more than 9 years to <em>amend</em> it (RFC 2616 - an clarification of HTTP/1.1)! </p>
+<p>For a language that powers the web, HTTP is surprisingly small. There are actually only four major verbs (actions words) in use:</p>
+<div class="highlight"><pre><span class="n">GET</span> <span class="o">-</span> <span class="n">Retrieve</span> <span class="n">a</span> <span class="n">resource</span><span class="p">.</span> <span class="n">GET</span> <span class="n">should</span> <span class="n">_never_</span> <span class="n">have</span> <span class="n">any</span> <span class="n">other</span> <span class="n">effect</span><span class="p">.</span>
+
+<span class="n">POST</span> <span class="o">-</span> <span class="n">Store</span> <span class="n">the</span> <span class="n">attahed</span> <span class="n">data</span> <span class="n">as</span> <span class="n">a</span> <span class="n">child</span> <span class="n">resource</span> <span class="n">at</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">URL</span><span class="p">.</span> <span class="n">Think</span> <span class="n">of</span> <span class="n">this</span> <span class="n">as</span> <span class="n">posting</span> <span class="n">to</span> <span class="n">a</span> <span class="n">forum</span> <span class="kr">thread</span> <span class="n">or</span> <span class="n">creating</span> <span class="n">a</span> <span class="n">file</span> <span class="n">inside</span> <span class="n">a</span> <span class="n">folder</span><span class="p">.</span>
+
+<span class="n">PUT</span> <span class="o">-</span> <span class="n">Store</span> <span class="n">the</span> <span class="n">attached</span> <span class="n">data</span> <span class="n">at</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">URL</span><span class="p">.</span> <span class="n">If</span> <span class="n">that</span> <span class="n">URL</span> <span class="n">already</span> <span class="n">points</span> <span class="n">to</span> <span class="n">a</span> <span class="n">resource</span><span class="p">,</span> <span class="n">replace</span> <span class="n">it</span><span class="p">;</span> <span class="n">otherwise</span> <span class="n">create</span> <span class="n">it</span><span class="p">.</span>
+
+<span class="n">DELETE</span> <span class="o">-</span> <span class="n">Remove</span> <span class="n">the</span> <span class="n">resource</span> <span class="n">at</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">URL</span><span class="p">.</span>
+</pre></div>
+
+
+<p>Now, not all servers support all of these verbs. The majority of your web surfing experience probably consists of GETs and POSTs.
+Think of the havoc if you could DELETE random webpages on The Internet!</p>
+<p>The other cool thing about HTTP is that it's completely in plain text. You can actually read the back and forth between your computer and a web server and
+it looks a bit like simplified english. Here is an example GET to www.pythonpracticeprojects.com:</p>
+<div class="highlight"><pre><span class="nx">My</span> <span class="nx">Computer</span><span class="p">:</span>
+    <span class="nb">GET</span> <span class="o">/</span> <span class="nx">HTTP</span><span class="p">/</span><span class="nx">1.1</span>
+    <span class="nb">User</span><span class="na">-Agent</span><span class="p">:</span> <span class="nb">curl</span><span class="p">/</span><span class="nx">7.24.0</span> <span class="p">(</span><span class="nx">x86_64</span><span class="na">-apple-darwin12.0</span><span class="p">)</span> <span class="nx">libcurl</span><span class="p">/</span><span class="nx">7.24.0</span> <span class="nx">OpenSSL</span><span class="p">/</span><span class="nx">0.9.8y</span> <span class="nx">zlib</span><span class="p">/</span><span class="nx">1.2.5</span>
+    <span class="nb">Host</span><span class="p">:</span> <span class="nx">pythonpracticeprojects.com</span>
+    <span class="nb">Accept</span><span class="p">:</span> <span class="o">*/*</span>
+
+<span class="nx">Web</span> <span class="nx">Server</span><span class="p">:</span>
+    <span class="nx">HTTP</span><span class="p">/</span><span class="nx">1.1</span> <span class="mi">200</span> <span class="nx">OK</span>
+    <span class="nx">Server</span><span class="p">:</span> <span class="nx">pythonpracticeprojects.com</span>
+    <span class="kt">Date</span><span class="p">:</span> <span class="nx">Mon</span><span class="p">,</span> <span class="mi">09</span> <span class="nx">Jun</span> <span class="mi">2014</span> <span class="mi">17</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">15</span> <span class="nb">GMT</span>
+    <span class="nb">Content</span><span class="na">-Type</span><span class="p">:</span> <span class="nx">text</span><span class="p">/</span><span class="nx">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mi">8</span>
+    <span class="nb">Content</span><span class="na">-Length</span><span class="p">:</span> <span class="mi">10333</span>
+    <span class="nb">Last</span><span class="na">-Modified</span><span class="p">:</span> <span class="nx">Mon</span><span class="p">,</span> <span class="mi">02</span> <span class="nx">Jun</span> <span class="mi">2014</span> <span class="mi">17</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">30</span> <span class="nb">GMT</span>
+    <span class="nx">Expires</span><span class="p">:</span> <span class="nx">Mon</span><span class="p">,</span> <span class="mi">09</span> <span class="nx">Jun</span> <span class="mi">2014</span> <span class="mi">17</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">15</span> <span class="nb">GMT</span>
+    <span class="k">Cache</span><span class="na">-Control</span><span class="p">:</span> <span class="k">max</span><span class="na">-age</span><span class="o">=</span><span class="mi">600</span>
+    <span class="nx">Vary</span><span class="p">:</span> <span class="nb">Accept</span><span class="na">-Encoding</span>
+    <span class="nb">Accept</span><span class="na">-Ranges</span><span class="p">:</span> <span class="nb">bytes</span>
+
+    <span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+        <span class="nx">...</span> <span class="nx">The</span> <span class="nx">HTML</span> <span class="nb">for</span> <span class="nx">the</span> <span class="nx">site</span> <span class="nx">itself...</span>
+    <span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>Notice that each statement is terminated with a newline. When my computer finishes talking, it sends an empty line to let the server know.
+The lines that look like XXX: YYYY, are called headers. They contain a bit of metadata about  the resource that is about to be
+retrieved. Most of them are quite self-explanatory. Cache-Control tells the user's agent (usually a browser) what it is allowed to do
+with the resource, once retrieved, to speed up performance. </p>
+<p>If you want to look at the conversation your computer is having with the rest of the world, just open up the debug console on your browser and 
+hit the "Network" tab. It's pretty nifty.</p>
+<h3>URL Encoding</h3>
+<p>In the above example, we're getting just a plain resource but how do we pass additional information to the webserver to narrow down our results? 
+For example, we would like to search google for the top 10 restaurants in the Vancouver area. How would we do that?</p>
+<p>URLs support an extra section called the query string. Within the query string, you can pass arbitrary information in a key-value format. 
+To get the top 10 restaurants in Vancouver, we would want to pass information like the following:</p>
+<div class="highlight"><pre><span class="n">limit</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">location</span> <span class="o">=</span> <span class="s">&quot;Vancouver&quot;</span>
+</pre></div>
+
+
+<p>When you URL encode this, it looks something like: limit%3D10%26location%3D%22Vancouver%22. So your full URL would be www.google.com?query=limit%3D10%26location%3D%22Vancouver%22.</p>
+<p>We need URL encoding because there are characters (e.g. / : ?) which have special meaning. When we encode the query string, we replace each symbol with a special %XX code that represents it.
+When the URL gets to the other side, the receiving server decodes it by doing the reverse operation and gets the orignal message. </p>
+<h3>Forms and POST'ing</h3>
+<p>Now that we can retrieve all the resources we could possibly want, let's talk about creation. A great example of this is POST'ing to a forum thread. Let's take a look.</p>
+<div class="highlight"><pre><span class="n">POST</span> <span class="o">/</span><span class="n">posts</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="nl">Host:</span> <span class="n">discourse</span><span class="p">.</span><span class="n">pythonpracticeprojects</span><span class="p">.</span><span class="n">com</span>
+<span class="nl">Accept:</span><span class="err">*/</span><span class="o">*</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="o">:</span><span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span><span class="p">,</span><span class="n">sdch</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="o">:</span><span class="n">en</span><span class="o">-</span><span class="n">US</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="o">:</span><span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+<span class="nl">Connection:</span><span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="o">:</span><span class="mi">113</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span><span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="p">...</span>
+<span class="cp"># Beginning of body.</span>
+<span class="n">raw</span><span class="o">=</span><span class="n">Hello</span><span class="o">+</span><span class="n">to</span><span class="o">+</span><span class="n">this</span><span class="o">+</span><span class="n">wonderful</span><span class="o">+</span><span class="n">world</span><span class="o">!&amp;</span><span class="n">topic_id</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="n">reply_to_post_number</span><span class="o">=&amp;</span><span class="n">category</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="n">archetype</span><span class="o">=</span><span class="n">regular</span>
+
+<span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="nl">Server:</span> <span class="n">nginx</span><span class="o">/</span><span class="mf">1.4.4</span>
+<span class="nl">Date:</span> <span class="n">Sat</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Jun</span> <span class="mi">2014</span> <span class="mi">17</span><span class="o">:</span><span class="mi">40</span><span class="o">:</span><span class="mi">46</span> <span class="n">GMT</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">Transfer</span><span class="o">-</span><span class="n">Encoding</span><span class="o">:</span> <span class="n">chunked</span>
+<span class="nl">Connection:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<span class="nl">Status:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<p>Looks quite a bit like the GET huh? The only difference is that instead of all the information going into the url, a POST actually has a body. Coincedentially enough,
+we already know how to encode the body, it's just the same URL Encoding that we used in the GET! </p>
+<h3>Your Task</h3>
+<p>I've been generating all these examples using the curl tool with the -v option. I highly recommend you go play with it just to get a feeling for what you
+will be building. Your task is to build a rudimentary version of the curl tool. It should support at least GET and POST, printing out the interaction as it occurs.</p>
+<p>Here is a sample interaction of our HTTP library.</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="nx">purr</span> <span class="na">-v</span> <span class="nx">httpie.org</span>
+<span class="nb">GET</span> <span class="o">/</span> <span class="nx">HTTP</span><span class="p">/</span><span class="nx">1.1</span>
+<span class="nb">Accept</span><span class="p">:</span> <span class="o">*/*</span>
+<span class="nb">Accept</span><span class="na">-Encoding</span><span class="p">:</span> <span class="nx">gzip</span><span class="p">,</span> <span class="nx">deflate</span>
+<span class="nb">Host</span><span class="p">:</span> <span class="nx">httpie.org</span>
+<span class="nb">User</span><span class="na">-Agent</span><span class="p">:</span> <span class="nx">HTTPie</span><span class="p">/</span><span class="nx">0.8.0</span>
+
+<span class="nx">HTTP</span><span class="p">/</span><span class="nx">1.1</span> <span class="mi">302</span> <span class="nx">Found</span>
+<span class="k">Cache</span><span class="na">-Control</span><span class="p">:</span> <span class="k">max</span><span class="na">-age</span><span class="o">=</span><span class="mi">1800</span>
+<span class="nb">Content</span><span class="na">-Length</span><span class="p">:</span> <span class="mi">223</span>
+<span class="nb">Content</span><span class="na">-Type</span><span class="p">:</span> <span class="nx">text</span><span class="p">/</span><span class="nx">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="nx">iso</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span>
+<span class="kt">Date</span><span class="p">:</span> <span class="nx">Sat</span><span class="p">,</span> <span class="mi">14</span> <span class="nx">Jun</span> <span class="mi">2014</span> <span class="mi">21</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">41</span> <span class="nb">GMT</span>
+<span class="nx">Expires</span><span class="p">:</span> <span class="nx">Sat</span><span class="p">,</span> <span class="mi">14</span> <span class="nx">Jun</span> <span class="mi">2014</span> <span class="mi">22</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">41</span> <span class="nb">GMT</span>
+<span class="nx">Location</span><span class="p">:</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/jakubroztocil/httpie</span>
+<span class="nx">Server</span><span class="p">:</span> <span class="nx">Apache</span>
+<span class="nx">X</span><span class="na">-Awesome</span><span class="p">:</span> <span class="nx">Thanks</span> <span class="nb">for</span> <span class="nx">trying</span> <span class="nx">HTTPie</span> <span class="p">:)</span>
+
+<span class="o">&lt;!</span><span class="nb">DOCTYPE</span> <span class="nx">HTML</span> <span class="k">PUBLIC</span> <span class="s2">&quot;-//IETF//DTD HTML 2.0//EN&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;&lt;</span><span class="nb">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">title</span><span class="o">&gt;</span><span class="mi">302</span> <span class="nx">Found</span><span class="o">&lt;/</span><span class="nb">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nb">head</span><span class="o">&gt;&lt;</span><span class="nb">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Found</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nb">document</span> <span class="nx">has</span> <span class="nx">moved</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://github.com/jakubroztocil/httpie&quot;</span><span class="o">&gt;</span><span class="nx">here</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;</span><span class="nx">.</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nb">body</span><span class="o">&gt;&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
+
+<span class="err">$</span> <span class="nx">purr</span> <span class="na">-m</span> <span class="nx">POST</span> <span class="nx">api.example.org</span><span class="p">/</span><span class="nx">person</span><span class="p">/</span><span class="nx">1</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;John Smith&#39;</span> <span class="n">email</span><span class="o">=</span><span class="nx">john</span><span class="p">@</span><span class="nx">example.org</span> <span class="n">cv</span><span class="o">=</span><span class="p">@</span><span class="err">~</span><span class="p">/</span><span class="nx">Documents</span><span class="p">/</span><span class="nx">cv.txt</span>
+<span class="nx">POST</span> <span class="p">/</span><span class="nx">person</span><span class="p">/</span><span class="nx">1</span> <span class="nx">HTTP</span><span class="p">/</span><span class="nx">1.1</span>
+<span class="nb">Content</span><span class="na">-Type</span><span class="p">:</span> <span class="nx">application</span><span class="p">/</span><span class="nx">x</span><span class="na">-www-form-urlencoded</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mi">8</span>
+
+<span class="n">name</span><span class="o">=</span><span class="nx">John</span><span class="o">+</span><span class="nx">Smith</span><span class="o">&amp;</span><span class="n">email</span><span class="o">=</span><span class="nx">john</span><span class="o">%</span><span class="mi">40</span><span class="nx">example.org</span><span class="o">&amp;</span><span class="n">cv</span><span class="o">=</span><span class="nx">John</span><span class="s1">&#39;s+CV+...</span>
+</pre></div>
+
+
+<p>You now know (basically) how the internet works! Pretty cool right?</p>
+<h3>Considerations</h3>
+<p>This project can be completed at different layers of abstraction. You should choose the level of difficulty based on what
+you want to learn/accomplish by completing this project.</p>
+<p>Difficulty Levels:</p>
+<p>Easy: Use an existing library to do the actual server communication. Libraries like requests will do the vast majority of the heavy lifting for you. 
+      Just parse the command line, and pass on the data appropriately, adding some print statements so you can see what's going on.</p>
+<p>Medium: Use Python's provided web libraries like httplib2, urllib3. You get a bit more control over the interaction but you don't need to deal too much 
+        with encodings and sockets.</p>
+<p>Hacker: Use raw sockets to build your library. Your client will open and close raw internet sockets and then just read and write text to the streams. This is
+        a hairy task and should only be attempted by the bravest (and time abundant) of hackers.  </p>
 <h2>References</h2>
 <ul>
+<li><a href="https://github.com/jkbr/httpie">httpie</a> - Jakub Roztočil</li>
 <li><a href="http://docs.python-requests.org/en/latest/">requests</a> - Kenneth Reitz</li>
 <li><a href="http://docs.python.org/2/library/httplib.html">httplib</a> - Standard Library</li>
 <li><a href="https://github.com/shazow/urllib3">urlib3</a> - Andrey Petrov</li>
-<li><a href="https://github.com/jkbr/httpie">httpie</a> - Jakub Roztočil</li>
 </ul>
 	<hr />
     Like what you just read? <a href="http://www.eepurl.com/FnX4f">Subscribe to Python Practice Projects</a> for more insights on practice, programming and the slow path to victory.
