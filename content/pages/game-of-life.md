@@ -61,7 +61,7 @@ the cursor around with the arrow keys and create a cell with the space bar.
 I usually use the character 'o' to represent a filled in cell and a blank
 space for an empty cell.
 
-Once the player has created an initial layout, he starts the simulation. 
+In Phase 2, once the player has created an initial layout, he starts the simulation. 
 The simulation proceeds in a series of time slices. A designated keypress,
 will advance the simulation by one time slice and shows the next calculated 
 frame.
