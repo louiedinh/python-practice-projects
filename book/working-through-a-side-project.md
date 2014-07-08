@@ -19,9 +19,9 @@ yourself first though.
 Before Starting - Get the Lay Of The Land
 -----------------------------------------
 
-   If I had one hour to save the world, I would spend 55 minutes 
-   defining the problem and only five minutes finding the solution. 
-                                                  –Albert Einstein
+    If I had one hour to save the world, I would spend 55 minutes 
+    defining the problem and only five minutes finding the solution. 
+    –Albert Einstein
 
 Before you start any project, spend some time understanding the problem domain. Each project helps you along with 
 the "Motivation" section at the beginning. Read it. Then go read the Wikipedia article. Google the term and 
@@ -55,12 +55,12 @@ on this spectrum you fall. Everyone is going to start the problem in the same wa
 
 Just open up a text editor, create a new file and type the following.
 
-   def execute():
-       print "hello"
-
-   if __name__ == '__main__':
-       execute()
-
+    def execute():
+        print "hello"
+ 
+    if __name__ == '__main__':
+        execute()
+ 
 Now ask yourself, what is the tiniest piece of functionality I can build?
 Put that bit of logic in execute. Then from there just slowly edge your way to the solution.
 
@@ -70,9 +70,9 @@ Don't Be Afraid to Rewrite
 False starts are a fact of life. You can start going down an avenue,
 only to hit a dead end. That's OK. 
 
-   I have not failed. I've just found 10,000 ways that won't work.
-   Thomas A. Edison
-
+    I have not failed. I've just found 10,000 ways that won't work.
+    -Thomas A. Edison
+ 
 Sometimes you have to restructure a method. Sometimes you have to 
 bundle a bunch of methods into a class. Sometimes you'll need 
 to toss out huge swaths of functionality and rewrite it because
