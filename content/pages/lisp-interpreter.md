@@ -6,6 +6,9 @@ Slug: lisp
 Author: Louie Dinh
 Summary: Problem definition for a lisp interpreter
 
+Lisp Interpreter
+===============
+
 Motivation
 ----------
 

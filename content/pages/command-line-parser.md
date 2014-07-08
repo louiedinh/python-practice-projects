@@ -6,6 +6,9 @@ Slug: command-line-parser
 Author: Louie Dinh
 Summary: Problem definition for a command line parser.
 
+Command Line Parser
+===================
+
 Motivation
 ----------
 

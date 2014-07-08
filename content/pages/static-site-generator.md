@@ -6,6 +6,9 @@ Slug: static-site-generator
 Author: Louie Dinh
 Summary: Problem definition for a static site generator
 
+Static Site Generator
+=====================
+
 Motivation
 ----------
 

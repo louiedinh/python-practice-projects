@@ -6,6 +6,9 @@ Slug: http-library
 Author: Louie Dinh
 Summary: Problem definition for a HTTP Library
 
+HTTP Library
+============
+
 Motivation
 ----------
 

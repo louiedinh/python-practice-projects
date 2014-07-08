@@ -6,6 +6,9 @@ Slug: web-scraper
 Author: Louie Dinh
 Summary: Problem definition for a Web Scraper
 
+Web Scraper
+===========
+
 To Be Filled In
 
 References

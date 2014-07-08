@@ -6,6 +6,9 @@ Slug: game-of-life
 Author: Louie Dinh
 Summary: Problem definition for a Game Of Life
 
+Game Of Life
+============
+
 Motivation
 ----------
 
@@ -23,18 +26,9 @@ cells evolve into colonies or go extinct.
 
 Here are a few especially notable patterns that arise.
 
-Glider - a colony of cells that crawls across the screen:
-
-![Glider Image](http://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif)
-
-Loaf - a stable pattern, looks a bit like bread I guess.
-
-![Loaf Image](http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Game_of_life_loaf.svg/98px-Game_of_life_loaf.svg.png)
-
-Pulsar - A complex repeating pattern that will continue indefinitely when left alone.
-
-![Pulsar Image](http://upload.wikimedia.org/wikipedia/commons/0/07/Game_of_life_pulsar.gif)
-
+[Glider](http://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif)- a colony of cells that crawls across the screen:
+[Loaf](http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Game_of_life_loaf.svg/98px-Game_of_life_loaf.svg.png) - a stable pattern, looks a bit like bread I guess.
+[Pulsar](http://upload.wikimedia.org/wikipedia/commons/0/07/Game_of_life_pulsar.gif) - A complex repeating pattern that will continue indefinitely when left alone.
 
 Dependencies
 -----------
