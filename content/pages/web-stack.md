@@ -6,7 +6,9 @@ Slug: web-stack
 Author: Louie Dinh
 Summary: Problem definition for a web stack
 
-To Be Filled In
+Web Stack
+=========
+
 
 References
 -----------
