@@ -4,9 +4,10 @@ PELICANOPTS=
 
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
-OUTPUTDIR=$(BASEDIR)/output
+OUTPUTDIR=$(BASEDIR)/html-output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
+BOOKDIR=$(BASEDIR)/book-output
 
 FTP_HOST=localhost
 FTP_USER=anonymous
@@ -40,6 +41,9 @@ help:
 	@echo '   github                           upload the web site via gh-pages   '
 	@echo '                                                                       '
 
+book: 
+	@echo 'Hello World!'
+	touch $(BOOKDIR)/test
 
 html: clean $(OUTPUTDIR)/index.html
 
@@ -85,4 +89,6 @@ github: publish
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages
 
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload github
+
+
+.PHONY: html help book clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload github

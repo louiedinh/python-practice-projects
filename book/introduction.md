@@ -6,93 +6,67 @@ Slug: introduction
 Author: Louie Dinh
 Summary: Programming projects ideas for learning Python.
 
-Hello and welcome to Python Practice Projects. 
+Introduction
+============
 
-Thank you for purchasing the premium copy of my book. I hope that you'll get
-as much from working through this book as I got from writing it. A word of caution though,
+Hello and welcome to Python Practice Projects. My name is Louie. It's a pleasure to meet you.
+
+Thank you for purchasing the Python Practice Projects! I hope that you'll get
+as much from working through this book as I got from writing it. A word of caution,
 this isn't a passive book. Reading it won't do you any good. In most books,
-you tend to get 10% of everything you read. In this book, it's more like 1%. However,
-the flip side is, if you diligently work through all the problems, you'll get much closer
-to 100%.
-
-Let's be honest here. I expect a lot of from you. This book is best read in front of a 
-computer. If you come across something you don't understand, look it up. Don't just
-skim by, because you'll only get more confused later on. You don't have to become an expert
-when looking something up, just know enough to summarize it in a quick sentence.
-
-Get the Lay Of The Land
----------------
-
-For example, if you don't know what HTTP is, then just search wikipedia. If you could
-tell me that HTTP is the agreed upon language that computers use to send Hyper Text
-documents between each other, then that is enough to proceed.
-
-The problems presented in this book are specifically selected for maximum learning 
-potential. Each one has numerous extremely high quality implementations available on the
-web. I have selected what I believed to be the best examples to look at.
-
-Don't be afraid to dig into the code. You don't have to understand the whole thing.
-
-Gain Intuition
---------------
-
-One of the best ways to approach a problem is to first download one of the recommended
-libraries and just play around with the toy examples presented in the documentation.
-Get it up and running. Go through the sample cases. Try a few different options
-to see what they do. Just explore a bit. Try to think of some use cases for it.
-You're building valuable intuition that will pay off down the road.
-
-Once you have a good idea of what the tool does and what it should be used for,
-re-read the problem statement. It should make a lot more sense now and you should
-have a good idea of how you want your program to act. You are probably still
-confused as to where to start. That's OK.
-
-Starting a Project
-------------------
-
-Just open up a text editor and type the following.
-
-    def execute():
-        print "hello"
-
-    if __name__ == '__main__':
-        execute()
-
-Now ask yourself, what's the tiniest piece of functionality I can build starting from nothing?
-Put that in execute. Then from there just slowly edge your way to the solution.
-
-Don't Be Afraid to Rewrite
---------------------------
-
-Sometimes you have to restructure a method. Sometimes you have to 
-bundle a bunch of methods into a class. Other times you'll need 
-to toss out huge swaths of functionality and rewrite it because
-you can't see how to get from your partial solution to the full
-solution. 
-
-This isn't failing. This is learning. You're building the invaluable
-intuition needed to more successfully plan your attack next time.
+you tend to get 10% of the benefits from just reading it. In this book, it's more like 1%. However,
+if you diligently work through all the problems, you'll get much closer to 100%.
 
 
-On Getting Unstuck
-----------------
-
-If you're stuck, go take a break. Then try again tomorrow.
-If you're still stuck, then take a look at how some of the
-reference solutions got around that exact problem. If you're
-STILL stuck, then take to the internets or as in the
-Python Practice Projects dicussion forums. I'll be there to help you ;)
-
-
-Celebrate
+Who Am I?
 ---------
 
-Once you finish, celebrate. Each problem that you finish
-is another step in the path towards mastery. Take a look back
-and think about all the things you didn't know!
+I'm a professional software engineer that uses a lot of Python. At work I use Python
+to write web services that power games for hundreds of thousands of users. At home I use
+it to scrape The Internet, manage my inbox and draw pretty graphs.
 
-Best of luck on your programming journey. I'm rooting for you.
+I love Python, and I want to help you love it too! And what's not to love? It's a beautiful
+language with a friendly community. After 5+ years of learning and using the language,
+I wanted to pass on some hard won experiences. 
+
+*This book is me nudging you along your own path to programming mastery*
+
+Why Practice Projects?
+----------------------
+
+While learning Python, I found a wealth of material dedicated to teaching the syntax
+and semantics of the language. Many minds far greater than mine have written _very_
+good tutorials on all aspects of the language.
 
 
- 
+I still had a problem though. Even after careful readings, I found that the concepts didn't
+_really_ stick. It wasn't until I had seen the concepts in real programs _and_ attempted to incorporate
+them into my own programs , did I finally understand the benefits and also limitations of each
+feature and library.
 
+That is why Python Practice Projects contains two essential parts. The first are the project
+descriptions themselves. These problems were not chosen randomly. Each one was designed to be
+challenging, yet compactly solvable. The basic solution shouldn't be more than a few hundred
+lines of code. The second part are the links to production quality solutions. After the flowering
+of the Open Source movement, we can now read the minds of the world class programmers. Solving a problem,
+without seeing how it can be more elegantly solved, is leaving the majority of the learning opportunity 
+on the table.
+
+The projects are specifically presented without their solutions to force your thinking. It will be a 
+bit uncomfortable. Just remember that learning to walk was also pretty uncomfortable. I bet you're
+glad you didn't give up on that though.
+
+There _are_ a few sample solutions included. These are for after you've made a real attempt at solving
+the problems. If you read them before, I'm not refunding your lost learning opportunities =]
+
+Expectations
+------------
+
+Let's be honest here. I expect a lot of from you. You're a mature learner now and not everything
+will be spoon fed. This book is best read in front of a computer. If you come across something you
+ don't understand, look it up. Don't just skim by, because you'll only get more confused later on.
+ You don't have to become an expert when looking something up, just know enough to summarize it in 
+a quick sentence.
+
+OK, that's all for the preamble. Welcome to Python Practice Projects! Next, I'm going to quickly
+go over how to approach the projects. Then it's onto the projects themselves.
