@@ -42,8 +42,7 @@ help:
 	@echo '                                                                       '
 
 book: 
-	@echo 'Hello World!'
-	touch $(BOOKDIR)/test
+	$(BASEDIR)/scripts/generate_book.sh
 
 html: clean $(OUTPUTDIR)/index.html
 
