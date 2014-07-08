@@ -6,6 +6,10 @@ Slug: templating-engine
 Author: Louie Dinh
 Summary: Problem definition for a templating engine.
 
+Templating Engine
+=================
+
+
 Motivation
 ----------
 
