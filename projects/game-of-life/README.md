@@ -1,6 +1,10 @@
-Starting the game:
+Starting the Game
 ------------------
 python3 game_of_life.py
+
+Running Tests
+-------------
+python3 tests.py
 
 Controls:
 ---------
