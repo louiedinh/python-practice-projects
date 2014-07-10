@@ -1,0 +1,1 @@
+../content/pages/static-site-generator.md
