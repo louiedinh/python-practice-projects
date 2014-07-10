@@ -42,3 +42,58 @@ In English:
        if argument starts with "--" --> do_longs 
        else: opts, args = do_shorts(opts, first object in args (without the -), shortopts, the leftover args to parse i.e args[1:]) 
 
+========================
+
+getopt is a "c-style parser for command-lind options". This module will be covered first because it was the most simple option parser I could find. Even though there is only ~250 LOC, I managed to learn quite a few lessons.
+
+To get sample usage check out Doug Hellmann's coverage on PMOTW [http://www.doughellmann.com/PyMOTW/getopt/] or the official pydocs [http://docs.python.org/library/getopt.html]
+
+Proper use of a while loop
+
+The differences between a while and for loop tripped me up for a long time. You can usually accomplish the same task with either a while or a for construct. However, the correct usage of for and while can provides a clue to the terminating conditions of the loop. With a typical for-loop and a calculator, I could tell you exactly how many times the body of the loop will execute.
+
+Example:
+for(int i=0; i<10; i+= 2)
+
+i takes on the values 0, 2, 4, ..., 8 so we go through the loop 5 times. Tada! 
+
+While loops are a bit different. The terminating condition is checked on every cycle of the loop but the body is responsible for eventually getting to that terminating condition. 
+
+Example:
+Imagine that novel is a file handle that reads in the next word in a file
+
+while word != "kaboom":
+    word = novel.next_word()
+
+A calculator doesn't help me at all in this situation. 
+
+Here is the nice usage of while in the getopt module:
+
+    while args and args[0].startswith('-') and args[0] != '-':
+        if args[0] == '--':
+            break
+        if args[0].startswith('--'):
+            ## handle '--x' case
+            opts, args = do_longs(opts, args[0][2:], longopts, args[1:])
+        else:
+            ## Handle '-x' case
+            ## Pass in opts so far, first optional arg w/o the leading '-', handled shortopts, all other args
+            opts, args = do_shorts(opts, args[0][1:], shortopts, args[1:])
+
+args is the unprocessed command-line arguments passed in as a list split by whitespace. 
+"./some_script_name --verbose -f data_in.txt -out-file data_out.txt positional_arg_1 positional_arg_2"
+args = ["--verbose", "-fdata_in.txt", "--out-file", "data_out.txt", "positional_arg_1", "positional_arg_2"]
+
+opts is the processed options so far. When the script is finished, the above command-line arguments would be parsed into:
+opts = [("--verbose", None), ("-f", "data_in.txt"), ("--outfile", "data_out.txt")]
+args = ["positional_arg_1", "positional_arg_2"]
+
+The parser gets to the results using the following rules:
+
+1. There are two types of options, short and long. Short options indicated by one letter. Long options are words-with-dashes
+2. An option can either be naked or take an argument. It can't be both though. No optional arguments to options. e.g. --verbose is naked, -f is a short option with an argument.
+3. A short option's argument can be specified right next to it or be the argument immediately following. -fdata_in.txt and -f data_in.txt are parsed equivalently.
+4. Long option's arguments can be specified with an "=" or with a space. --out-file=data_out.txt and --out-file data_out.txt are parsed equivalently.
+
+
+
