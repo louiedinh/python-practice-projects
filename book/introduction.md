@@ -24,21 +24,6 @@ I will assume that you are already familiar with variables, values, functions, c
 simple data structures, looping, flow control, and at least a vague understanding of abstraction
 and testing.
 
-I hope that you'll get as much from working through this book as I got from writing it. 
-
-
-Who Am I?
----------
-
-I'm a professional software engineer and I use Python...a lot. At work I use Python
-to write web services that power games for hundreds of thousands of users. At home I use
-it to scrape The Internet, manage my inbox and draw pretty graphs.
-
-I love Python, and I want to help you love it too! And what's not to love? It's a beautiful
-language with a friendly community. After 5+ years of learning and using the language,
-I want to pass on some hard won experiences. 
-
-*This book is me nudging you along your own path to programming mastery*
 
 Why Practice Projects?
 ----------------------
@@ -65,6 +50,21 @@ glad you didn't give up on that though.
 
 There _are_ a few sample solutions included. These are for after you've made a real attempt at solving
 the problems. If you read them before, I'm not refunding your lost learning opportunities =]
+
+
+Who Am I?
+---------
+
+I'm a professional software engineer and I use Python...a lot. At work I use Python
+to write web services that power games for hundreds of thousands of users. At home I use
+it to scrape The Internet, manage my inbox and draw pretty graphs.
+
+I love Python, and I want to help you love it too! And what's not to love? It's a beautiful
+language with a friendly community. After 5+ years of learning and using the language,
+I want to pass on some hard won experiences. 
+
+*This book is me nudging you along your own path to programming mastery*
+
 
 Expectations
 ------------
