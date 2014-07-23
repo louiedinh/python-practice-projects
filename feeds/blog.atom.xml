@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Python Practice Projects</title><link href="http://pythonpracticeprojects.com/" rel="alternate"></link><link href="http://pythonpracticeprojects.com/feeds/blog.atom.xml" rel="self"></link><id>http://pythonpracticeprojects.com/</id><updated>2013-10-20T00:00:00+02:00</updated><entry><title>How Google Is Making You Stupid</title><link href="http://pythonpracticeprojects.com/how-google-is-making-you-stupid.html" rel="alternate"></link><updated>2013-10-20T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2013-10-20:how-google-is-making-you-stupid.html</id><summary type="html">&lt;p&gt;&lt;img alt="Google is making you stupid" src="/static//images/lego-google.jpg" title="We are digitizing everything, including ourselves" /&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Python Practice Projects</title><link href="http://pythonpracticeprojects.com/" rel="alternate"></link><link href="http://pythonpracticeprojects.com/feeds/blog.atom.xml" rel="self"></link><id>http://pythonpracticeprojects.com/</id><updated>2014-07-19T00:00:00+02:00</updated><entry><title>Become A Better Programmer - How To Read Source Code</title><link href="http://pythonpracticeprojects.com/how-to-read-source-code.html" rel="alternate"></link><updated>2014-07-19T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2014-07-19:how-to-read-source-code.html</id><summary type="html">&lt;p&gt;Reading soure code has many benefits. You will discover new constructs and libraries,
+ develop empathy for others maintaining your code, and most importantly learn 
+how to structure your code so that it doesn't fall over from internal complexity.&lt;/p&gt;
+&lt;p&gt;There is one drawback though, reading source code is darned hard. 
+When I look at a new code base, this sickening feeling washes over me.
+ My mind just doesn't want to dive into this perceived mess.  &lt;/p&gt;
+&lt;p&gt;This is (hopefully) a normal response. When our brains sees too much novelty,
+it just tends to shy away. There is nothing for our amazing biological pattern matching
+machine to latch onto. The abstractions are all new. It's never seen the
+class names before. Where does execution even start?&lt;/p&gt;
+&lt;p&gt;The general tips I can offer are the following:
+    1. Find and establish an initial base for your mind to latch onto. Usually the main entry point.
+    2. Start from your base and explore the major features.
+    3. Take notes on what you've seen.&lt;/p&gt;
+&lt;h2&gt;Start At The Beginning.&lt;/h2&gt;
+&lt;p&gt;The trick is to give your mind a starting point. Here is what I do. I just
+run the program with the -h option and invoke the help. Then I copy one of the
+help strings and do a search over the code base to see where this help text
+is located. Usually the help invocation is pretty close to where the main entry
+point to the program is.&lt;/p&gt;
+&lt;h2&gt;Identify The Shape Of The Program&lt;/h2&gt;
+&lt;p&gt;Once I've found the main entry point, I run a few toy examples included
+in the documentation. Then I try to trace the main blocks of code
+to just get a rough sketch of how the piece fit together.&lt;/p&gt;
+&lt;p&gt;Is there a manager that invokes a ton of helper functions and classes? Are there
+a bunch of classes that act as peers and hand control off between each 
+other? Is there a main queue of tasks that gets consumed over time?&lt;/p&gt;
+&lt;p&gt;Getting the big picture helps you slot in the little pieces. You tend to get
+overwhelmed by the details if you try to forge ahead without understanding
+the main flow.&lt;/p&gt;
+&lt;h2&gt;Take Notes&lt;/h2&gt;
+&lt;p&gt;I tend to take notes right in the source code. When writing I use a special
+comment character (e.g #=&amp;gt; instead of the typical #) so that I can distinguish
+between my own notes and the original author's comments. &lt;/p&gt;
+&lt;p&gt;Make a note on all the clever tricks, confusing flows, beautiful usgae of 
+programming constructs, and anything else you want to remember. If you're stuck,
+you can also make a note about coming back to that particular section.&lt;/p&gt;
+&lt;p&gt;By writing down your thoughts, you're really making that piece of source code your
+own. Over time, the constructs you pick up will start leaking into your own works.&lt;/p&gt;
+&lt;h2&gt;Becoming Your Own Person&lt;/h2&gt;
+&lt;p&gt;Learning to program is a continuous process of reading code and writing code.
+By exposing yourself to a variety of styles, you'll eventually develop a
+unique perspective and voice. &lt;/p&gt;</summary><category term="practice"></category><category term="reading"></category><category term="command-line-parser"></category></entry><entry><title>How Google Is Making You Stupid</title><link href="http://pythonpracticeprojects.com/how-google-is-making-you-stupid.html" rel="alternate"></link><updated>2013-10-20T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2013-10-20:how-google-is-making-you-stupid.html</id><summary type="html">&lt;p&gt;&lt;img alt="Google is making you stupid" src="/static//images/lego-google.jpg" title="We are digitizing everything, including ourselves" /&gt;&lt;/p&gt;
 &lt;p&gt;Do you love Google? I love Google. I spend my entire digital life nestled inside its tech-utopian arms.
  Other people love Google too. We, as a species, love Big G so much that we have promoted it from noun,
  to both adjective (Googley) and verb (to Google). Honestly, I can’t think of any other company with
