@@ -151,7 +151,7 @@ about to pass in, just give me back the symbols exactly as I typed them".
 The little ', is Lisp's way of saying that everything that follows is a symbol.
 
 **cons**, **car** and **cdr** go together. Cons is like a piece of velcro, it sticks two things together.
-Car let's to get back the first piece and cdr lets you get the second piece.
+Car let's you get back the first piece and cdr lets you get the second piece.
 
     (define box (cons 3 4))
     (car box) #=> 3
