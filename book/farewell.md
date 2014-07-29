@@ -30,7 +30,7 @@ recording in a useful manner. Remember, that programming is only a tool and it i
 with a little bit of intelligent computation. 
 
 All the software in the world is built bit by bit (pun intentional). If you can imagine it, you can build it. The only limiting factor now is the scope of your imagination. Before you
-move on to not-so-practice projects, I just want to leave you with a two parting thoughts.
+move on to not-so-practice projects, I just want to leave you with two parting thoughts.
 
 Don't get caught up in the latest fad technologies or chasing what you think the job market will want next. You can only ever play catch up. Instead, learn to make computers do something
 useful and you will never run out of opportunities. 

@@ -69,7 +69,7 @@ I want to pass on some hard won experiences.
 Expectations
 ------------
 
-Let's be honest here. I expect a lot of from you. You're a mature learner now and not everything
+Let's be honest here. I expect a lot from you. You're a mature learner now and not everything
 will be spoon fed. This book is best read in front of a computer. If you come across something you
  don't understand, look it up. Don't just skim by, because you'll only get more confused later on.
  You don't have to become an expert, just know enough to summarize it in a quick sentence.
