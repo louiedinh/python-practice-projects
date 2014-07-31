@@ -34,10 +34,10 @@ good tutorials on all aspects of the language.
 
 I still had a problem though. Even after careful readings, I found that the concepts didn't
 _really_ stick. It wasn't until I had seen the concepts in real programs _and_ attempted to incorporate
-them into my own programs, that I finally understood the benefits and also limitations of each
+them into my own, that I finally understood the benefits and also limitations of each
 feature and library.
 
-That is why Python Practice Projects contains two essential parts. The first is the project
+That is why Python Practice Projects contains two essential elements. The first is the project
 descriptions themselves. These problems were not chosen randomly. Each one was designed to be
 challenging, yet compactly solvable. The basic solution shouldn't be more than a few hundred
 lines of code. The second part is the links to production quality solutions. After the flowering
@@ -47,9 +47,6 @@ without seeing how it can be done more elegantly is leaving the majority of the 
 The projects are specifically presented without their solutions to force your thinking. It will be a 
 bit uncomfortable. Just remember that learning to walk was also pretty uncomfortable. I bet you're
 glad you didn't give up on that though.
-
-There _are_ a few sample solutions included. These are for after you've made a real attempt at solving
-the problems. If you read them before, I'm not refunding your lost learning opportunities =]
 
 
 Who Am I?
@@ -63,7 +60,7 @@ I love Python, and I want to help you love it too! And what's not to love? It's 
 language with a friendly community. After 5+ years of learning and using the language,
 I want to pass on some hard won experiences. 
 
-*This book is me nudging you along your own path to programming mastery*
+*This book is me nudging you along your path to programming mastery*
 
 
 Expectations
