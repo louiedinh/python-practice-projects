@@ -6,12 +6,14 @@ Slug: getopt-case-study
 Author: Louie Dinh
 Summary: An Example of Reading Source Code
 
+To get better at reading source code, you just have to do it more often.
+
 Here is an example annotation that I did while reading the source
 for getopt, a deprecated Python Standard Library module. Despite
 the simplicity, I picked up a few golden stylistic tips and abstraction
 techniques that I still use in my programming today.
 
-All of my annoations start with ##. The original author's comments
+All of my annotations start with ##. The original author's comments
 is written with #.
 
     """Parser for command line options.
