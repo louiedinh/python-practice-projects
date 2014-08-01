@@ -136,7 +136,7 @@ is written with #.&lt;/p&gt;
 &lt;span class="s-Atom"&gt;        i = opt.index(&amp;#39;=&amp;#39;)&lt;/span&gt;
 &lt;span class="s-Atom"&gt;    except ValueError:&lt;/span&gt;
 
-&lt;span class="s-Atom"&gt;    ## No = means no argument&lt;/span&gt;
+&lt;span class="s-Atom"&gt;    ## None = means no argument&lt;/span&gt;
 
 &lt;span class="s-Atom"&gt;        optarg = None&lt;/span&gt;
 &lt;span class="s-Atom"&gt;    else:&lt;/span&gt;
