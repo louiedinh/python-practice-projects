@@ -64,7 +64,7 @@
 
     <div class='row-fluid''>
         <div class="article-title span9">
-            <a href="http://pythonpracticeprojects.com/how-to-read-source-code.html"><h1>Become A Better Programmer - How To Read Source Code</h1></a>
+            <a href="http://pythonpracticeprojects.com/getopt-case-study.html"><h1>Getopt - A Case Study in Reading Source</h1></a>
         </div>
     </div>
     <div class="row-fluid">
@@ -82,56 +82,268 @@ Filed under <a href="http://pythonpracticeprojects.com/category/blog.html">Blog<
 </p>
       </div>
       <div class="article-content span8">
-	<p>Reading soure code has many benefits. You will discover new constructs and libraries,
- develop empathy for others maintaining your code, and most importantly learn 
-how to structure your code so that it doesn't fall over from internal complexity.</p>
-<p>There is one drawback though, reading source code is darned hard. 
-When I look at a new code base, this sickening feeling washes over me.
- My mind just doesn't want to dive into this perceived mess.  </p>
-<p>This is (hopefully) a normal response. When our brains sees too much novelty,
-it just tends to shy away. There is nothing for our amazing biological pattern matching
-machine to latch onto. The abstractions are all new. It's never seen the
-class names before. Where does execution even start?</p>
-<p>The general tips I can offer are the following:
-    1. Find and establish an initial base for your mind to latch onto. Usually the main entry point.
-    2. Start from your base and explore the major features.
-    3. Take notes on what you've seen.</p>
-<h2>Start At The Beginning.</h2>
-<p>The trick is to give your mind a starting point. Here is what I do. I just
-run the program with the -h option and invoke the help. Then I copy one of the
-help strings and do a search over the code base to see where this help text
-is located. Usually the help invocation is pretty close to where the main entry
-point to the program is.</p>
-<h2>Identify The Shape Of The Program</h2>
-<p>Once I've found the main entry point, I run a few toy examples included
-in the documentation. Then I try to trace the main blocks of code
-to just get a rough sketch of how the piece fit together.</p>
-<p>Is there a manager that invokes a ton of helper functions and classes? Are there
-a bunch of classes that act as peers and hand control off between each 
-other? Is there a main queue of tasks that gets consumed over time?</p>
-<p>Getting the big picture helps you slot in the little pieces. You tend to get
-overwhelmed by the details if you try to forge ahead without understanding
-the main flow.</p>
-<h2>Take Notes</h2>
-<p>I tend to take notes right in the source code. When writing I use a special
-comment character (e.g #=&gt; instead of the typical #) so that I can distinguish
-between my own notes and the original author's comments. </p>
-<p>Make a note on all the clever tricks, confusing flows, beautiful usgae of 
-programming constructs, and anything else you want to remember. If you're stuck,
-you can also make a note about coming back to that particular section.</p>
-<p>By writing down your thoughts, you're really making that piece of source code your
-own. Over time, the constructs you pick up will start leaking into your own works.</p>
-<h2>Becoming Your Own Person</h2>
-<p>Learning to program is a continuous process of reading code and writing code.
-By exposing yourself to a variety of styles, you'll eventually develop a
-unique perspective and voice. </p> 
-	<a class="btn btn-mini xsmall" href="http://pythonpracticeprojects.com/how-to-read-source-code.html">
+	<p>To get better at reading source code, you just have to do it more often.</p>
+<p>Here is an example annotation that I did while reading the source
+for getopt, a deprecated Python Standard Library module. Despite
+the simplicity, I picked up a few golden stylistic tips and abstraction
+techniques that I still use in my programming today.</p>
+<p>All of my annotations start with ##. The original author's comments
+is written with #.</p>
+<div class="highlight"><pre><span class="s2">&quot;&quot;&quot;Parser for command line options.</span>
+
+<span class="s2">This module helps scripts to parse the command line arguments in</span>
+<span class="s2">sys.argv.  It supports the same conventions as the Unix getopt()</span>
+<span class="s2">function (including the special meanings of arguments of the form `-&#39;</span>
+<span class="s2">and `--&#39;).  Long options similar to those supported by GNU software</span>
+<span class="s2">may be used as well via an optional third argument.  This module</span>
+<span class="s2">provides two functions and an exception:</span>
+
+<span class="s2">getopt() -- Parse command line options</span>
+<span class="s2">gnu_getopt() -- Like getopt(), but allow option and non-option arguments</span>
+<span class="s2">to be intermixed.</span>
+<span class="s2">GetoptError -- exception (class) raised with &#39;opt&#39; attribute, which is the</span>
+<span class="s2">option involved with the exception.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s-Atom">#</span> <span class="nv">Long</span> <span class="s-Atom">option</span> <span class="s-Atom">support</span> <span class="s-Atom">added</span> <span class="s-Atom">by</span> <span class="nv">Lars</span> <span class="nv">Wirzenius</span> <span class="o">&lt;</span><span class="s-Atom">liw@iki</span><span class="p">.</span><span class="s-Atom">fi&gt;.</span>
+<span class="s-Atom">#</span>
+<span class="s-Atom">#</span> <span class="nv">Gerrit</span> <span class="nv">Holl</span> <span class="o">&lt;</span><span class="s-Atom">gerrit@nl</span><span class="p">.</span><span class="s-Atom">linux</span><span class="p">.</span><span class="s-Atom">org</span><span class="o">&gt;</span> <span class="s-Atom">moved</span> <span class="s-Atom">the</span> <span class="s-Atom">string</span><span class="o">-</span><span class="s-Atom">based</span> <span class="s-Atom">exceptions</span>
+<span class="s-Atom">#</span> <span class="s-Atom">to</span> <span class="s-Atom">class</span><span class="o">-</span><span class="s-Atom">based</span> <span class="s-Atom">exceptions</span><span class="p">.</span>
+<span class="s-Atom">#</span>
+<span class="s-Atom">#</span> <span class="nv">Peter</span> <span class="s-Atom">Åstrand</span> <span class="o">&lt;</span><span class="s-Atom">astrand@lysator</span><span class="p">.</span><span class="s-Atom">liu</span><span class="p">.</span><span class="s-Atom">se</span><span class="o">&gt;</span> <span class="s-Atom">added</span> <span class="nf">gnu_getopt</span><span class="p">().</span>
+<span class="s-Atom">#</span>
+<span class="s-Atom">#</span> <span class="nv">TODO</span> <span class="s-Atom">for</span> <span class="nf">gnu_getopt</span><span class="p">()</span><span class="s-Atom">:</span>
+<span class="s-Atom">#</span>
+<span class="s-Atom">#</span> <span class="o">-</span> <span class="nv">GNU</span> <span class="s-Atom">getopt_long_only</span> <span class="s-Atom">mechanism</span>
+<span class="s-Atom">#</span> <span class="o">-</span> <span class="s-Atom">allow</span> <span class="s-Atom">the</span> <span class="s-Atom">caller</span> <span class="s-Atom">to</span> <span class="s-Atom">specify</span> <span class="s-Atom">ordering</span>
+<span class="s-Atom">#</span> <span class="o">-</span> <span class="nv">RETURN_IN_ORDER</span> <span class="s-Atom">option</span>
+<span class="s-Atom">#</span> <span class="o">-</span> <span class="nv">GNU</span> <span class="s-Atom">extension</span> <span class="s-Atom">with</span> <span class="s-Atom">&#39;-&#39;</span> <span class="s-Atom">as</span> <span class="s-Atom">first</span> <span class="s-Atom">character</span> <span class="s-Atom">of</span> <span class="s-Atom">option</span> <span class="s-Atom">string</span>
+<span class="s-Atom">#</span> <span class="o">-</span> <span class="s-Atom">optional</span> <span class="s-Atom">arguments</span><span class="p">,</span> <span class="s-Atom">specified</span> <span class="s-Atom">by</span> <span class="s-Atom">double</span> <span class="s-Atom">colons</span>
+<span class="s-Atom">#</span> <span class="o">-</span> <span class="s-Atom">a</span> <span class="s-Atom">option</span> <span class="s-Atom">string</span> <span class="s-Atom">with</span> <span class="s-Atom">a</span> <span class="nv">W</span> <span class="s-Atom">followed</span> <span class="s-Atom">by</span> <span class="s-Atom">semicolon</span> <span class="s-Atom">should</span>
+<span class="s-Atom">#</span>   <span class="s-Atom">treat</span> <span class="s2">&quot;-W foo&quot;</span> <span class="s-Atom">as</span> <span class="s2">&quot;--foo&quot;</span>
+
+<span class="k">__</span><span class="s-Atom">all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;GetoptError&quot;</span><span class="p">,</span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="s2">&quot;getopt&quot;</span><span class="p">,</span><span class="s2">&quot;gnu_getopt&quot;</span><span class="p">]</span>
+
+<span class="s-Atom">import</span> <span class="s-Atom">os</span>
+
+<span class="s-Atom">class</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="nv">Exception</span><span class="p">)</span><span class="s-Atom">:</span>
+    <span class="s-Atom">opt</span> <span class="o">=</span> <span class="s-Atom">&#39;&#39;</span>
+    <span class="s-Atom">msg</span> <span class="o">=</span> <span class="s-Atom">&#39;&#39;</span>
+    <span class="s-Atom">def</span> <span class="k">__</span><span class="nf">init__</span><span class="p">(</span><span class="s-Atom">self</span><span class="p">,</span> <span class="s-Atom">msg</span><span class="p">,</span> <span class="s-Atom">opt=&#39;&#39;</span><span class="p">)</span><span class="s-Atom">:</span>
+        <span class="s-Atom">self</span><span class="p">.</span><span class="s-Atom">msg</span> <span class="o">=</span> <span class="s-Atom">msg</span>
+        <span class="s-Atom">self</span><span class="p">.</span><span class="s-Atom">opt</span> <span class="o">=</span> <span class="s-Atom">opt</span>
+        <span class="nv">Exception</span><span class="p">.</span><span class="k">__</span><span class="nf">init__</span><span class="p">(</span><span class="s-Atom">self</span><span class="p">,</span> <span class="s-Atom">msg</span><span class="p">,</span> <span class="s-Atom">opt</span><span class="p">)</span>
+
+    <span class="s-Atom">def</span> <span class="k">__</span><span class="nf">str__</span><span class="p">(</span><span class="s-Atom">self</span><span class="p">)</span><span class="s-Atom">:</span>
+        <span class="s-Atom">return</span> <span class="s-Atom">self</span><span class="p">.</span><span class="s-Atom">msg</span>
+
+<span class="s-Atom">error</span> <span class="o">=</span> <span class="nv">GetoptError</span> <span class="s-Atom">#</span> <span class="s-Atom">backward</span> <span class="s-Atom">compatibility</span>
+
+<span class="s-Atom">def</span> <span class="nf">getopt</span><span class="p">(</span><span class="s-Atom">args</span><span class="p">,</span> <span class="s-Atom">shortopts</span><span class="p">,</span> <span class="s-Atom">longopts</span> <span class="o">=</span> <span class="p">[])</span><span class="s-Atom">:</span>
+    <span class="s2">&quot;&quot;&quot;getopt(args, options[, long_options]) -&gt; opts, args</span>
+
+<span class="s2">    Parses command line options and parameter list.  args is the</span>
+<span class="s2">    argument list to be parsed, without the leading reference to the</span>
+<span class="s2">    running program.  Typically, this means &quot;</span><span class="s-Atom">sys</span><span class="p">.</span><span class="s-Atom">argv</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">]</span><span class="s2">&quot;.  shortopts</span>
+<span class="s2">    is the string of option letters that the script wants to</span>
+<span class="s2">    recognize, with options that require an argument followed by a</span>
+<span class="s2">    colon (i.e., the same format that Unix getopt() uses).  If</span>
+<span class="s2">    specified, longopts is a list of strings with the names of the</span>
+<span class="s2">    long options which should be supported.  The leading &#39;--&#39;</span>
+<span class="s2">    characters should not be included in the option name.  Options</span>
+<span class="s2">    which require an argument should be followed by an equal sign</span>
+<span class="s2">    (&#39;=&#39;).</span>
+
+<span class="s2">    The return value consists of two elements: the first is a list of</span>
+<span class="s2">    (option, value) pairs; the second is the list of program arguments</span>
+<span class="s2">    left after the option list was stripped (this is a trailing slice</span>
+<span class="s2">    of the first argument).  Each option-and-value pair returned has</span>
+<span class="s2">    the option as its first element, prefixed with a hyphen (e.g.,</span>
+<span class="s2">    &#39;-x&#39;), and the option argument as its second element, or an empty</span>
+<span class="s2">    string if the option has no argument.  The options occur in the</span>
+<span class="s2">    list in the same order in which they were found, thus allowing</span>
+<span class="s2">    multiple occurrences.  Long and short options may be mixed.</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="s-Atom">##</span> <span class="s-Atom">opts</span> <span class="s-Atom">holds</span> <span class="s-Atom">all</span> <span class="s-Atom">options</span> <span class="s-Atom">parsed</span> <span class="s-Atom">so</span> <span class="s-Atom">far</span>
+    <span class="s-Atom">##</span> <span class="s-Atom">args</span> <span class="s-Atom">holds</span> <span class="s-Atom">all</span> <span class="s-Atom">unparsed</span> <span class="s-Atom">data</span>
+    <span class="s-Atom">opts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="s-Atom">if</span> <span class="nf">type</span><span class="p">(</span><span class="s-Atom">longopts</span><span class="p">)</span> <span class="o">==</span> <span class="nf">type</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="s-Atom">:</span>
+        <span class="s-Atom">longopts</span> <span class="o">=</span> <span class="p">[</span><span class="s-Atom">longopts</span><span class="p">]</span>
+    <span class="nn">else</span><span class="p">:</span>
+        <span class="s-Atom">longopts</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s-Atom">longopts</span><span class="p">)</span>
+    <span class="s-Atom">while</span> <span class="s-Atom">args</span> <span class="s-Atom">and</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="nf">startswith</span><span class="p">(</span><span class="s-Atom">&#39;-&#39;</span><span class="p">)</span> <span class="s-Atom">and</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">!</span><span class="o">=</span> <span class="s-Atom">&#39;-&#39;:</span>
+
+    <span class="s-Atom">##</span> <span class="nv">We</span> <span class="s-Atom">are</span> <span class="s-Atom">in</span> <span class="s-Atom">something</span> <span class="nn">like</span><span class="p">:</span>
+    <span class="s-Atom">##</span> <span class="o">-</span><span class="s-Atom">a</span> <span class="o">-</span><span class="s-Atom">b</span> <span class="s-Atom">x</span> <span class="o">-</span><span class="s-Atom">c</span> <span class="s-Atom">--ef</span> <span class="o">-</span> <span class="o">&lt;</span><span class="s-Atom">positional</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="s-Atom">positional</span><span class="o">&gt;</span>
+    <span class="s-Atom">##</span> <span class="nv">This</span> <span class="s-Atom">loop</span> <span class="s-Atom">instantly</span> <span class="s-Atom">stops</span> <span class="s-Atom">at</span> <span class="s-Atom">the</span> <span class="o">-</span> <span class="s-Atom">or</span> <span class="s-Atom">any</span> <span class="s-Atom">none</span> 
+    <span class="s-Atom">##</span> <span class="nf">flagged</span> <span class="p">(</span><span class="s-Atom">starts</span> <span class="s-Atom">with</span> <span class="s-Atom">a</span> <span class="s-Atom">-</span><span class="p">)</span> <span class="s-Atom">argument</span><span class="p">.</span>
+    <span class="s-Atom">##</span> <span class="nv">Loop</span> <span class="nv">Invariant</span><span class="s-Atom">:</span> <span class="nv">All</span> <span class="s-Atom">options</span> <span class="s-Atom">seen</span> <span class="s-Atom">have</span> <span class="s-Atom">been</span> 
+    <span class="s-Atom">##</span> <span class="s-Atom">successfully</span> <span class="s-Atom">parsed</span> <span class="s-Atom">and</span> <span class="s-Atom">stored</span> <span class="s-Atom">in</span> <span class="s-Atom">opts</span><span class="p">.</span>
+    <span class="s-Atom">##</span> <span class="nv">Exit</span> <span class="nv">Condition</span><span class="s-Atom">:</span> <span class="nv">Either</span> <span class="s-Atom">no</span> <span class="s-Atom">arguments</span> <span class="nf">left</span> <span class="p">(</span><span class="s-Atom">arg</span> <span class="o">is</span> <span class="s-Atom">empty</span><span class="p">)</span> 
+    <span class="s-Atom">##</span> <span class="s-Atom">or</span> <span class="s-Atom">next</span> <span class="s-Atom">argument</span> <span class="s-Atom">to</span> <span class="s-Atom">be</span> 
+    <span class="s-Atom">##</span> <span class="s-Atom">parsed</span> <span class="o">is</span> <span class="s-Atom">either</span> <span class="s-Atom">a</span> <span class="s-Atom">positional</span><span class="p">,</span> <span class="s-Atom">&#39;-&#39;</span><span class="p">,</span> <span class="s-Atom">or</span> <span class="s-Atom">&#39;--&#39;</span> <span class="s-Atom">argument</span> 
+    <span class="s-Atom">##</span> <span class="nv">Main</span> <span class="nn">steps</span><span class="p">:</span> <span class="nv">Consume</span> <span class="s-Atom">one</span> <span class="s-Atom">optional</span> <span class="s-Atom">parameter</span>
+
+        <span class="s-Atom">if</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="o">==</span> <span class="s-Atom">&#39;--&#39;:</span>
+    <span class="s-Atom">##</span> <span class="nv">Stop</span> <span class="s-Atom">at</span> <span class="s-Atom">&#39;--&#39;</span> <span class="s-Atom">but</span> <span class="nv">DON</span><span class="s-Atom">&#39;T include it in the returned arguments</span>
+<span class="s-Atom">    ## i.e &#39;</span><span class="o">-</span><span class="s-Atom">a</span> <span class="o">-</span><span class="s-Atom">b</span> <span class="s-Atom">--</span> <span class="s-Atom">c</span> <span class="s-Atom">d&#39; returns options=(a,b) and args=(c,d) </span>
+<span class="s-Atom">    ## if it was &#39;</span><span class="o">-</span><span class="s-Atom">a</span> <span class="o">-</span><span class="s-Atom">b</span> <span class="o">-</span> <span class="s-Atom">c</span> <span class="s-Atom">d&#39; you would get options=(a,b) args=(-, c, d)</span>
+<span class="s-Atom">        args = args[1:]</span>
+<span class="s-Atom">            break</span>
+<span class="s-Atom">        if args[0].startswith(&#39;--&#39;):</span>
+<span class="s-Atom">    ## handle &#39;--long_option&#39; case</span>
+<span class="s-Atom">    ## Strip off the &#39;--&#39; from the argument before passing it to do_longs</span>
+<span class="s-Atom">            opts, args = do_longs(opts, args[0][2:], longopts, args[1:])</span>
+<span class="s-Atom">        else:</span>
+<span class="s-Atom">    ## Handle &#39;</span><span class="o">-</span><span class="s-Atom">o&#39; case</span>
+<span class="s-Atom">    ## Pass in opts so far, first optional arg w/o the leading &#39;-&#39;,</span>
+<span class="s-Atom">    ##  handled shortopts, all other args</span>
+<span class="s-Atom">            opts, args = do_shorts(opts, args[0][1:], shortopts, args[1:])</span>
+
+<span class="s-Atom">    return opts, args</span>
+
+<span class="s-Atom">def do_longs(opts, opt, longopts, args):</span>
+<span class="s-Atom">    try:</span>
+<span class="s-Atom">    ## If = is in the argument, this opt should take an argument</span>
+<span class="s-Atom">        i = opt.index(&#39;=&#39;)</span>
+<span class="s-Atom">    except ValueError:</span>
+<span class="s-Atom">    ## No = means no argument</span>
+<span class="s-Atom">        optarg = None</span>
+<span class="s-Atom">    else:</span>
+<span class="s-Atom">    ## Split the argument into parts. opt is stuff before the &#39;=&#39; and </span>
+<span class="s-Atom">    ## optarg is stuff after the =.</span>
+<span class="s-Atom">    ## E.g opt=&quot;outfile=result.txt&quot; --&gt; opt = &quot;outfile&quot; optarg = &quot;result.txt&quot;</span>
+<span class="s-Atom">        opt, optarg = opt[:i], opt[i+1:]</span>
+
+<span class="s-Atom">    # Check that this specific opt should take an argument</span>
+<span class="s-Atom">    has_arg, opt = long_has_args(opt, longopts)</span>
+<span class="s-Atom">    if has_arg:</span>
+<span class="s-Atom">        if optarg is None:</span>
+<span class="s-Atom">            if not args:</span>
+<span class="s-Atom">    ## No more arguments after this long option.</span>
+<span class="s-Atom">    ##  We didn&#39;t</span> <span class="s-Atom">get</span> <span class="s-Atom">the</span> <span class="s-Atom">argument</span> <span class="s-Atom">we</span> <span class="s-Atom">expected</span>
+                <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option --%s requires argument&#39;</span> <span class="c1">% opt, opt)</span>
+    <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">there</span> <span class="o">is</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span><span class="p">,</span> <span class="s-Atom">put</span> <span class="s-Atom">it</span> <span class="s-Atom">in</span> <span class="s-Atom">optarg</span> <span class="s-Atom">and</span> <span class="s-Atom">move</span> <span class="s-Atom">arg</span> <span class="s-Atom">forward</span>
+            <span class="s-Atom">optarg</span><span class="p">,</span> <span class="s-Atom">args</span> <span class="o">=</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">]</span>
+    <span class="s-Atom">elif</span> <span class="nn">optarg</span><span class="p">:</span>
+    <span class="s-Atom">##</span> <span class="nv">Got</span> <span class="s-Atom">argument</span> <span class="s-Atom">when</span> <span class="s-Atom">we</span> <span class="s-Atom">didn&#39;t expect one</span>
+<span class="s-Atom">        raise GetoptError(&#39;option</span> <span class="s-Atom">--</span><span class="c1">%s must not have an argument&#39; % opt, opt)</span>
+    <span class="s-Atom">##</span> <span class="nv">Append</span> <span class="s-Atom">in</span> <span class="s-Atom">optarg</span> <span class="s-Atom">with</span> <span class="s-Atom">appropriate</span> <span class="s-Atom">argument</span>
+    <span class="s-Atom">opts</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="s-Atom">&#39;--&#39;</span> <span class="o">+</span> <span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">optarg</span> <span class="s-Atom">or</span> <span class="s-Atom">&#39;&#39;</span><span class="p">))</span>
+    <span class="s-Atom">return</span> <span class="s-Atom">opts</span><span class="p">,</span> <span class="s-Atom">args</span>
+
+<span class="s-Atom">#</span> <span class="nv">Return</span><span class="s-Atom">:</span>
+<span class="s-Atom">#</span>   <span class="s-Atom">has_arg?</span>
+<span class="s-Atom">#</span>   <span class="s-Atom">full</span> <span class="s-Atom">option</span> <span class="s-Atom">name</span>
+<span class="s-Atom">def</span> <span class="nf">long_has_args</span><span class="p">(</span><span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">longopts</span><span class="p">)</span><span class="s-Atom">:</span>
+    <span class="s-Atom">##</span> <span class="nv">Returns</span> <span class="nf">has_arg</span> <span class="p">(</span><span class="nv">True</span> <span class="p">|</span> <span class="nv">False</span><span class="p">)</span>
+    <span class="s-Atom">##</span> <span class="nv">Returns</span> <span class="s-Atom">the</span> <span class="s-Atom">full</span> <span class="s-Atom">option</span> <span class="s-Atom">name</span> <span class="s-Atom">given</span> <span class="s-Atom">a</span> <span class="s-Atom">shorter</span> <span class="s-Atom">prefix</span>
+    <span class="s-Atom">possibilities</span> <span class="o">=</span> <span class="p">[</span><span class="s-Atom">o</span> <span class="s-Atom">for</span> <span class="s-Atom">o</span> <span class="s-Atom">in</span> <span class="s-Atom">longopts</span> <span class="s-Atom">if</span> <span class="s-Atom">o</span><span class="p">.</span><span class="nf">startswith</span><span class="p">(</span><span class="s-Atom">opt</span><span class="p">)]</span>
+    <span class="s-Atom">if</span> <span class="o">not</span> <span class="nn">possibilities</span><span class="p">:</span>
+        <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option --%s not recognized&#39;</span> <span class="c1">% opt, opt)</span>
+    <span class="s-Atom">#</span> <span class="nv">Is</span> <span class="s-Atom">there</span> <span class="s-Atom">an</span> <span class="s-Atom">exact</span> <span class="s-Atom">match?</span>
+    <span class="s-Atom">if</span> <span class="s-Atom">opt</span> <span class="s-Atom">in</span> <span class="nn">possibilities</span><span class="p">:</span>
+        <span class="s-Atom">return</span> <span class="nv">False</span><span class="p">,</span> <span class="s-Atom">opt</span>
+    <span class="s-Atom">elif</span> <span class="s-Atom">opt</span> <span class="o">+</span> <span class="s-Atom">&#39;=&#39;</span> <span class="s-Atom">in</span> <span class="nn">possibilities</span><span class="p">:</span>
+        <span class="s-Atom">return</span> <span class="nv">True</span><span class="p">,</span> <span class="s-Atom">opt</span>
+    <span class="s-Atom">#</span> <span class="nv">No</span> <span class="s-Atom">exact</span> <span class="s-Atom">match</span><span class="p">,</span> <span class="s-Atom">so</span> <span class="s-Atom">better</span> <span class="s-Atom">be</span> <span class="s-Atom">unique</span><span class="p">.</span>
+    <span class="s-Atom">if</span> <span class="nf">len</span><span class="p">(</span><span class="s-Atom">possibilities</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1</span><span class="s-Atom">:</span>
+        <span class="s-Atom">#</span> <span class="nv">XXX</span> <span class="s-Atom">since</span> <span class="s-Atom">possibilities</span> <span class="s-Atom">contains</span> <span class="s-Atom">all</span> <span class="s-Atom">valid</span> <span class="s-Atom">continuations</span><span class="p">,</span> <span class="s-Atom">might</span> <span class="s-Atom">be</span>
+        <span class="s-Atom">#</span> <span class="s-Atom">nice</span> <span class="s-Atom">to</span> <span class="s-Atom">work</span> <span class="s-Atom">them</span> <span class="s-Atom">into</span> <span class="s-Atom">the</span> <span class="s-Atom">error</span> <span class="s-Atom">msg</span>
+        <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option --%s not a unique prefix&#39;</span> <span class="c1">% opt, opt)</span>
+    <span class="s-Atom">##</span> <span class="nv">Assert</span> <span class="o">is</span> <span class="s-Atom">clearly</span> <span class="o">not</span> <span class="s-Atom">necessary</span> <span class="s-Atom">because</span> <span class="s-Atom">we</span> <span class="s-Atom">checked</span> 
+    <span class="s-Atom">##</span> <span class="s-Atom">possibilities</span> <span class="o">==</span> <span class="m">0</span> <span class="s-Atom">and</span> <span class="s-Atom">possibilities</span> <span class="o">&gt;</span> <span class="m">1</span>
+    <span class="s-Atom">##</span> <span class="nv">Serves</span> <span class="s-Atom">as</span> <span class="s-Atom">a</span> <span class="s-Atom">clever</span> <span class="s-Atom">comment</span>
+    <span class="s-Atom">assert</span> <span class="nf">len</span><span class="p">(</span><span class="s-Atom">possibilities</span><span class="p">)</span> <span class="o">==</span> <span class="m">1</span>
+    <span class="s-Atom">unique_match</span> <span class="o">=</span> <span class="s-Atom">possibilities</span><span class="p">[</span><span class="m">0</span><span class="p">]</span>
+    <span class="s-Atom">has_arg</span> <span class="o">=</span> <span class="s-Atom">unique_match</span><span class="p">.</span><span class="nf">endswith</span><span class="p">(</span><span class="s-Atom">&#39;=&#39;</span><span class="p">)</span>
+    <span class="s-Atom">if</span> <span class="s-Atom">has_arg:</span>
+        <span class="s-Atom">unique_match</span> <span class="o">=</span> <span class="s-Atom">unique_match</span><span class="p">[:-</span><span class="m">1</span><span class="p">]</span>
+    <span class="s-Atom">return</span> <span class="s-Atom">has_arg</span><span class="p">,</span> <span class="s-Atom">unique_match</span>
+
+<span class="s-Atom">def</span> <span class="nf">do_shorts</span><span class="p">(</span><span class="s-Atom">opts</span><span class="p">,</span> <span class="s-Atom">optstring</span><span class="p">,</span> <span class="s-Atom">shortopts</span><span class="p">,</span> <span class="s-Atom">args</span><span class="p">)</span><span class="s-Atom">:</span>
+    <span class="s-Atom">##</span> <span class="s-Atom">optstring</span> <span class="o">is</span> <span class="s-Atom">a</span> <span class="s-Atom">short</span> <span class="s-Atom">argument</span> <span class="s-Atom">or</span> <span class="s-Atom">a</span> <span class="s-Atom">list</span> <span class="s-Atom">of</span> <span class="s-Atom">short</span> <span class="s-Atom">arguments</span> <span class="s-Atom">like</span>
+    <span class="s-Atom">##</span>  <span class="o">-</span><span class="s-Atom">abcd</span> <span class="s-Atom">with</span> <span class="s-Atom">the</span> <span class="s-Atom">&#39;-&#39;</span> <span class="s-Atom">prefix</span> <span class="s-Atom">removed</span>
+    <span class="s-Atom">##</span> <span class="nv">Process</span> <span class="s-Atom">the</span> <span class="s-Atom">whole</span> <span class="s-Atom">piece</span>
+    <span class="s-Atom">while</span> <span class="s-Atom">optstring</span> <span class="p">!</span><span class="o">=</span> <span class="s-Atom">&#39;&#39;:</span>
+        <span class="s-Atom">##</span> <span class="nv">Remove</span> <span class="s-Atom">the</span> <span class="s-Atom">first</span> <span class="s-Atom">letter</span> <span class="s-Atom">from</span> <span class="s-Atom">the</span> <span class="s-Atom">optstring</span>
+        <span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">optstring</span> <span class="o">=</span> <span class="s-Atom">optstring</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s-Atom">optstring</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">]</span>
+    <span class="s-Atom">##</span> <span class="nv">Check</span> <span class="s-Atom">if</span> <span class="s-Atom">opt</span> <span class="o">is</span> <span class="s-Atom">even</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span>
+        <span class="s-Atom">if</span> <span class="nf">short_has_arg</span><span class="p">(</span><span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">shortopts</span><span class="p">)</span><span class="s-Atom">:</span>
+    <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">the</span> <span class="s-Atom">optstring</span> <span class="o">is</span> <span class="s-Atom">followed</span> <span class="s-Atom">by</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span>
+            <span class="s-Atom">if</span> <span class="s-Atom">optstring</span> <span class="o">==</span> <span class="s-Atom">&#39;&#39;:</span>
+    <span class="s-Atom">##</span> <span class="nv">We</span> <span class="s-Atom">are</span> <span class="s-Atom">parsing</span> <span class="s-Atom">a</span> <span class="s-Atom">flag</span> <span class="s-Atom">with</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span>
+    <span class="s-Atom">##</span> <span class="nv">This</span> <span class="o">is</span> <span class="s-Atom">the</span> <span class="s-Atom">case</span> <span class="s-Atom">where</span> <span class="s-Atom">there</span> <span class="o">is</span> <span class="s-Atom">a</span> <span class="s-Atom">space</span> <span class="s-Atom">between</span> <span class="s-Atom">the</span> <span class="s-Atom">flag</span> 
+    <span class="s-Atom">##</span> <span class="s-Atom">and</span> <span class="s-Atom">the</span> <span class="s-Atom">argument</span> <span class="o">-</span> <span class="s-Atom">like</span> <span class="o">-</span><span class="s-Atom">o</span> <span class="s-Atom">out</span><span class="p">.</span><span class="s-Atom">txt</span>
+                <span class="s-Atom">if</span> <span class="o">not</span> <span class="nn">args</span><span class="p">:</span>
+                    <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option -%s requires argument&#39;</span> <span class="c1">% opt,</span>
+                                      <span class="s-Atom">opt</span><span class="p">)</span>
+    <span class="s-Atom">##</span> <span class="nv">Grab</span> <span class="s-Atom">the</span> <span class="s-Atom">subsequent</span> <span class="s-Atom">argument</span> <span class="s-Atom">right</span> <span class="s-Atom">after</span> <span class="s-Atom">this</span> <span class="s-Atom">flag</span> <span class="s-Atom">to</span> <span class="s-Atom">be</span> <span class="s-Atom">the</span> <span class="s-Atom">arg</span> <span class="s-Atom">to</span> <span class="s-Atom">the</span> <span class="s-Atom">flag</span>
+                <span class="s-Atom">optstring</span><span class="p">,</span> <span class="s-Atom">args</span> <span class="o">=</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">]</span>
+    <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">there</span> <span class="o">is</span> <span class="s-Atom">stuff</span> <span class="s-Atom">after</span> <span class="s-Atom">the</span> <span class="s-Atom">flag</span><span class="p">,</span> <span class="s-Atom">all</span> <span class="s-Atom">of</span> <span class="s-Atom">it</span> <span class="o">is</span> <span class="s-Atom">the</span> <span class="s-Atom">argument</span>
+            <span class="s-Atom">optarg</span><span class="p">,</span> <span class="s-Atom">optstring</span> <span class="o">=</span> <span class="s-Atom">optstring</span><span class="p">,</span> <span class="s-Atom">&#39;&#39;</span>
+        <span class="nn">else</span><span class="p">:</span>
+        <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">the</span> <span class="s-Atom">opstring</span> <span class="o">is</span> <span class="s-Atom">standalone</span> <span class="s-Atom">i</span><span class="p">.</span><span class="s-Atom">e</span> <span class="s-Atom">&#39;v&#39;</span> <span class="s-Atom">from</span> <span class="s-Atom">&#39;-v&#39;</span>
+            <span class="s-Atom">optarg</span> <span class="o">=</span> <span class="s-Atom">&#39;&#39;</span>
+        <span class="s-Atom">opts</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="s-Atom">&#39;-&#39;</span> <span class="o">+</span> <span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">optarg</span><span class="p">))</span>
+    <span class="s-Atom">return</span> <span class="s-Atom">opts</span><span class="p">,</span> <span class="s-Atom">args</span>
+
+<span class="s-Atom">def</span> <span class="nf">short_has_arg</span><span class="p">(</span><span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">shortopts</span><span class="p">)</span><span class="s-Atom">:</span>
+    <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    ## Check that opt exists and requires an arg</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="s-Atom">for</span> <span class="s-Atom">i</span> <span class="s-Atom">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="s-Atom">shortopts</span><span class="p">))</span><span class="s-Atom">:</span>
+        <span class="s-Atom">if</span> <span class="s-Atom">opt</span> <span class="o">==</span> <span class="s-Atom">shortopts</span><span class="p">[</span><span class="s-Atom">i</span><span class="p">]</span> <span class="p">!</span><span class="o">=</span> <span class="s-Atom">&#39;:&#39;:</span>
+            <span class="s-Atom">return</span> <span class="s-Atom">shortopts</span><span class="p">.</span><span class="nf">startswith</span><span class="p">(</span><span class="s-Atom">&#39;:&#39;</span><span class="p">,</span> <span class="s-Atom">i</span><span class="o">+</span><span class="m">1</span><span class="p">)</span>
+    <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option -%s not recognized&#39;</span> <span class="c1">% opt, opt)</span>
+
+<span class="s-Atom">if</span> <span class="k">__</span><span class="s-Atom">name__</span> <span class="o">==</span> <span class="s-Atom">&#39;__main__&#39;:</span>
+    <span class="s-Atom">import</span> <span class="s-Atom">sys</span>
+    <span class="s-Atom">print</span> <span class="nf">getopt</span><span class="p">(</span><span class="s-Atom">sys</span><span class="p">.</span><span class="s-Atom">argv</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">],</span> <span class="s2">&quot;a:b&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;alpha=&quot;</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">])</span>
+</pre></div> 
+	<a class="btn btn-mini xsmall" href="http://pythonpracticeprojects.com/getopt-case-study.html">
           <i class="icon-comment"></i> Comment </a>
 	<hr />
       </div>
       
     </div>
     
+
+ 
+        
+
+
+
+    <div class='row-fluid'>
+      <div class='article-title span9'> 
+        <a href="http://pythonpracticeprojects.com/how-to-read-source-code.html"><h1>Become A Better Programmer - How To Read Source Code</h1></a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>Sat 19 July 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="http://pythonpracticeprojects.com/category/blog.html">Blog</a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="http://pythonpracticeprojects.com/tag/practice.html">practice</a> <a href="http://pythonpracticeprojects.com/tag/reading.html">reading</a> <a href="http://pythonpracticeprojects.com/tag/command-line-parser.html">command-line-parser</a> </p>
+<p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="louiedinh">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</p>
+      </div>
+      <div class="summary span8">
+	<p>How to profitably read source code</p> 
+	<a class="btn btn-mini xsmall" href="http://pythonpracticeprojects.com/how-to-read-source-code.html">
+          <i class="icon-plus-sign"></i> Read More </a>
+	<hr />
+      </div>
+      
+    </div>
+      
 
  
         
