@@ -166,6 +166,7 @@ is written with #.</p>
 
     <span class="s-Atom">##</span> <span class="s-Atom">opts</span> <span class="s-Atom">holds</span> <span class="s-Atom">all</span> <span class="s-Atom">options</span> <span class="s-Atom">parsed</span> <span class="s-Atom">so</span> <span class="s-Atom">far</span>
     <span class="s-Atom">##</span> <span class="s-Atom">args</span> <span class="s-Atom">holds</span> <span class="s-Atom">all</span> <span class="s-Atom">unparsed</span> <span class="s-Atom">data</span>
+
     <span class="s-Atom">opts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="s-Atom">if</span> <span class="nf">type</span><span class="p">(</span><span class="s-Atom">longopts</span><span class="p">)</span> <span class="o">==</span> <span class="nf">type</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="s-Atom">:</span>
         <span class="s-Atom">longopts</span> <span class="o">=</span> <span class="p">[</span><span class="s-Atom">longopts</span><span class="p">]</span>
@@ -185,34 +186,46 @@ is written with #.</p>
     <span class="s-Atom">##</span> <span class="nv">Main</span> <span class="nn">steps</span><span class="p">:</span> <span class="nv">Consume</span> <span class="s-Atom">one</span> <span class="s-Atom">optional</span> <span class="s-Atom">parameter</span>
 
         <span class="s-Atom">if</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="o">==</span> <span class="s-Atom">&#39;--&#39;:</span>
+
     <span class="s-Atom">##</span> <span class="nv">Stop</span> <span class="s-Atom">at</span> <span class="s-Atom">&#39;--&#39;</span> <span class="s-Atom">but</span> <span class="nv">DON</span><span class="s-Atom">&#39;T include it in the returned arguments</span>
 <span class="s-Atom">    ## i.e &#39;</span><span class="o">-</span><span class="s-Atom">a</span> <span class="o">-</span><span class="s-Atom">b</span> <span class="s-Atom">--</span> <span class="s-Atom">c</span> <span class="s-Atom">d&#39; returns options=(a,b) and args=(c,d) </span>
 <span class="s-Atom">    ## if it was &#39;</span><span class="o">-</span><span class="s-Atom">a</span> <span class="o">-</span><span class="s-Atom">b</span> <span class="o">-</span> <span class="s-Atom">c</span> <span class="s-Atom">d&#39; you would get options=(a,b) args=(-, c, d)</span>
+
 <span class="s-Atom">        args = args[1:]</span>
 <span class="s-Atom">            break</span>
 <span class="s-Atom">        if args[0].startswith(&#39;--&#39;):</span>
+
 <span class="s-Atom">    ## handle &#39;--long_option&#39; case</span>
 <span class="s-Atom">    ## Strip off the &#39;--&#39; from the argument before passing it to do_longs</span>
+
 <span class="s-Atom">            opts, args = do_longs(opts, args[0][2:], longopts, args[1:])</span>
 <span class="s-Atom">        else:</span>
+
 <span class="s-Atom">    ## Handle &#39;</span><span class="o">-</span><span class="s-Atom">o&#39; case</span>
 <span class="s-Atom">    ## Pass in opts so far, first optional arg w/o the leading &#39;-&#39;,</span>
 <span class="s-Atom">    ##  handled shortopts, all other args</span>
+
 <span class="s-Atom">            opts, args = do_shorts(opts, args[0][1:], shortopts, args[1:])</span>
 
 <span class="s-Atom">    return opts, args</span>
 
 <span class="s-Atom">def do_longs(opts, opt, longopts, args):</span>
 <span class="s-Atom">    try:</span>
+
 <span class="s-Atom">    ## If = is in the argument, this opt should take an argument</span>
+
 <span class="s-Atom">        i = opt.index(&#39;=&#39;)</span>
 <span class="s-Atom">    except ValueError:</span>
+
 <span class="s-Atom">    ## No = means no argument</span>
+
 <span class="s-Atom">        optarg = None</span>
 <span class="s-Atom">    else:</span>
+
 <span class="s-Atom">    ## Split the argument into parts. opt is stuff before the &#39;=&#39; and </span>
 <span class="s-Atom">    ## optarg is stuff after the =.</span>
 <span class="s-Atom">    ## E.g opt=&quot;outfile=result.txt&quot; --&gt; opt = &quot;outfile&quot; optarg = &quot;result.txt&quot;</span>
+
 <span class="s-Atom">        opt, optarg = opt[:i], opt[i+1:]</span>
 
 <span class="s-Atom">    # Check that this specific opt should take an argument</span>
@@ -220,15 +233,23 @@ is written with #.</p>
 <span class="s-Atom">    if has_arg:</span>
 <span class="s-Atom">        if optarg is None:</span>
 <span class="s-Atom">            if not args:</span>
+
 <span class="s-Atom">    ## No more arguments after this long option.</span>
 <span class="s-Atom">    ##  We didn&#39;t</span> <span class="s-Atom">get</span> <span class="s-Atom">the</span> <span class="s-Atom">argument</span> <span class="s-Atom">we</span> <span class="s-Atom">expected</span>
+
                 <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option --%s requires argument&#39;</span> <span class="c1">% opt, opt)</span>
+
     <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">there</span> <span class="o">is</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span><span class="p">,</span> <span class="s-Atom">put</span> <span class="s-Atom">it</span> <span class="s-Atom">in</span> <span class="s-Atom">optarg</span> <span class="s-Atom">and</span> <span class="s-Atom">move</span> <span class="s-Atom">arg</span> <span class="s-Atom">forward</span>
+
             <span class="s-Atom">optarg</span><span class="p">,</span> <span class="s-Atom">args</span> <span class="o">=</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">]</span>
     <span class="s-Atom">elif</span> <span class="nn">optarg</span><span class="p">:</span>
+
     <span class="s-Atom">##</span> <span class="nv">Got</span> <span class="s-Atom">argument</span> <span class="s-Atom">when</span> <span class="s-Atom">we</span> <span class="s-Atom">didn&#39;t expect one</span>
+
 <span class="s-Atom">        raise GetoptError(&#39;option</span> <span class="s-Atom">--</span><span class="c1">%s must not have an argument&#39; % opt, opt)</span>
+
     <span class="s-Atom">##</span> <span class="nv">Append</span> <span class="s-Atom">in</span> <span class="s-Atom">optarg</span> <span class="s-Atom">with</span> <span class="s-Atom">appropriate</span> <span class="s-Atom">argument</span>
+
     <span class="s-Atom">opts</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="s-Atom">&#39;--&#39;</span> <span class="o">+</span> <span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">optarg</span> <span class="s-Atom">or</span> <span class="s-Atom">&#39;&#39;</span><span class="p">))</span>
     <span class="s-Atom">return</span> <span class="s-Atom">opts</span><span class="p">,</span> <span class="s-Atom">args</span>
 
@@ -236,8 +257,10 @@ is written with #.</p>
 <span class="s-Atom">#</span>   <span class="s-Atom">has_arg?</span>
 <span class="s-Atom">#</span>   <span class="s-Atom">full</span> <span class="s-Atom">option</span> <span class="s-Atom">name</span>
 <span class="s-Atom">def</span> <span class="nf">long_has_args</span><span class="p">(</span><span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">longopts</span><span class="p">)</span><span class="s-Atom">:</span>
+
     <span class="s-Atom">##</span> <span class="nv">Returns</span> <span class="nf">has_arg</span> <span class="p">(</span><span class="nv">True</span> <span class="p">|</span> <span class="nv">False</span><span class="p">)</span>
     <span class="s-Atom">##</span> <span class="nv">Returns</span> <span class="s-Atom">the</span> <span class="s-Atom">full</span> <span class="s-Atom">option</span> <span class="s-Atom">name</span> <span class="s-Atom">given</span> <span class="s-Atom">a</span> <span class="s-Atom">shorter</span> <span class="s-Atom">prefix</span>
+
     <span class="s-Atom">possibilities</span> <span class="o">=</span> <span class="p">[</span><span class="s-Atom">o</span> <span class="s-Atom">for</span> <span class="s-Atom">o</span> <span class="s-Atom">in</span> <span class="s-Atom">longopts</span> <span class="s-Atom">if</span> <span class="s-Atom">o</span><span class="p">.</span><span class="nf">startswith</span><span class="p">(</span><span class="s-Atom">opt</span><span class="p">)]</span>
     <span class="s-Atom">if</span> <span class="o">not</span> <span class="nn">possibilities</span><span class="p">:</span>
         <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option --%s not recognized&#39;</span> <span class="c1">% opt, opt)</span>
@@ -251,9 +274,11 @@ is written with #.</p>
         <span class="s-Atom">#</span> <span class="nv">XXX</span> <span class="s-Atom">since</span> <span class="s-Atom">possibilities</span> <span class="s-Atom">contains</span> <span class="s-Atom">all</span> <span class="s-Atom">valid</span> <span class="s-Atom">continuations</span><span class="p">,</span> <span class="s-Atom">might</span> <span class="s-Atom">be</span>
         <span class="s-Atom">#</span> <span class="s-Atom">nice</span> <span class="s-Atom">to</span> <span class="s-Atom">work</span> <span class="s-Atom">them</span> <span class="s-Atom">into</span> <span class="s-Atom">the</span> <span class="s-Atom">error</span> <span class="s-Atom">msg</span>
         <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option --%s not a unique prefix&#39;</span> <span class="c1">% opt, opt)</span>
+
     <span class="s-Atom">##</span> <span class="nv">Assert</span> <span class="o">is</span> <span class="s-Atom">clearly</span> <span class="o">not</span> <span class="s-Atom">necessary</span> <span class="s-Atom">because</span> <span class="s-Atom">we</span> <span class="s-Atom">checked</span> 
     <span class="s-Atom">##</span> <span class="s-Atom">possibilities</span> <span class="o">==</span> <span class="m">0</span> <span class="s-Atom">and</span> <span class="s-Atom">possibilities</span> <span class="o">&gt;</span> <span class="m">1</span>
     <span class="s-Atom">##</span> <span class="nv">Serves</span> <span class="s-Atom">as</span> <span class="s-Atom">a</span> <span class="s-Atom">clever</span> <span class="s-Atom">comment</span>
+
     <span class="s-Atom">assert</span> <span class="nf">len</span><span class="p">(</span><span class="s-Atom">possibilities</span><span class="p">)</span> <span class="o">==</span> <span class="m">1</span>
     <span class="s-Atom">unique_match</span> <span class="o">=</span> <span class="s-Atom">possibilities</span><span class="p">[</span><span class="m">0</span><span class="p">]</span>
     <span class="s-Atom">has_arg</span> <span class="o">=</span> <span class="s-Atom">unique_match</span><span class="p">.</span><span class="nf">endswith</span><span class="p">(</span><span class="s-Atom">&#39;=&#39;</span><span class="p">)</span>
@@ -262,28 +287,44 @@ is written with #.</p>
     <span class="s-Atom">return</span> <span class="s-Atom">has_arg</span><span class="p">,</span> <span class="s-Atom">unique_match</span>
 
 <span class="s-Atom">def</span> <span class="nf">do_shorts</span><span class="p">(</span><span class="s-Atom">opts</span><span class="p">,</span> <span class="s-Atom">optstring</span><span class="p">,</span> <span class="s-Atom">shortopts</span><span class="p">,</span> <span class="s-Atom">args</span><span class="p">)</span><span class="s-Atom">:</span>
+
     <span class="s-Atom">##</span> <span class="s-Atom">optstring</span> <span class="o">is</span> <span class="s-Atom">a</span> <span class="s-Atom">short</span> <span class="s-Atom">argument</span> <span class="s-Atom">or</span> <span class="s-Atom">a</span> <span class="s-Atom">list</span> <span class="s-Atom">of</span> <span class="s-Atom">short</span> <span class="s-Atom">arguments</span> <span class="s-Atom">like</span>
     <span class="s-Atom">##</span>  <span class="o">-</span><span class="s-Atom">abcd</span> <span class="s-Atom">with</span> <span class="s-Atom">the</span> <span class="s-Atom">&#39;-&#39;</span> <span class="s-Atom">prefix</span> <span class="s-Atom">removed</span>
     <span class="s-Atom">##</span> <span class="nv">Process</span> <span class="s-Atom">the</span> <span class="s-Atom">whole</span> <span class="s-Atom">piece</span>
+
     <span class="s-Atom">while</span> <span class="s-Atom">optstring</span> <span class="p">!</span><span class="o">=</span> <span class="s-Atom">&#39;&#39;:</span>
+
         <span class="s-Atom">##</span> <span class="nv">Remove</span> <span class="s-Atom">the</span> <span class="s-Atom">first</span> <span class="s-Atom">letter</span> <span class="s-Atom">from</span> <span class="s-Atom">the</span> <span class="s-Atom">optstring</span>
+
         <span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">optstring</span> <span class="o">=</span> <span class="s-Atom">optstring</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s-Atom">optstring</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">]</span>
+
     <span class="s-Atom">##</span> <span class="nv">Check</span> <span class="s-Atom">if</span> <span class="s-Atom">opt</span> <span class="o">is</span> <span class="s-Atom">even</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span>
+
         <span class="s-Atom">if</span> <span class="nf">short_has_arg</span><span class="p">(</span><span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">shortopts</span><span class="p">)</span><span class="s-Atom">:</span>
+
     <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">the</span> <span class="s-Atom">optstring</span> <span class="o">is</span> <span class="s-Atom">followed</span> <span class="s-Atom">by</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span>
+
             <span class="s-Atom">if</span> <span class="s-Atom">optstring</span> <span class="o">==</span> <span class="s-Atom">&#39;&#39;:</span>
+
     <span class="s-Atom">##</span> <span class="nv">We</span> <span class="s-Atom">are</span> <span class="s-Atom">parsing</span> <span class="s-Atom">a</span> <span class="s-Atom">flag</span> <span class="s-Atom">with</span> <span class="s-Atom">an</span> <span class="s-Atom">argument</span>
     <span class="s-Atom">##</span> <span class="nv">This</span> <span class="o">is</span> <span class="s-Atom">the</span> <span class="s-Atom">case</span> <span class="s-Atom">where</span> <span class="s-Atom">there</span> <span class="o">is</span> <span class="s-Atom">a</span> <span class="s-Atom">space</span> <span class="s-Atom">between</span> <span class="s-Atom">the</span> <span class="s-Atom">flag</span> 
     <span class="s-Atom">##</span> <span class="s-Atom">and</span> <span class="s-Atom">the</span> <span class="s-Atom">argument</span> <span class="o">-</span> <span class="s-Atom">like</span> <span class="o">-</span><span class="s-Atom">o</span> <span class="s-Atom">out</span><span class="p">.</span><span class="s-Atom">txt</span>
+
                 <span class="s-Atom">if</span> <span class="o">not</span> <span class="nn">args</span><span class="p">:</span>
                     <span class="s-Atom">raise</span> <span class="nv">GetoptError</span><span class="p">(</span><span class="s-Atom">&#39;option -%s requires argument&#39;</span> <span class="c1">% opt,</span>
                                       <span class="s-Atom">opt</span><span class="p">)</span>
+
     <span class="s-Atom">##</span> <span class="nv">Grab</span> <span class="s-Atom">the</span> <span class="s-Atom">subsequent</span> <span class="s-Atom">argument</span> <span class="s-Atom">right</span> <span class="s-Atom">after</span> <span class="s-Atom">this</span> <span class="s-Atom">flag</span> <span class="s-Atom">to</span> <span class="s-Atom">be</span> <span class="s-Atom">the</span> <span class="s-Atom">arg</span> <span class="s-Atom">to</span> <span class="s-Atom">the</span> <span class="s-Atom">flag</span>
+
                 <span class="s-Atom">optstring</span><span class="p">,</span> <span class="s-Atom">args</span> <span class="o">=</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s-Atom">args</span><span class="p">[</span><span class="m">1</span><span class="s-Atom">:</span><span class="p">]</span>
+
     <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">there</span> <span class="o">is</span> <span class="s-Atom">stuff</span> <span class="s-Atom">after</span> <span class="s-Atom">the</span> <span class="s-Atom">flag</span><span class="p">,</span> <span class="s-Atom">all</span> <span class="s-Atom">of</span> <span class="s-Atom">it</span> <span class="o">is</span> <span class="s-Atom">the</span> <span class="s-Atom">argument</span>
+
             <span class="s-Atom">optarg</span><span class="p">,</span> <span class="s-Atom">optstring</span> <span class="o">=</span> <span class="s-Atom">optstring</span><span class="p">,</span> <span class="s-Atom">&#39;&#39;</span>
         <span class="nn">else</span><span class="p">:</span>
+
         <span class="s-Atom">##</span> <span class="nv">If</span> <span class="s-Atom">the</span> <span class="s-Atom">opstring</span> <span class="o">is</span> <span class="s-Atom">standalone</span> <span class="s-Atom">i</span><span class="p">.</span><span class="s-Atom">e</span> <span class="s-Atom">&#39;v&#39;</span> <span class="s-Atom">from</span> <span class="s-Atom">&#39;-v&#39;</span>
+
             <span class="s-Atom">optarg</span> <span class="o">=</span> <span class="s-Atom">&#39;&#39;</span>
         <span class="s-Atom">opts</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="s-Atom">&#39;-&#39;</span> <span class="o">+</span> <span class="s-Atom">opt</span><span class="p">,</span> <span class="s-Atom">optarg</span><span class="p">))</span>
     <span class="s-Atom">return</span> <span class="s-Atom">opts</span><span class="p">,</span> <span class="s-Atom">args</span>
