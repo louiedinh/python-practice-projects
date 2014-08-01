@@ -105,7 +105,8 @@ is written with #.
             ## We are in something like -a -b x -c --ef - <positional> <positional>
             ## This loop instantly stops at the - or any none flagged (starts with a -) argument
             ## Loop Invariant: All options seen have been successfully parsed and stored in opts.
-            ## Exit Condition: Either no arguments left (arg is empty) or next argument to be parsed is either a positional, '-', or '--' argument 
+            ## Exit Condition: Either no arguments left (arg is empty) or next argument to be 
+            ##                 parsed is either a positional, '-', or '--' argument 
             ## Main steps: Consume one optional parameter
 
             if args[0] == '--':
@@ -120,7 +121,8 @@ is written with #.
                 opts, args = do_longs(opts, args[0][2:], longopts, args[1:])
             else:
                 ## Handle '-o' case
-                ## Pass in opts so far, first optional arg w/o the leading '-', handled shortopts, all other args
+                ## Pass in opts so far, first optional arg w/o the leading '-',
+                ##  handled shortopts, all other args
                 opts, args = do_shorts(opts, args[0][1:], shortopts, args[1:])
 
         return opts, args
@@ -133,7 +135,8 @@ is written with #.
             ## No = means no argument
             optarg = None
         else:
-            ## Split the argument into parts. opt is stuff before the '=' and optarg is stuff after the =
+            ## Split the argument into parts. opt is stuff before the '=' and 
+            ## optarg is stuff after the =.
             ## E.g opt="outfile=result.txt" --> opt = "outfile" optarg = "result.txt"
             opt, optarg = opt[:i], opt[i+1:]
 
@@ -142,7 +145,8 @@ is written with #.
         if has_arg:
             if optarg is None:
                 if not args:
-                    ## No more arguments after this long option. We didn't get the argument we expected
+                    ## No more arguments after this long option.
+                    ##  We didn't get the argument we expected
                     raise GetoptError('option --%s requires argument' % opt, opt)
                 ## If there is an argument, put it in optarg and move arg forward
                 optarg, args = args[0], args[1:]
@@ -172,7 +176,8 @@ is written with #.
             # XXX since possibilities contains all valid continuations, might be
             # nice to work them into the error msg
             raise GetoptError('option --%s not a unique prefix' % opt, opt)
-        ## Assert is clearly not necessary because we checked possibilities == 0 and possibilities > 1
+        ## Assert is clearly not necessary because we checked 
+        ## possibilities == 0 and possibilities > 1
         ## Serves as a clever comment
         assert len(possibilities) == 1
         unique_match = possibilities[0]
@@ -182,7 +187,8 @@ is written with #.
         return has_arg, unique_match
 
     def do_shorts(opts, optstring, shortopts, args):
-        ## optstring is a short argument or a list of short arguments like -abcd with the '-' prefix removed
+        ## optstring is a short argument or a list of short arguments like
+        ##  -abcd with the '-' prefix removed
         ## Process the whole piece
         while optstring != '':
             ## Remove the first letter from the optstring
@@ -192,7 +198,8 @@ is written with #.
             ## If the optstring is followed by an argument
                 if optstring == '':
                     ## We are parsing a flag with an argument
-                    ## This is the case where there is a space between the flag and the argument - like -o out.txt
+                    ## This is the case where there is a space between the flag 
+                    ## and the argument - like -o out.txt
                     if not args:
                         raise GetoptError('option -%s requires argument' % opt,
                                           opt)
