@@ -64,7 +64,7 @@
 <p>Any serious attempt at studying the art of computer programming must include a component on programming languages. Code is 
 a programmer's raw material, like paint to an artist or words to a writer. Starting out, we all tend to see a programming language
 as a set of directives that can be used to manipulate data. Code lives in one world and data another.  This is a limit that holds you
-back from really jumping down the computation rabbit hole. The best way, that I've found, to get really understand the idea 
+back from really jumping down the computation rabbit hole. The best way, that I've found, to really understand the idea 
 "code is data" is to implement your own interpreter.</p>
 <p>This project is focused on producing a Lisp interpreter, more specifically a Scheme interpreter. You may be wondering, why are we writing 
 an interpreter for an outdated AI language? Lisp is a good project because the syntax is exceedingly simple. There is one main
@@ -183,7 +183,7 @@ about to pass in, just give me back the symbols exactly as I typed them".</p>
 
 <p>The little ', is Lisp's way of saying that everything that follows is a symbol.</p>
 <p><strong>cons</strong>, <strong>car</strong> and <strong>cdr</strong> go together. Cons is like a piece of velcro, it sticks two things together.
-Car let's to get back the first piece and cdr lets you get the second piece.</p>
+Car let's you get back the first piece and cdr lets you get the second piece.</p>
 <div class="highlight"><pre><span class="p">(</span><span class="n">define</span> <span class="n">box</span> <span class="p">(</span><span class="n">cons</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
 <span class="p">(</span><span class="n">car</span> <span class="n">box</span><span class="p">)</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="mi">3</span>
 <span class="p">(</span><span class="n">cdr</span> <span class="n">box</span><span class="p">)</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="mi">4</span>
