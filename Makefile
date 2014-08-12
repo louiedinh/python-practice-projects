@@ -44,6 +44,9 @@ help:
 book: 
 	$(BASEDIR)/scripts/generate_book.sh
 
+sample_chapter:
+	$(BASEDIR)/scripts/generate_sample_chapter.sh
+
 html: clean $(OUTPUTDIR)/index.html
 
 $(OUTPUTDIR)/%.html:

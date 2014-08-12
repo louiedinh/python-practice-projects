@@ -1,4 +1,4 @@
-Title: Python Programming and Deliberate Practice
+Title: Python Practice Projects - Ideas for the Aspiring Developer
 Date: 2013-08-18
 Category:
 Tags: meta
