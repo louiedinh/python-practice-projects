@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 input_filenames=""
 for chapter in `cat book/chapters.txt`
@@ -9,4 +9,5 @@ done
 # -f for from, -s for smart, -o for out, --chapters to set top level headers to chapters, -V to set equal margins.
 cat $input_filenames \
     | grep -i -v "^title:\|^date:\|category:\|^tags:\|^slug:\|^author:\|^summary:" \
-    | pandoc -s -f markdown_mmd -o book-output/book.pdf --chapters --toc -V geometry:margin=1.5in
+    | pandoc -s -f markdown_mmd -o book-output/book.pdf --include-before-body=book/title-page.tex --chapters --toc -V geometry:margin=1.5in
+
