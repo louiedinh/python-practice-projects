@@ -24,11 +24,22 @@ As the player, your only interaction is to set the initial configuration of the 
 After you hit the start button, you can just sit back and watch how the cute little
 cells evolve into colonies or go extinct.
 
-Here are a few especially notable patterns that arise.
+Notable Patterns
+----------------
 
-[Glider](http://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif)- a colony of cells that crawls across the screen:
-[Loaf](http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Game_of_life_loaf.svg/98px-Game_of_life_loaf.svg.png) - a stable pattern, looks a bit like bread I guess.
-[Pulsar](http://upload.wikimedia.org/wikipedia/commons/0/07/Game_of_life_pulsar.gif) - A complex repeating pattern that will continue indefinitely when left alone.
+Here are two examples of patterns that arise naturally:
+
+_Loaf_
+
+![Loaf](http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Game_of_life_loaf.svg/98px-Game_of_life_loaf.svg.png)
+
+A stable pattern, looks a bit like bread I guess.
+
+_Glider_
+
+![Glider](http://upload.wikimedia.org/wikipedia/commons/7/79/Glider.png)
+
+A colony of cells that crawls across the screen:
 
 Dependencies
 -----------

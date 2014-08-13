@@ -8,3 +8,4 @@ static-site-generator.md
 templating-engine.md
 http-library.md
 farewell.md
+acknowledgements.md
