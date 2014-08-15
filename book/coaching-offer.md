@@ -27,9 +27,9 @@ with me to help bust through any issues that come up.
 
 Like all accellerated learning, it's going to be a bit uncomfortable. You will be pushed beyond your comfort zone, but in the end you'll be amazed at how much ground you've covered. 
 
-Just email me at louie@pythonpracticeprojects.com with the subject "PRIVATE COACHING PLZ!"
+Just email me at louie@pythonpracticeprojects.com with the subject "PRIVATE COACHING REQUEST!"
 
-If you're worried about committment, don't. It's on a per-project basis so you can stop at anytime.
+Don't worry about commitment. I'm flexible with either per iteration, per project or the whole shebang; whatever works best for you.
 
 
 

@@ -34,7 +34,4 @@ Everything Else
 
 Finally, I'd like to thank the people who didn't directly help with this book but kept me sane and healthy throughout.
 
-Thanks Mom, Dad, Sis and Crystal
-
-
-
+Thanks Mom, Dad, Sis and LB.
