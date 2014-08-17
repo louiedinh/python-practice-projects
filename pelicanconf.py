@@ -47,6 +47,7 @@ ARTICLE_EXCLUDES = ('pages', 'drafts')
 
 EMAIL_SUBSCRIBE_URL = "http://www.eepurl.com/FnX4f"
 FORUMS_URL = "http://discourse.pythonpracticeprojects.com"
+BUY_URL = "https://gumroad.com/l/cSIzC"
 
 SITE_META_DESCRIPTION = "Programming practice projects designed to take your Python coding chops to the next level"
 
