@@ -6,16 +6,6 @@ Slug: index
 Author: Louie Dinh
 Summary: Programming projects ideas for learning Python.
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- right-sidebar -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-6524222051535978"
-     data-ad-slot="3460006440"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 A craft cannot be learned by reading alone; practice is also necessary.
 To learn best, you need a well-defined task at an appropriate
 level of difficulty. Python Practice Projects is such a collection of problems,
