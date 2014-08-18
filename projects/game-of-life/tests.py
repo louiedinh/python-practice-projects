@@ -1,6 +1,7 @@
 import unittest
 
 from game_of_life import *
+from datastructures import Point
 
 class BoardTestCase(unittest.TestCase):
 

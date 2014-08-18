@@ -1,15 +1,26 @@
+########################################
+# Game Of Life
+# 
+# Copyright 2014 by Louie Dinh. 
+#
+# Licensed under Creative Commons non-commercial attribution. 
+# Some rights reserved. See LICENSE for full details.
+########################################
+
 """
-TODOS:
-    - Add a status bar the bottom to show mode
-    - Add a draw screen function to print out statistics
-    - Think of a better way to save/restore cursor
+This is the nerve center of the game. This piece
+holds a reference to the board which knows the rules of the game,
+holds a reference to the screen which knows how to draw the game,
+and does the main loop of retrieving user input and propagating it
+to the appropriate places.
 """
+
 
 import curses
 
 from board import Board
 from screen import Screen
-from datastructures import Point, Vector
+from datastructures import Vector
 
 
 class Command:
@@ -24,7 +35,7 @@ class Command:
     RECORD_MODE = 'r'
     REPLAY_MODE = 'e'
 
-    INSERT_CELL= 'c'
+    INSERT_CELL = 'c'
     DELETE_CELL = 'x'
     QUIT = 'q'
     STEP = ' '
@@ -47,7 +58,12 @@ class Command:
         else:
             raise ValueError("{} does not map to a transformation".format(key))
 
+
 class Mode:
+    """
+    Base class for the Mode.
+    This indicates the current interaction mode of the game.
+    """
     INSERT = 1
     NORMAL = 2
     PAN = 3
@@ -55,9 +71,20 @@ class Mode:
     REPLAY = 5
 
     def get_code(self):
+        """
+        Subclassed to indicate the mode.
+        This saves us from checking against 
+        the type of the current mode.
+        """
         pass
 
+
 class InsertMode(Mode):
+    """
+    In this mode, the cursor constantly drops little
+    cells as it moves to simplify creation of initial
+    patterns.
+    """
     def get_code(self):
         return 1
 
@@ -67,7 +94,12 @@ class InsertMode(Mode):
             gol.add_cell(gol.screen.cursor_position)
             gol.screen.move_cursor(row_delta=transform.row, col_delta=transform.col)
 
+
 class NormalMode(Mode):
+    """
+    Our normal interactive mode. Allows moving around
+    with cursor, inserting cells and stepping generations.
+    """
     def get_code(self):
         return 2
 
@@ -78,7 +110,13 @@ class NormalMode(Mode):
         elif input_key == Command.STEP:
             gol.step()
 
+
 class PanMode(Mode):
+    """
+    The cursor can no longe insert cells.
+    It now allows you to scroll around the world
+    to look at the off-screen colonies.
+    """
     def get_code(self):
         return 3
 
@@ -88,7 +126,12 @@ class PanMode(Mode):
             gol.screen.move_origin(transform.row, transform.col)
             gol.refresh_screen()
 
+
 class RecordMode(Mode):
+    """
+    Starts recording everything that shows up on the screen
+    so we can do a replay.
+    """
     def get_code(self):
         return 4
 
@@ -101,6 +144,9 @@ class RecordMode(Mode):
             gol.screen.move_cursor(row_delta=transform.row, col_delta=transform.col)
 
 class ReplayMode(Mode):
+    """
+    Just starts the playback of an old recorded session made in RecordMode.
+    """
     def get_code(self):
         return 5
 

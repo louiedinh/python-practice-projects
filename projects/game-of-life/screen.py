@@ -1,3 +1,15 @@
+"""
+This file provides the screen management.
+
+It is a simple wrapper around the curses library and 
+conceptualizes the concepts of moving the cursor,
+adding a cell and removing cells. 
+
+Notice how this is purely concerned with the drawing of images. 
+It has no idea what the rules of the game are, and no idea how the
+user is interacting with the game.
+"""
+
 import curses
 
 from datastructures import Point
