@@ -18,14 +18,14 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
          list-style-type: none;
          padding: 0px; margin: 0px;
      }
-     #shelf {
+     .shelf {
          width: 600px;
      }
-     #shelf li, #shelf li img {
+     .shelf li, .shelf li img {
          height: 168px;
          width: 128px;
      }
-     #shelf li {
+     .shelf li {
          float: left;
          padding: 0 25px;
          margin: 15px 0;
@@ -43,7 +43,7 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 
 &lt;h2&gt; Joel Spolsky&lt;/h2&gt;
 
-&lt;ul id='shelf'&gt;
+&lt;ul class='shelf'&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Peopleware'&gt;&lt;img src='http://bks9.books.google.com/books?id=TVQUAAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='Peopleware'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Rapid Development'&gt;&lt;img src='http://bks6.books.google.com/books?id=nbrae6-9XWAC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='Rapid Development'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Code Complete'&gt;&lt;img src='http://bks1.books.google.com/books?id=3JfE7TGUwvgC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;source=gbs_api' alt='Code Complete'&gt;&lt;/a&gt;&lt;/li&gt;
@@ -55,7 +55,7 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 
 &lt;h2&gt;Steve Yegge&lt;/h2&gt;
 
-&lt;ul id='shelf'&gt;
+&lt;ul class='shelf'&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=The Pragmatic Programmer'&gt;&lt;img src='http://bks2.books.google.com/books?id=5wBQEp6ruIAC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='The Pragmatic Programmer'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Refactoring'&gt;&lt;img src='http://bks1.books.google.com/books?id=HmrDHwgkbPsC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='Refactoring'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Design Patterns'&gt;&lt;img src='http://bks7.books.google.com/books?id=6oHuKQe3TjQC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='Design Patterns'&gt;&lt;/a&gt;&lt;/li&gt;
@@ -70,7 +70,7 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 
 &lt;h2&gt;Scott Hanselman&lt;/h2&gt;
 
-&lt;ul id='shelf'&gt;
+&lt;ul class='shelf'&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Code Complete'&gt;&lt;img src='http://bks1.books.google.com/books?id=3JfE7TGUwvgC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;source=gbs_api' alt='Code Complete'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=The Pragmatic Programmer'&gt;&lt;img src='http://bks2.books.google.com/books?id=5wBQEp6ruIAC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='The Pragmatic Programmer'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Programming Pearls'&gt;&lt;img src='http://bks7.books.google.com/books?id=kse_7qbWbjsC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='Programming Pearls'&gt;&lt;/a&gt;&lt;/li&gt;
@@ -82,7 +82,7 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 
 &lt;h2&gt;Stack Overflow Community&lt;/h2&gt;
 
-&lt;ul id='shelf'&gt;
+&lt;ul class='shelf'&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Code Complete'&gt;&lt;img src='http://bks1.books.google.com/books?id=3JfE7TGUwvgC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;source=gbs_api' alt='Code Complete'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=The Pragmatic Programmer'&gt;&lt;img src='http://bks2.books.google.com/books?id=5wBQEp6ruIAC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='The Pragmatic Programmer'&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Structure and Interpretation of Computer Programs'&gt;&lt;img src='http://bks7.books.google.com/books?id=6QOXQgAACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;source=gbs_api' alt='Structure and Interpretation of Computer Programs'&gt;&lt;/a&gt;&lt;/li&gt;
