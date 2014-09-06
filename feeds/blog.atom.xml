@@ -12,7 +12,9 @@ If the same choice was offered, except this time it's $50 and you have to read, 
 &lt;p&gt;Studying a great book is like being taken under the wings of a great mentor. Many great programmers, with centuries of experience between them, chose to distill their 
 wisdom into portable, if slightly water sensitive, packages for your reading pleasure. Why would you &lt;em&gt;not&lt;/em&gt; feast on this buffet of collected knowledge? &lt;/p&gt;
 &lt;p&gt;Here are the recommendations of some top programmers in the field. Take special notice of how some books keep coming up over and over again.&lt;/p&gt;
-&lt;p&gt;Also, thanks to Bob Belderbos for building this amazing visualization and Brain Pickings for the inspiring the design. &lt;/p&gt;
+&lt;p&gt;Thanks to &lt;a href="http://bobbelderbos.com"&gt;Bob Belderbos&lt;/a&gt; for building this amazing visualization and Brain Pickings for the inspiring the design. &lt;/p&gt;
+&lt;h2&gt; Joel Spolsky&lt;/h2&gt;
+
 &lt;style&gt;
      ul {
          list-style-type: none;
@@ -40,8 +42,6 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 &lt;div class="highlight"&gt;&lt;pre&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;h2&gt; Joel Spolsky&lt;/h2&gt;
 
 &lt;ul class='shelf'&gt;
 &lt;li&gt;&lt;a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&amp;field-title=Peopleware'&gt;&lt;img src='http://bks9.books.google.com/books?id=TVQUAAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api' alt='Peopleware'&gt;&lt;/a&gt;&lt;/li&gt;
