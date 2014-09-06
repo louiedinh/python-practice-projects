@@ -80,11 +80,14 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 
 &lt;p class="clear" style="clear: both;"&gt;&lt;/p&gt;
 
-&lt;h3&gt;Which mentor are you going to buy off Amazon?&lt;/h3&gt;
+&lt;h1&gt;Which mentor are you going to buy off Amazon?&lt;/h1&gt;
+&lt;p&gt;Obviously, reading is not going to make you a master programmer. To become proficient, you need practice and a whole truckload of it too. However, books are still
+one of the best ways to learn about what you don't know about what you don't know. If you have any other great recommendations, I would love to hear about them.
+You can reach me at louie @ [this website's domain]. Until then, happy reading!&lt;/p&gt;
+&lt;h3&gt;If you enjoyed this post, please share it with your friends:&lt;h3&gt;
 
-&lt;p&gt;If you enjoyed this post, please share it with your friends:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pythonpracticeprojects.com/programmer-bookshelves.html" data-text="Want a Programming Mentor? Trying Reading A Book Instead" data-via="louiedinh"&gt;Tweet&lt;/a&gt;
-&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');&lt;/script&gt;&lt;/p&gt;</summary><category term="learning"></category></entry><entry><title>Getopt - A Case Study in Reading Source</title><link href="http://pythonpracticeprojects.com/getopt-case-study.html" rel="alternate"></link><updated>2014-07-19T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2014-07-19:getopt-case-study.html</id><summary type="html">&lt;p&gt;To get better at reading source code, you just have to do it more often.&lt;/p&gt;
+&lt;a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pythonpracticeprojects.com/programmer-bookshelves.html" data-text="Want a Programming Mentor? Trying Reading A Book Instead" data-via="louiedinh"&gt;Tweet&lt;/a&gt;
+&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');&lt;/script&gt;</summary><category term="learning"></category></entry><entry><title>Getopt - A Case Study in Reading Source</title><link href="http://pythonpracticeprojects.com/getopt-case-study.html" rel="alternate"></link><updated>2014-07-19T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2014-07-19:getopt-case-study.html</id><summary type="html">&lt;p&gt;To get better at reading source code, you just have to do it more often.&lt;/p&gt;
 &lt;p&gt;Here is an example annotation that I did while reading the source
 for getopt, a deprecated Python Standard Library module. Despite
 the simplicity, I picked up a few golden stylistic tips and abstraction
