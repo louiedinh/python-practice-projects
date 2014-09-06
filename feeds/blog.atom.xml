@@ -78,7 +78,11 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 &lt;/ul&gt;
 &lt;/p&gt;
 
-&lt;p class="clear" style="clear: both;"&gt;&lt;/p&gt;</summary><category term="learning"></category></entry><entry><title>Getopt - A Case Study in Reading Source</title><link href="http://pythonpracticeprojects.com/getopt-case-study.html" rel="alternate"></link><updated>2014-07-19T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2014-07-19:getopt-case-study.html</id><summary type="html">&lt;p&gt;To get better at reading source code, you just have to do it more often.&lt;/p&gt;
+&lt;p class="clear" style="clear: both;"&gt;&lt;/p&gt;
+
+&lt;h3&gt;Which mentor are you going to buy off Amazon?&lt;/h3&gt;
+
+&lt;p&gt;If you enjoyed this post, please share it with your friends.&lt;/p&gt;</summary><category term="learning"></category></entry><entry><title>Getopt - A Case Study in Reading Source</title><link href="http://pythonpracticeprojects.com/getopt-case-study.html" rel="alternate"></link><updated>2014-07-19T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2014-07-19:getopt-case-study.html</id><summary type="html">&lt;p&gt;To get better at reading source code, you just have to do it more often.&lt;/p&gt;
 &lt;p&gt;Here is an example annotation that I did while reading the source
 for getopt, a deprecated Python Standard Library module. Despite
 the simplicity, I picked up a few golden stylistic tips and abstraction
