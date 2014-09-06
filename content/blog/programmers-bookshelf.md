@@ -83,3 +83,22 @@ Thanks to [Bob Belderbos](http://bobbelderbos.com) for building this amazing boo
 <li style="height: 168px;width: 128px;float: left;padding: 0 25px;margin: 15px 0;border-bottom: 12px solid black;"><a href="http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Mythical Man-Month, Anniversary Edition"><img src="http://bks4.books.google.com/books?id=Yq35BY5Fk3gC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="The Mythical Man-Month, Anniversary Edition" style="height: 168px;width: 128px;"></a></li>
 </ul>
 </p><p class="clear" style="clear: both;"></p>
+
+<br><br>
+
+Which mentor are you going to buy off Amazon?
+=============================================
+
+Obviously, reading is not going to make you a master programmer. To become proficient, you need practice and a whole truckload of it too. However, books are still
+one of the best ways to learn the "Don't know that you don't know". If you have any other great recommendations, I would love to hear about them.
+You can reach me at louie @ [this website's domain]. Until then, happy reading!
+
+*If you enjoyed this post, share it with your friends! Because sharing is caring =]*
+
+References
+==========
+
+* [Joel Spolsky](http://www.joelonsoftware.com/navlinks/fog0000000262.html)
+* [Steve Yegge](https://sites.google.com/site/steveyegge2/ten-great-books)
+* [Scott Hanselman](http://www.hanselman.com/blog/SixEssentialLanguageAgnosticProgrammingBooks.aspx)
+* [Stack Overflow](http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read)
