@@ -9,8 +9,8 @@ Summary: Book Recommendations of Highly Regarded Programmers
     “In my whole life, I have known no wise people who didn't read all the time -- none, zero."
     - Charlie Munger
 
-As technologists surrounded by the latest and greatest, we tend to overlook one of the most important technologies of human history: the humble book. I'm not sure if it's
-just sampling bias, but readers are sparse in my programming circles. IMHO, it's a bit of a waste because books offer one of the greatest opportunities to increase your
+As technologists surrounded by the laptops and iPhones, we tend to overlook one of the most important technologies of human history: the humble book. I'm not sure if it's
+sampling bias, but readers are sparse in my programming circles. IMHO, it's a bit of a waste because books offer one of the greatest opportunities to increase your
 skills by leaps and bounds.
 
 If someone asked you, "Would you pay $5,000 for one of the world's greatest programmers to be your mentor for the next three months?", what would you say? Probably "Hell Yeah!". 
@@ -21,7 +21,7 @@ wisdom into portable, if slightly water sensitive, packages for your reading ple
 
 Here are the recommendations of some top programmers in the field. Take special notice of how some books keep coming up over and over again.
 
-Thanks to [Bob Belderbos](http://bobbelderbos.com) for building this amazing visualization and Brain Pickings for the inspiring the design. 
+Thanks to [Bob Belderbos](http://bobbelderbos.com) for building this amazing bookshelf visualization.
 
 <div style="margin: 50px 50px 15px 50px;">
 <h2 style="text-align: center">Joel Spolsky</h2>
