@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bookshelves of Famous Programmers</title>
+    <meta name="description" content="Programming practice projects designed to take your Python coding chops to the next level">
+    <meta name="author" content="Louie Dinh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://pythonpracticeprojects.com/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- start Mixpanel -->
+    <script type="text/javascript">
+        (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+        mixpanel.init("f648b3a9798e7c489b48fb616f33abfe");
+
+        mixpanel.track("Page Visit!");
+    </script>
+
+    <!-- end Mixpanel -->
+
+    <!-- Le styles -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="http://pythonpracticeprojects.com/theme/local.css" rel="stylesheet">
+    <link href="http://pythonpracticeprojects.com/theme/pygments.css" rel="stylesheet">
+    <link href="http://pythonpracticeprojects.com/theme/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<header class="blog-header">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span8">
+	<a href="http://pythonpracticeprojects.com" class="brand">Python Practice Projects</a>
+      </div>
+
+      <div class="span4" id="blog-nav">
+	<ul class="nav nav-pills pull-right">
+
+        <li><a href="http://discourse.pythonpracticeprojects.com">Discussion</a></li>
+       <li><a href="https://gumroad.com/l/cSIzC">Buy eBook</a></li>
+       <li><a href="http://pythonpracticeprojects.com">Projects</a></li>
+	    <li  class="active" >
+	      <a href="http://pythonpracticeprojects.com/category/.html "></a>
+        </li>
+	    <li >
+	      <a href="http://pythonpracticeprojects.com/category/blog.html ">Blog</a>
+        </li>
+	</ul>
+      </div>
+    </div> <!-- End of fluid row-->
+  </div>   <!-- End of Container-->
+</header>
+    
+<div class="container">
+    <div class="content">
+    <div class="row-fluid">
+
+        <div class="span10">
+    <div class='article'>
+      <div class="row-fluid">
+           <div class="content-title span9">
+             <h1>Bookshelves of Famous Programmers</h1b>
+           </div>
+      </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>Wed 04 September 2013 </p>
+
+<p style="text-align: left;">
+Filed under <a href="http://pythonpracticeprojects.com/category/.html"></a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="http://pythonpracticeprojects.com/tag/learning.html">learning</a> </p>
+<p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="louiedinh">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</p>
+      </div>
+      
+      <div class="span8">
+	<div class="highlight"><pre><span class="err">“</span><span class="n">In</span> <span class="n">my</span> <span class="n">whole</span> <span class="n">life</span><span class="p">,</span> <span class="n">I</span> <span class="n">have</span> <span class="n">known</span> <span class="n">no</span> <span class="n">wise</span> <span class="n">people</span> <span class="n">who</span> <span class="n">didn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">read</span> <span class="n">all</span> <span class="n">the</span> <span class="n">time</span> <span class="o">--</span> <span class="n">none</span><span class="p">,</span> <span class="n">zero</span><span class="p">.</span><span class="s">&quot;</span>
+<span class="o">-</span> <span class="n">Charlie</span> <span class="n">Munger</span>
+</pre></div>
+
+
+<p>As technologists surrounded by the latest and greatest, we tend to overlook one of the most important technologies of human history: the humble book. I'm not sure if it's
+just sampling bias, but readers are sparse in my programming circles. IMHO, it's a bit of a waste because books offer one of the greatest opportunities to increase your
+skills by leaps and bounds.</p>
+<p>If someone asked you, "Would you pay $5,000 for one of the world's greatest programmers to be your mentor for the next three months?", what would you say? Probably "Hell Yeah!". 
+If the same choice was offered, except this time it's $50 and you have to read, would you still agree? </p>
+<p>Studying a great book is like being taken under the wings of a great mentor. Many great programmers, with centuries of experience between them, chose to distill their 
+wisdom into portable, if slightly water sensitive, packages for your reading pleasure. Why would you <em>not</em> feast on this buffet of collected knowledge? </p>
+<p>Here are the recommendations of some top programmers in the field. Take special notice of how some books keep coming up over and over again.</p>
+<p>Also, thanks to Bob Belderbos for building this amazing visualization and Brain Pickings for the inspiring the design. </p>
+<style>
+     ul {
+         list-style-type: none;
+         padding: 0px; margin: 0px;
+     }
+     #shelf {
+         width: 600px;
+     }
+     #shelf li, #shelf li img {
+         height: 168px;
+         width: 128px;
+     }
+     #shelf li {
+         float: left;
+         padding: 0 25px;
+         margin: 15px 0;
+         border-bottom: 12px solid black;
+     }
+
+    p.clear {
+        clear:both;
+    }
+</style>
+
+<div class="highlight"><pre>
+</pre></div>
+
+
+<h2> Joel Spolsky</h2>
+
+<ul id='shelf'>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Peopleware'><img src='http://bks9.books.google.com/books?id=TVQUAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Peopleware'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Rapid Development'><img src='http://bks6.books.google.com/books?id=nbrae6-9XWAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Rapid Development'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Code Complete'><img src='http://bks1.books.google.com/books?id=3JfE7TGUwvgC&printsec=frontcover&img=1&zoom=1&source=gbs_api' alt='Code Complete'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Pragmatic Programmer'><img src='http://bks2.books.google.com/books?id=5wBQEp6ruIAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Pragmatic Programmer'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Mythical Man-Month, Anniversary Edition'><img src='http://bks4.books.google.com/books?id=Yq35BY5Fk3gC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Mythical Man-Month, Anniversary Edition'></a></li>
+</ul>
+
+<p class="clear">
+
+<h2>Steve Yegge</h2>
+
+<ul id='shelf'>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Pragmatic Programmer'><img src='http://bks2.books.google.com/books?id=5wBQEp6ruIAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Pragmatic Programmer'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Refactoring'><img src='http://bks1.books.google.com/books?id=HmrDHwgkbPsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Refactoring'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Design Patterns'><img src='http://bks7.books.google.com/books?id=6oHuKQe3TjQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Design Patterns'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Concurrent Programming in Java'><img src='http://bks9.books.google.com/books?id=-x1S4neCSOYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Concurrent Programming in Java'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Mastering Regular Expressions'><img src='http://bks3.books.google.com/books?id=sshKXlr32-AC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Mastering Regular Expressions'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Algorithm Design Manual'><img src='http://bks8.books.google.com/books?id=7XUSn0IKQEgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Algorithm Design Manual'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=C Programming Language'><img src='http://bks0.books.google.com/books?id=Yi5FI5QcdmYC&printsec=frontcover&img=1&zoom=1&source=gbs_api' alt='C Programming Language'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Little Schemer'><img src='http://bks6.books.google.com/books?id=xyO-KLexVnMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Little Schemer'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Compilers'><img src='http://bks0.books.google.com/books?id=NTIrAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Compilers'></a></li>
+</ul>
+<p class="clear">
+
+<h2>Scott Hanselman</h2>
+
+<ul id='shelf'>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Code Complete'><img src='http://bks1.books.google.com/books?id=3JfE7TGUwvgC&printsec=frontcover&img=1&zoom=1&source=gbs_api' alt='Code Complete'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Pragmatic Programmer'><img src='http://bks2.books.google.com/books?id=5wBQEp6ruIAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Pragmatic Programmer'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Programming Pearls'><img src='http://bks7.books.google.com/books?id=kse_7qbWbjsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Programming Pearls'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Refactoring'><img src='http://bks1.books.google.com/books?id=HmrDHwgkbPsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Refactoring'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Design of the UNIX Operating System'><img src='http://bks4.books.google.com/books?id=BxZpQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api' alt='The Design of the UNIX Operating System'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Design Patterns'><img src='http://bks7.books.google.com/books?id=6oHuKQe3TjQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Design Patterns'></a></li>
+</ul>
+<p class="clear">
+
+<h2>Stack Overflow Community</h2>
+
+<ul id='shelf'>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Code Complete'><img src='http://bks1.books.google.com/books?id=3JfE7TGUwvgC&printsec=frontcover&img=1&zoom=1&source=gbs_api' alt='Code Complete'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Pragmatic Programmer'><img src='http://bks2.books.google.com/books?id=5wBQEp6ruIAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Pragmatic Programmer'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Structure and Interpretation of Computer Programs'><img src='http://bks7.books.google.com/books?id=6QOXQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api' alt='Structure and Interpretation of Computer Programs'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=C Programming Language'><img src='http://bks0.books.google.com/books?id=Yi5FI5QcdmYC&printsec=frontcover&img=1&zoom=1&source=gbs_api' alt='C Programming Language'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Introduction To Algorithms'><img src='http://bks0.books.google.com/books?id=NLngYyWFl_YC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Introduction To Algorithms'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Design Patterns'><img src='http://bks7.books.google.com/books?id=6oHuKQe3TjQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Design Patterns'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=Refactoring'><img src='http://bks1.books.google.com/books?id=HmrDHwgkbPsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='Refactoring'></a></li>
+<li><a href='http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&field-title=The Mythical Man-Month, Anniversary Edition'><img src='http://bks4.books.google.com/books?id=Yq35BY5Fk3gC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='The Mythical Man-Month, Anniversary Edition'></a></li>
+</ul>
+<p class="clear">
+	<hr />
+    Like what you just read? <a href="http://www.eepurl.com/FnX4f">Subscribe to Python Practice Projects</a> for more insights on practice, programming and the slow path to victory.
+      </div>
+    </div>
+    <div class="span10">
+      <h3>Comments</h3>
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'pythonpracticeprojects'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>  
+    </div>
+        </div>
+        
+        
+    </div>     </div> </div>
+
+<!--footer-->
+<div class="container">
+  <div class="well" style="background-color: #E9EFF6">
+    <div id="blog-footer">
+      <div class="row-fluid">
+	<div class="social span2" align="center" id="socialist">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">
+	      Social
+	    </li>
+	    <li><a href="http://twitter.com/louiedinh"><i class="icon-twitter" style="color: #1f334b"></i>twitter</a></li>
+	    <li><a href="http://www.linkedin.com/profile/view?id=103017614"><i class="icon-linkedin" style="color: #1f334b"></i>linkedin</a></li>
+
+	  </ul>
+	</div>
+        <div class="links span2" align="center">
+          <ul class="nav nav-list">
+            <li class="nav-header"> 
+              Links
+            </li>
+            
+            <li><a href="http://jessenoller.com/good-to-great-python-reads/">Good to Great</a></li>
+            <li><a href="http://gnosis.cx/publish/tech_index_cp.html">Charming Python</a></li>
+            <li><a href="http://www.python.org/dev/peps/pep-0008/">PEP8</a></li>
+            <li><a href="http://docs.python-guide.org/en/latest/">Hitchhiker's Guide</a></li>
+            <li><a href="http://www.pythonweekly.com/">Python Weekly</a></li>
+          </ul>
+        </div>
+	<div class="site-nav span2" align="center">
+          <ul class="nav nav-list" id="site-links">
+            <li class="nav-header"> 
+              Site
+            </li>
+            <li><a href="http://pythonpracticeprojects.com"><i class="icon-home" style="color: #1f334b">
+                </i>Home</a></li>
+            <li><a href="http://pythonpracticeprojects.com/archives.html"><i class="icon-list" style="color: #1f334b">
+                </i>Archives</a></li>
+	    <li><a href="http://pythonpracticeprojects.com/tags.html"><i class="icon-tags" style="color: #1f334b">
+                </i>Tags</a></li>
+	    
+	  </ul>
+
+        </div>
+
+      </div> <!--end of fluid row-->
+    </div> <!--end of blog-footer-->
+    <hr />
+    <p align="center"><a href="http://pythonpracticeprojects.com">Python Practice Projects</a>
+      &copy; Louie Dinh
+    Powered by <a href="github.com/getpelican/pelican">Pelican</a> and
+        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>. 
+        Icons by <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a> and 
+        <a href="http://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+
+  </div> <!--end of well -->
+</div> <!--end of container -->
+
+<!--/footer-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+<script>var _gaq=[['_setAccount','UA-39716444-2'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+</body>
+</html>
