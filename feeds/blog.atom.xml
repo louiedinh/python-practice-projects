@@ -529,4 +529,74 @@ Years]&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;It’s up to you to determine the right mix of risky versus safe investments I
 suggest using Just-In-Time learning until you are generating enough value to
 sustain your lifestyle. Then invest in Just-In-Case learning and swing for the
-fences.&lt;/p&gt;</summary><category term="learning"></category></entry><entry><title>Command Line Parser Project Kit Released!</title><link href="http://pythonpracticeprojects.com/command-line-parser-released.html" rel="alternate"></link><updated>2013-08-20T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2013-08-20:command-line-parser-released.html</id><summary type="html">&lt;p&gt;Command Line Parser detailed project was just released &lt;a href="http://pythonpracticeprojects.com/command-line-parser.html"&gt;here&lt;/a&gt;&lt;/p&gt;</summary><category term="project-kit"></category></entry></feed>
+fences.&lt;/p&gt;</summary><category term="learning"></category></entry><entry><title>Command Line Parser Project Kit Released!</title><link href="http://pythonpracticeprojects.com/command-line-parser-released.html" rel="alternate"></link><updated>2013-08-20T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2013-08-20:command-line-parser-released.html</id><summary type="html">&lt;p&gt;Command Line Parser detailed project was just released &lt;a href="http://pythonpracticeprojects.com/command-line-parser.html"&gt;here&lt;/a&gt;&lt;/p&gt;</summary><category term="project-kit"></category></entry><entry><title>4 Rules for Getting The Most Out Of Side Projects</title><link href="http://pythonpracticeprojects.com/learning-by-projects.html" rel="alternate"></link><updated>2013-08-18T00:00:00+02:00</updated><author><name>Louie Dinh</name></author><id>tag:pythonpracticeprojects.com,2013-08-18:learning-by-projects.html</id><summary type="html">&lt;p&gt;I asked Zed Shaw, author of Learn Python The Hard Way, which five books to read to master programming. He replied,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;quot;5 books to master programming? There&amp;#39;s no such list. To master anything you have to do a hell of a lot of it for years.&amp;quot;&lt;/span&gt; 
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Zed&lt;/span&gt; &lt;span class="n"&gt;Shaw&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At first I was annoyed. But Zed wasn't being flippant, he is telling it like it is.&lt;/p&gt;
+&lt;p&gt;For me, the only sustainable way to "do a hell of a lot of it for years" is to keep it fun. Our brains arn't wired to labour at thankless tasks for years. We
+crave novelty and fun. To happily plug at a subject over years, we must learn to work with our biological programming.&lt;/p&gt;
+&lt;p&gt;Paul Buchheit, the creater of Gmail, puts it best in his essay &lt;a href="http://paulbuchheit.blogspot.ca/2011/02/two-paths-to-success.html"&gt;The Two Paths to Success&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;strategy&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;success&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;reduced&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt; &lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Find&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;way&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;fun&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;fails&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;find&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;way&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To add structure to "do a hell lot of it", I work on side projects. Side projects hold a special place in the education of any creative field, including programming.
+They are crucial because they provide a place to play, experiment and learn from your mistakes. &lt;/p&gt;
+&lt;p&gt;There are several principles that I revisit over and over again when I work on side projects. If I forget these principles the project stops being fun,
+which means that I stop working on the side project. Keep these principles in mind while working on your projects.&lt;/p&gt;
+&lt;h2&gt;Learn From Mistakes&lt;/h2&gt;
+&lt;p&gt;We learned fastest as children. You went from 0 words at birth to 10,000 by the time you are 6; that is 5 new words every single day!
+One key difference between a child and adult is that the adult get mad at themselves for not achieving perfection right away.
+When a child falls, usually only the adult gets concerned. All kids know that falling (e.g "failing") only stings for a little.
+They don't tend to beat themselves up over it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;quot;A specific mistake is an excellent source of insight, because a&lt;/span&gt;
+&lt;span class="n"&gt;mistake&lt;/span&gt; &lt;span class="n"&gt;gives&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt; &lt;span class="n"&gt;specific&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;think&lt;/span&gt; &lt;span class="n"&gt;about&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;shifts&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt;
+&lt;span class="n"&gt;thinking&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;coming&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;correct&lt;/span&gt; &lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hard&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;correcting&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;specific&lt;/span&gt; &lt;span class="n"&gt;mistake&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;easy&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Starbird&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;Burger&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;Elements&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;Effective&lt;/span&gt; &lt;span class="n"&gt;Thinking&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let yourself make mistakes. One of the great liberations of working on a side project is that you get to be a beginner again. You have no expectations.
+You get to fail and learn to your heart's content. It's only when you make those mistakes that you viscerally know what not tod do next time around. &lt;/p&gt;
+&lt;p&gt;According to Bloom's Taxonomy of learning, you only retain 20% of what you read/hear but 90% of what you do.
+The higher level of engagement and the mistake feedback loop allows you to truly flesh out the problem's nooks for yourself.
+No description can be detailed enough to explain every single aspect of completing even the simplest of side projects.
+Only by sitting down and navigating the maze of micro-decisions will you actually learn the real texture of the problem. &lt;/p&gt;
+&lt;h2&gt;Kill the Boring Bits&lt;/h2&gt;
+&lt;p&gt;Working on your side project should be as fun as possible. What annoys you while working on your side project?
+Build environment sucks? Editor highlighting hurts your eyes? Deploying is a tedious and painful? Automate it!&lt;/p&gt;
+&lt;p&gt;A specific examples from my own life.&lt;/p&gt;
+&lt;p&gt;I randomly come up with ideas for my projects during my commute or waiting in line. Usually the idea ends up a reciept or a random post-it with the best of intentions.
+Due to my lack of organization, these bits of paper just end up disappearing or chewed up by our washing machine. Fed up with the situation,
+I decided to setup a little daemon that watches my email inbox. When I come up with a new idea, I email it to myself and the daemon transfers it into my
+organization/todo system automatically every night. Not only did my pain get solved, I learned a lot about the Emacs.&lt;/p&gt;
+&lt;p&gt;If worst comes to worst, just give up and don't do that bit unless absolutely essential.
+ Anything that feels like pulling teeth will kill your motivation.  Do it consistently and you won't want to work on the side project anymore. You must keep it fun.&lt;/p&gt;
+&lt;h2&gt;Go Big or Not&lt;/h2&gt;
+&lt;p&gt;Gmail is a great example of a side project that went huge. That was by choice.
+My computer is a graveyard of half baked ideas and empty directories, all created in moments of inspiration.
+It's up to you. You're in full control. If you want to get big, go for it. If you want to keep it small and run it for friends and family, go for it.
+You are a omnipotent deity. Being in charge gives you confidence in your own judgement.&lt;/p&gt;
+&lt;p&gt;If you're starting to feel restless or don't want to work on that project anymore, archive it, write a blog post,
+put it on github or just give a major fist pump and declare victory because you learned what you wanted. &lt;/p&gt;
+&lt;p&gt;You are the captain of your own ship and the master of your own destiny.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;When&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt; &lt;span class="n"&gt;working&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;side&lt;/span&gt; &lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;choice&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;invest&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;learning&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;things&lt;/span&gt; &lt;span class="p"&gt;...&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;choosier&lt;/span&gt; &lt;span class="n"&gt;about&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;feedback&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;take&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+ &lt;span class="n"&gt;When&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;take&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;because&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;truly&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Tobias&lt;/span&gt; &lt;span class="n"&gt;van&lt;/span&gt; &lt;span class="n"&gt;Schneider&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Tutorials, books and lectures are great when you're starting out because they give you a mental framework to hang your hat on. After that, side projects become much much more efficient. &lt;/p&gt;
+&lt;h2&gt;Side Project Rules To Live By&lt;/h2&gt;
+&lt;p&gt;Remember these rules when you're working on your projects.&lt;/p&gt;
+&lt;p&gt;1) Learn From Mistakes
+2) Kill The Boring Bits
+3) Go Big Or Not
+4) Have Fun!&lt;/p&gt;
+&lt;p&gt;Because why would you waste your extremely limited and valuable time on anything else?&lt;/p&gt;
+&lt;p&gt;If you're looking for good side project ideas, just take a look at &lt;a href="http://pythonpracticeprojects.com"&gt;Python Practice Projects&lt;/a&gt; for Python specific projects or
+&lt;a href="https://github.com/karan/Projects"&gt;Karan's Side Project Ideas&lt;/a&gt; for language agnostic ones.&lt;/p&gt;</summary><category term="philosopy"></category></entry></feed>
