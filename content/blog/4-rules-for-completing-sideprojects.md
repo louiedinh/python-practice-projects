@@ -1,8 +1,8 @@
-Title: 4 Rules for Getting The Most Out Of Side Projects
-Date: 2013-08-18
+Title: My 4 Rules For Completing Side Projects
+Date: 2014-10-05
 Category: Blog
 Tags: philosopy
-Slug: learning-by-projects
+Slug: 4-rules-for-completing-side-projects
 Author: Louie Dinh
 Summary: Learning progresses one side project at a time.
 
@@ -89,10 +89,10 @@ Side Project Rules To Live By
 
 Remember these rules when you're working on your projects.
 
-1) Learn From Mistakes
-2) Kill The Boring Bits
-3) Go Big Or Not
-4) Have Fun!
+    1) Learn From Mistakes
+    2) Kill The Boring Bits
+    3) Go Big Or Not
+    4) Have Fun!
 
 Because why would you waste your extremely limited and valuable time on anything else?
 
