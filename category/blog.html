@@ -47,9 +47,6 @@
         <li><a href="http://discourse.pythonpracticeprojects.com">Discussion</a></li>
        <li><a href="https://gumroad.com/l/cSIzC">Buy eBook</a></li>
        <li><a href="http://pythonpracticeprojects.com">Projects</a></li>
-	    <li >
-	      <a href="http://pythonpracticeprojects.com/category/.html "></a>
-        </li>
 	    <li  class="active" >
 	      <a href="http://pythonpracticeprojects.com/category/blog.html ">Blog</a>
         </li>
@@ -70,8 +67,241 @@
 
     <div class='row-fluid''>
         <div class="article-title span9">
-            <a href="http://pythonpracticeprojects.com/4-rules-for-completing-side-projects.html"><h1>My 4 Rules For Completing Side Projects</h1></a>
+            <a href="http://pythonpracticeprojects.com/real-world-recursion.html"><h1>Is Recursion Used In The Real World?</h1></a>
         </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>Mon 27 October 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="http://pythonpracticeprojects.com/category/blog.html">Blog</a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="http://pythonpracticeprojects.com/tag/snippets.html">snippets</a> </p>
+<p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="louiedinh">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</p>
+      </div>
+      <div class="article-content span8">
+	<p>I came across this question while reading through the Python mailing list. I was actually sort of offended. Why would universities across the world agree to teach
+this foundational topic in Computer Science if it <em>wasn't</em> useful? Recursion is the natural approach to a class of problems that would be much more difficult 
+to solve with a for loop.</p>
+<h2>Recognizing a Recursive Problem</h2>
+<p>When you see a problem that looks like a russion doll, think recursion.</p>
+<p>Russian Doll Picture:</p>
+<p>So a russian doll is one where you have a big doll, but if you open it up there is a smaller doll inside.
+This keeps going until you get to the smallest doll that you can't open. Now Imagine that you're trying to paint russian dolls,
+however once you've painted one, you can't open it up because you have to wait for it to dry. What do you do? </p>
+<p>You open up the first doll, find a doll inside, open up the second doll, and keep going until you've found the smallest one.
+ You paint the smallest one, then put it back into the second smallest, then repeat until you've painted all of them.</p>
+<p>Now that you have the intuition, let's look at an actual code example.</p>
+<h2>My Real World Example</h2>
+<p>This is an example derived from my own work. I've just swapped the actual subject matter to recipes because it's easier to relate to; the crux of the problem is the same.</p>
+<p>Note: All of this is in Python &gt;= 3.3</p>
+<p>Here is the nested structure we are dealing with:</p>
+<div class="highlight"><pre><span class="n">recipes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="err">&#39;</span><span class="n">apple_pie</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="err">&#39;</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">sugar</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">eggs</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">shortening</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">apples</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">cinnamon</span><span class="err">&#39;</span><span class="p">],</span>
+        <span class="err">&#39;</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">ratings</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">john</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">emily</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">mom</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">4</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="err">&#39;</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">sugar</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">peanut_butter</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">butter</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">eggs</span><span class="err">&#39;</span><span class="p">],</span>
+        <span class="err">&#39;</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">45</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">allergens</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">peanuts</span><span class="err">&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="err">&#39;</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">milk</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">clams</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">vegetable_stock</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">salt</span><span class="err">&#39;</span><span class="p">],</span>
+        <span class="err">&#39;</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">120</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">allergens</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">shellfish</span><span class="err">&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Each recipe has commonalities but not all recipes are guaranteed to have all keys.
+For example, allergens is not present in apple pie but it is in peanut butter cookies
+and clam chowder. Similarly, apple pie has ratings but neither of the other two do.</p>
+<p>I'd really like an easy way to reach in and check for the existence of a key at any level of nesting.
+So I'd like to see if there is a rating from john for my apple pie recipe. </p>
+<p>One naive way to solve this is to just do the checks.</p>
+<div class="highlight"><pre>    <span class="n">result</span> <span class="o">=</span> <span class="n">False</span>
+    <span class="k">if</span> <span class="err">&#39;</span><span class="n">apple_pie</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">recipes</span><span class="o">:</span>
+         <span class="k">if</span> <span class="err">&#39;</span><span class="n">ratings</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">recipes</span><span class="p">[</span><span class="err">&#39;</span><span class="n">apple_pie</span><span class="err">&#39;</span><span class="p">]</span><span class="o">:</span>
+            <span class="k">if</span> <span class="err">&#39;</span><span class="n">john</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">recipes</span><span class="p">[</span><span class="err">&#39;</span><span class="n">apple_pie</span><span class="err">&#39;</span><span class="p">][</span><span class="err">&#39;</span><span class="n">ratings</span><span class="err">&#39;</span><span class="p">]</span><span class="o">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">True</span>
+
+    <span class="n">print</span> <span class="n">result</span>
+</pre></div>
+
+
+<p>Alternatively, you  could combine all the checks into a line by relying on Python's ability to short circuit. A bit better, but not much.</p>
+<div class="highlight"><pre>    <span class="n">result</span> <span class="o">=</span> <span class="n">False</span>
+    <span class="k">if</span> <span class="err">&#39;</span><span class="n">apple_pie</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">recipes</span> <span class="n">and</span> <span class="err">&#39;</span><span class="n">ratings</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">recipes</span><span class="p">[</span><span class="err">&#39;</span><span class="n">apple_pie</span><span class="err">&#39;</span><span class="p">]</span> <span class="n">and</span> <span class="err">&#39;</span><span class="n">john</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">recipes</span><span class="p">[</span><span class="err">&#39;</span><span class="n">apple_pie</span><span class="err">&#39;</span><span class="p">][</span><span class="err">&#39;</span><span class="n">ratings</span><span class="err">&#39;</span><span class="p">]</span><span class="o">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">True</span>
+    <span class="n">print</span> <span class="n">result</span>
+</pre></div>
+
+
+<p>Still Ugghz. </p>
+<h2>Let's Use Recursion!</h2>
+<p>The basic idea is to go into the dictionary and flatten all of the nested dictionaries so that the keys
+are accessible at the top level. Then we could write code like:</p>
+<div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">False</span>
+<span class="k">if</span> <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ratings</span><span class="o">/</span><span class="n">john</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">flattened</span><span class="p">(</span><span class="n">recipes</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">print</span> <span class="n">result</span>
+</pre></div>
+
+
+<p>Here is the first step towards flatten. It will only do one level of flattening. That is, if the top level dictionary has a dictionary as a value, it will fuse them together.
+We do this without recursion but it's an important step towards the full solution.</p>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">flatten_one</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">if</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">dict</span><span class="p">)</span><span class="o">:</span>
+        <span class="err">#</span> <span class="n">If</span> <span class="n">object</span> <span class="n">is</span> <span class="n">a</span> <span class="n">dictionary</span><span class="p">,</span> <span class="n">flatten</span> <span class="n">it</span> <span class="n">one</span> <span class="n">level</span><span class="p">.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="n">in</span> <span class="n">obj</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
+            <span class="k">if</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dict</span><span class="p">)</span><span class="o">:</span>
+                <span class="k">for</span> <span class="n">subkey</span><span class="p">,</span> <span class="n">subvalue</span> <span class="n">in</span> <span class="n">value</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
+                    <span class="n">flat_key</span> <span class="o">=</span> <span class="sc">&#39;/&#39;</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="n">key</span><span class="p">,</span> <span class="n">subkey</span><span class="p">])</span>
+                    <span class="n">result</span><span class="p">[</span><span class="n">flat_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">subvalue</span>
+            <span class="nl">else:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nl">else:</span>
+        <span class="err">#</span> <span class="n">otherwise</span> <span class="n">just</span> <span class="k">return</span> <span class="n">the</span> <span class="n">object</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">obj</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">flatten_one</span><span class="p">(</span><span class="n">recipes</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Output:</p>
+<div class="highlight"><pre><span class="p">{</span><span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">60</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">sugar</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">eggs</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">shortening</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">apples</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">cinnamon</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ratings</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">emily</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">john</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">mom</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">4</span><span class="p">},</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">allergens</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">shellfish</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">120</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">milk</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">clams</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">vegetable_stock</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">salt</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">allergens</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">peanuts</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">45</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">sugar</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">peanut_butter</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">butter</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">eggs</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">20</span><span class="p">}</span>
+</pre></div>
+
+
+<p>Now the problem is if there are nested dictionaries, our solution doesn't work. So in this example, the key apple_pie/ratings exists,
+but the value is still a dictionary. What we'd really like is for deeply nested dictionaries to get pulled up into the top level.</p>
+<p>Here is the full implementation:</p>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">flatten</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">if</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span><span class="o">:</span>
+    <span class="err">#</span> <span class="n">If</span> <span class="n">object</span> <span class="n">is</span> <span class="n">a</span> <span class="n">list</span> <span class="n">flatten</span> <span class="n">every</span> <span class="n">sub</span> <span class="n">element</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">elt</span> <span class="n">in</span> <span class="n">obj</span><span class="o">:</span>
+            <span class="n">flat_elt</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">elt</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">flat_elt</span><span class="p">)</span>
+    <span class="n">elif</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">dict</span><span class="p">)</span><span class="o">:</span>
+    <span class="err">#</span> <span class="n">If</span> <span class="n">object</span> <span class="n">is</span> <span class="n">a</span> <span class="n">dictionary</span><span class="p">,</span> <span class="n">flatten</span> <span class="n">it</span> <span class="n">one</span> <span class="n">level</span><span class="p">.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="n">in</span> <span class="n">obj</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
+            <span class="k">if</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dict</span><span class="p">)</span><span class="o">:</span>
+                <span class="n">flat_value</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">subkey</span><span class="p">,</span> <span class="n">subvalue</span> <span class="n">in</span> <span class="n">flat_value</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
+                    <span class="n">flat_key</span> <span class="o">=</span> <span class="sc">&#39;/&#39;</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="n">key</span><span class="p">,</span> <span class="n">subkey</span><span class="p">])</span>
+                    <span class="n">result</span><span class="p">[</span><span class="n">flat_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">subvalue</span>
+            <span class="nl">else:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nl">else:</span>
+        <span class="err">#</span> <span class="n">otherwise</span> <span class="n">just</span> <span class="k">return</span> <span class="n">the</span> <span class="n">object</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">obj</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">=== Flattened ===</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">recipes</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Output:</p>
+<div class="highlight"><pre><span class="p">{</span><span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">60</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">sugar</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">eggs</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">shortening</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">apples</span><span class="err">&#39;</span><span class="p">,</span>
+                           <span class="err">&#39;</span><span class="n">cinnamon</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ratings</span><span class="o">/</span><span class="n">emily</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ratings</span><span class="o">/</span><span class="n">john</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ratings</span><span class="o">/</span><span class="n">mom</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">allergens</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">shellfish</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">120</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">milk</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">clams</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">vegetable_stock</span><span class="err">&#39;</span><span class="p">,</span>
+                              <span class="err">&#39;</span><span class="n">salt</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">clam_chowder</span><span class="o">/</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">allergens</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">peanuts</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">cook_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">45</span><span class="p">,</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">ingredients</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">flour</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">sugar</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">peanut_butter</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">butter</span><span class="err">&#39;</span><span class="p">,</span>
+                                       <span class="err">&#39;</span><span class="n">eggs</span><span class="err">&#39;</span><span class="p">],</span>
+ <span class="err">&#39;</span><span class="n">peanut_butter_cookies</span><span class="o">/</span><span class="n">prep_time</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">20</span><span class="p">}</span>
+</pre></div>
+
+
+<p>There! Now we can actually access our recipes in the desired way.</p>
+<div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">False</span>
+<span class="k">if</span> <span class="err">&#39;</span><span class="n">apple_pie</span><span class="o">/</span><span class="n">ratings</span><span class="o">/</span><span class="n">john</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">flattened</span><span class="p">(</span><span class="n">recipes</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">print</span> <span class="n">result</span>
+</pre></div>
+
+
+<p>There you go. A real world lesson in recursion with all the code example fixings!</p>
+<p>If you enjoyed this tutorial, sign up for the Python Practice Projects mailing list to get more real world examples for learning Python!</p> 
+	<a class="btn btn-mini xsmall" href="http://pythonpracticeprojects.com/real-world-recursion.html">
+          <i class="icon-comment"></i> Comment </a>
+	<hr />
+      </div>
+      
+    </div>
+    
+
+ 
+        
+
+
+
+    <div class='row-fluid'>
+      <div class='article-title span9'> 
+        <a href="http://pythonpracticeprojects.com/4-rules-for-completing-side-projects.html"><h1>My 4 Rules For Completing Side Projects</h1></a>
+      </div>
     </div>
     <div class="row-fluid">
       <div class="span2">
@@ -87,88 +317,15 @@ Filed under <a href="http://pythonpracticeprojects.com/category/blog.html">Blog<
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="louiedinh">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 </p>
       </div>
-      <div class="article-content span8">
-	<p>I asked Zed Shaw, author of Learn Python The Hard Way, which five books to read to master programming. He replied,</p>
-<div class="highlight"><pre><span class="s">&quot;5 books to master programming? There&#39;s no such list. To master anything you have to do a hell of a lot of it for years.&quot;</span> 
-<span class="o">-</span> <span class="n">Zed</span> <span class="n">Shaw</span>
-</pre></div>
-
-
-<p>At first I was annoyed. But Zed wasn't being flippant, he is telling it like it is.</p>
-<p>For me, the only sustainable way to "do a hell of a lot of it for years" is to keep it fun. Our brains arn't wired to labour at thankless tasks for years. We
-crave novelty and fun. To happily plug at a subject over years, we must learn to work with our biological programming.</p>
-<p>Paul Buchheit, the creater of Gmail, puts it best in his essay <a href="http://paulbuchheit.blogspot.ca/2011/02/two-paths-to-success.html">The Two Paths to Success</a>:</p>
-<div class="highlight"><pre><span class="n">My</span> <span class="n">strategy</span> <span class="p">[</span><span class="k">for</span> <span class="n">success</span><span class="p">]</span> <span class="n">can</span> <span class="n">be</span> <span class="n">reduced</span> <span class="n">to</span> <span class="n">two</span> <span class="n">rules</span><span class="o">:</span> <span class="mi">1</span><span class="p">)</span> <span class="n">Find</span> <span class="n">a</span> <span class="n">way</span> <span class="n">to</span> <span class="n">make</span> <span class="n">it</span> <span class="n">fun</span> <span class="n">and</span> <span class="mi">2</span><span class="p">)</span> <span class="n">If</span> <span class="n">that</span> <span class="n">fails</span><span class="p">,</span> <span class="n">find</span> <span class="n">a</span> <span class="n">way</span> <span class="n">to</span> <span class="k">do</span> <span class="n">something</span>
-</pre></div>
-
-
-<p>To add structure to "do a hell lot of it", I work on side projects. Side projects hold a special place in the education of any creative field, including programming.
-They are crucial because they provide a place to play, experiment and learn from your mistakes. </p>
-<p>There are several principles that I revisit over and over again when I work on side projects. If I forget these principles the project stops being fun,
-which means that I stop working on the side project. Keep these principles in mind while working on your projects.</p>
-<h2>Learn From Mistakes</h2>
-<p>We learned fastest as children. You go from 0 words at birth to 10,000 by the time you are 6; that is 5 new words every single day!
-One key difference between a child and adult is that the adult get mad at themselves for not achieving perfection right away.
-When a child falls, usually only the adult gets concerned. All kids know that falling (e.g "failing") only stings for a little.
-They don't tend to beat themselves up over it.</p>
-<div class="highlight"><pre><span class="s">&quot;A specific mistake is an excellent source of insight, because a</span>
-<span class="n">mistake</span> <span class="n">gives</span> <span class="n">you</span> <span class="n">something</span> <span class="n">specific</span> <span class="n">to</span> <span class="n">think</span> <span class="n">about</span><span class="p">.</span> <span class="n">This</span> <span class="n">shifts</span> <span class="n">your</span>
-<span class="n">thinking</span> <span class="n">from</span> <span class="n">coming</span> <span class="n">up</span> <span class="n">with</span> <span class="n">a</span> <span class="n">correct</span> <span class="n">solution</span> <span class="p">(</span><span class="n">hard</span><span class="p">),</span> <span class="n">to</span> <span class="n">correcting</span>
-<span class="n">a</span> <span class="n">specific</span> <span class="n">mistake</span> <span class="p">(</span><span class="n">easy</span><span class="p">)</span><span class="s">&quot;</span>
-<span class="o">-</span><span class="n">Starbird</span> <span class="n">and</span> <span class="n">Burger</span> <span class="n">in</span> <span class="n">The</span> <span class="mi">5</span> <span class="n">Elements</span> <span class="n">of</span> <span class="n">Effective</span> <span class="n">Thinking</span>
-</pre></div>
-
-
-<p>Let yourself make mistakes. One of the great liberations of working on a side project is that you get to be a beginner again. You have no expectations.
-You get to fail and learn to your heart's content. It's only when you make those mistakes that you viscerally know what not tod do next time around. </p>
-<p>According to Bloom's Taxonomy of learning, you only retain 20% of what you read/hear but 90% of what you do.
-The higher level of engagement and the mistake feedback loop allows you to truly flesh out the problem's nooks for yourself.
-No description can be detailed enough to explain every single aspect of completing even the simplest of side projects.
-Only by sitting down and navigating the maze of micro-decisions will you actually learn the real texture of the problem. </p>
-<h2>Kill the Boring Bits</h2>
-<p>Working on your side project should be as fun as possible. What annoys you while working on your side project?
-Build environment sucks? Editor highlighting hurts your eyes? Deploying is a tedious and painful? Automate it!</p>
-<p>A specific examples from my own life.</p>
-<p>I randomly come up with ideas for my projects during my commute or waiting in line. Usually the idea ends up a reciept or a random post-it with the best of intentions.
-Due to my lack of organization, these bits of paper just end up disappearing or chewed up by our washing machine. Fed up with the situation,
-I decided to setup a little daemon that watches my email inbox. When I come up with a new idea, I email it to myself and the daemon transfers it into my
-organization/todo system automatically every night. Not only did my pain get solved, I learned a lot about the Emacs.</p>
-<p>If worst comes to worst, just give up and don't do that bit unless absolutely essential.
- Anything that feels like pulling teeth will kill your motivation.  Do it consistently and you won't want to work on the side project anymore. You must keep it fun.</p>
-<h2>Go Big or Not</h2>
-<p>Gmail is a great example of a side project that went huge. That was by choice.
-My computer is a graveyard of half baked ideas and empty directories, all created in moments of inspiration.
-It's up to you. You're in full control. If you want to get big, go for it. If you want to keep it small and run it for friends and family, go for it.
-You are a omnipotent deity. Being in charge gives you confidence in your own judgement.</p>
-<p>If you're starting to feel restless or don't want to work on that project anymore, archive it, write a blog post,
-put it on github or just give a major fist pump and declare victory because you learned what you wanted. </p>
-<p>You are the captain of your own ship and the master of your own destiny.</p>
-<div class="highlight"><pre><span class="err">“</span><span class="n">When</span> <span class="n">you</span><span class="err">’</span><span class="n">re</span> <span class="n">working</span> <span class="n">on</span> <span class="n">a</span> <span class="n">side</span> <span class="n">project</span><span class="p">,</span> <span class="n">you</span> <span class="n">have</span> <span class="n">the</span> <span class="n">time</span> <span class="n">and</span> <span class="n">the</span> <span class="n">choice</span> <span class="n">to</span> <span class="n">invest</span> <span class="n">in</span> <span class="n">learning</span> <span class="n">new</span> <span class="n">things</span> <span class="p">...</span> <span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">be</span> <span class="n">choosier</span> <span class="n">about</span> <span class="n">the</span> <span class="n">feedback</span> <span class="n">you</span> <span class="n">take</span><span class="p">.</span>
- <span class="n">When</span> <span class="n">you</span> <span class="k">do</span> <span class="n">take</span> <span class="n">it</span><span class="p">,</span> <span class="n">it</span><span class="err">’</span><span class="n">s</span> <span class="n">because</span> <span class="n">you</span> <span class="n">truly</span> <span class="n">want</span> <span class="n">to</span> <span class="n">get</span> <span class="n">better</span> <span class="n">at</span> <span class="n">something</span><span class="p">.</span><span class="err">”</span>
-<span class="o">-</span> <span class="n">Tobias</span> <span class="n">van</span> <span class="n">Schneider</span>
-</pre></div>
-
-
-<p>Tutorials, books and lectures are great when you're starting out because they give you a mental framework to hang your hat on. After that, side projects become much much more efficient. </p>
-<h2>Side Project Rules To Live By</h2>
-<p>Remember these rules when you're working on your projects.</p>
-<div class="highlight"><pre><span class="mi">1</span><span class="p">)</span> <span class="n">Learn</span> <span class="n">From</span> <span class="n">Mistakes</span>
-<span class="mi">2</span><span class="p">)</span> <span class="n">Kill</span> <span class="n">The</span> <span class="n">Boring</span> <span class="n">Bits</span>
-<span class="mi">3</span><span class="p">)</span> <span class="n">Go</span> <span class="n">Big</span> <span class="n">Or</span> <span class="n">Not</span>
-<span class="mi">4</span><span class="p">)</span> <span class="n">Have</span> <span class="n">Fun</span><span class="o">!</span>
-</pre></div>
-
-
-<p>Because why would you waste your extremely limited and valuable time on anything else?</p>
-<p>If you're looking for good side project ideas, just take a look at <a href="http://pythonpracticeprojects.com">Python Practice Projects</a> for Python specific projects or
-<a href="https://github.com/karan/Projects">Karan's Side Project Ideas</a> for language agnostic ones.</p> 
+      <div class="summary span8">
+	<p>Learning progresses one side project at a time.</p> 
 	<a class="btn btn-mini xsmall" href="http://pythonpracticeprojects.com/4-rules-for-completing-side-projects.html">
-          <i class="icon-comment"></i> Comment </a>
+          <i class="icon-plus-sign"></i> Read More </a>
 	<hr />
       </div>
       
     </div>
-    
+      
 
  
         
